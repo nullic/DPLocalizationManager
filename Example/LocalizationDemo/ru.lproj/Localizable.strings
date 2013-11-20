@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  LocalizationDemo
+
+  Created by dmitriy.petrusevich on 13.11.13.
+  Copyright (c) 2013 Dmitriy Petrusevich. All rights reserved.
+*/
+
+"TITLE" = "Russian";
+"LABEL_TEXT" = "Russian - %3$@\n%1$@\n%2$@";
+"TEXTVIEW_TEXT" = "Russian\n\nUITextView text.\n\nSee user defined runtime attributes in storyboard.";
