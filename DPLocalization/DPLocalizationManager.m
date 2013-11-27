@@ -109,4 +109,61 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     return path;
 }
 
+#pragma mark - Languages
+
++ (NSArray *)supportedLanguages {
+    static NSArray *supportedLanguages = nil;
+
+    if (supportedLanguages == nil) {
+        NSFileManager *fileManager = [[NSFileManager alloc] init];
+        NSDirectoryEnumerator *dirEnumerator = [fileManager enumeratorAtURL:[[NSBundle mainBundle] bundleURL]
+                                                 includingPropertiesForKeys:@[NSURLNameKey, NSURLIsDirectoryKey]
+                                                                    options:NSDirectoryEnumerationSkipsHiddenFiles
+                                                               errorHandler:nil];
+
+        NSMutableArray *result = [NSMutableArray array];
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(.+?)\\.lproj" options:0 error:nil];
+
+        for (NSURL *theURL in dirEnumerator) {
+            NSString *fileName = nil;
+            NSNumber *isDirectory = nil;
+
+            [theURL getResourceValue:&fileName forKey:NSURLNameKey error:NULL];
+            [theURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:NULL];
+
+            if (isDirectory.boolValue) {
+                NSArray *results = [regex matchesInString:fileName options:0 range:NSMakeRange(0, fileName.length)];
+                if (results.count == 1) {
+                    NSTextCheckingResult *match = results[0];
+                    if (match.numberOfRanges == 2) {
+                        NSString *language = [fileName substringWithRange:[match rangeAtIndex:1]];
+                        [result addObject:language];
+                        [dirEnumerator skipDescendants];
+                    }
+
+                }
+            }
+        }
+
+        supportedLanguages = result;
+    }
+
+    return supportedLanguages;
+}
+
++ (NSString *)preferredLanguage {
+    NSArray *preferredLanguages = [NSLocale preferredLanguages];
+    NSArray *supportedLanguages = [self supportedLanguages];
+
+    NSString *result = nil;
+    for (NSString *language in preferredLanguages) {
+        if ([supportedLanguages indexOfObject:language] != NSNotFound) {
+            result = language;
+            break;
+        }
+    }
+
+    return result ? result : (preferredLanguages.count ? preferredLanguages[0] : nil);
+}
+
 @end

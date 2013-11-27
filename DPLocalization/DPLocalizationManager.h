@@ -53,6 +53,21 @@
  @return The result is invoking of [bundle pathForResource:name ofType:extension inDirectory:nil forLocalization:currentLanguage]. If result is nil return [bundle pathForResource:name ofType:extension] instead.
  */
 - (NSString *)localizedPathForResource:(NSString *)name ofType:(NSString *)extension bundle:(NSBundle *)bundle;
+
+/**
+ @brief Array of languages that may be found inside application bundle.
+
+ @return Array of language codes (i.e.: "en", "ru", "fr" and etc.) or empty array if no language found.
+ */
++ (NSArray *)supportedLanguages;
+
+
+/**
+ @brief Return code for preffered application language.
+
+ @return Return first occurrence [NSLocale preferredLanguages] into [self supportedLanguages] or first element of [NSLocale preferredLanguages] array if [NSLocale preferredLanguages] and [self supportedLanguages] doesn't intersect.
+ */
++ (NSString *)preferredLanguage;
 @end
 
 

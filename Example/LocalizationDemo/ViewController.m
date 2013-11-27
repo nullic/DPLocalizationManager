@@ -25,6 +25,9 @@
     [self.label updateAutolocalizationArguments:@[@"Hello", @1234567890, [NSDate date]]];
     self.autolocalizationKey = @"TITLE";
 
+    NSLog(@"Preffered language: %@", [DPLocalizationManager preferredLanguage]);
+    NSLog(@"Selected language: %@", dp_get_current_language());
+
     [self updateLangSelector];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageDidChangeNotification:) name:DPLanguageDidChangeNotification object:nil];
 }
