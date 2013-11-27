@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE3D78C51835EAA10012CA3D /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
 		CE3D78C61835EAA10012CA3D /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */; };
+		CED1C4FB1845F3DD003014E7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CED1C4FA1845F3DD003014E7 /* Settings.bundle */; };
 		CED8ADF91833502A007E4C60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED8ADF81833502A007E4C60 /* Foundation.framework */; };
 		CED8ADFB1833502A007E4C60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED8ADFA1833502A007E4C60 /* CoreGraphics.framework */; };
 		CED8ADFD1833502A007E4C60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED8ADFC1833502A007E4C60 /* UIKit.framework */; };
@@ -25,6 +26,7 @@
 		CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLocalizationManager.m; sourceTree = "<group>"; };
 		CE3D78C31835EAA10012CA3D /* NSObject+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DPLocalization.h"; sourceTree = "<group>"; };
 		CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DPLocalization.m"; sourceTree = "<group>"; };
+		CED1C4FA1845F3DD003014E7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CED8ADF51833502A007E4C60 /* LocalizationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalizationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED8ADF81833502A007E4C60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CED8ADFA1833502A007E4C60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -110,6 +112,7 @@
 				CED8AE3A18335121007E4C60 /* Localizable.strings */,
 				CED8AE101833502A007E4C60 /* Images.xcassets */,
 				CED8ADFF1833502A007E4C60 /* Supporting Files */,
+				CED1C4FA1845F3DD003014E7 /* Settings.bundle */,
 			);
 			path = LocalizationDemo;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED1C4FB1845F3DD003014E7 /* Settings.bundle in Resources */,
 				CED8AE2E18335082007E4C60 /* Main.storyboard in Resources */,
 				CED8AE3818335121007E4C60 /* Localizable.strings in Resources */,
 				CED8AE111833502A007E4C60 /* Images.xcassets in Resources */,

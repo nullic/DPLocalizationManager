@@ -22,19 +22,24 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 
 - (NSString *)currentLanguage {
     if (!_currentLanguage) {
-        _currentLanguage = [[NSUserDefaults standardUserDefaults] objectForKey:DPLanguagePreferenceKey];
+        NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:DPLanguagePreferenceKey];
+        value = ([value isKindOfClass:[NSString class]]) ? [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : nil;
+        _currentLanguage = (value.length == 0) ? nil : value;
     }
     return _currentLanguage;
 }
 
 - (void)setCurrentLanguage:(NSString *)currentLanguage {
-    if (_currentLanguage != currentLanguage) {
-        [[NSUserDefaults standardUserDefaults] setObject:currentLanguage forKey:DPLanguagePreferenceKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+    NSString *newLanguage = ([currentLanguage isKindOfClass:[NSString class]]) ? [currentLanguage stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : nil;
+    newLanguage = (newLanguage.length == 0) ? nil : newLanguage;
 
-        _currentLanguage = currentLanguage;
+    if (newLanguage != _currentLanguage && !(newLanguage && [_currentLanguage isEqualToString:newLanguage])) {
+        _currentLanguage = newLanguage;
         self.localizationStrings = nil;
         [[NSNotificationCenter defaultCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
+
+        [[NSUserDefaults standardUserDefaults] setObject:newLanguage forKey:DPLanguagePreferenceKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
@@ -60,6 +65,26 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 
     return _sharedInstance;
 }
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDefaultsDidChangeNotification:) name:NSUserDefaultsDidChangeNotification object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Notifications
+
+- (void)userDefaultsDidChangeNotification:(NSNotification *)notification {
+    [self setCurrentLanguage:[[NSUserDefaults standardUserDefaults] objectForKey:DPLanguagePreferenceKey]];
+}
+
+#pragma mark - Localization
 
 - (NSString *)localizedStringForKey:(NSString *)key {
     NSParameterAssert([key isKindOfClass:[NSString class]]);

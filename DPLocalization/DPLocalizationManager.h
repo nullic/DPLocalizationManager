@@ -65,3 +65,8 @@
  @brief Notification posted by DPLocalizationManager after currentLanguage property did changed.
  */
 extern NSString * const DPLanguageDidChangeNotification;
+
+/**
+ @brief Key used for store selection in [NSUserDefaults standardUserDefaults]
+ */
+extern NSString * const DPLanguagePreferenceKey;

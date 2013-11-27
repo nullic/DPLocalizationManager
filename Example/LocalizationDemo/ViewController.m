@@ -25,27 +25,8 @@
     [self.label updateAutolocalizationArguments:@[@"Hello", @1234567890, [NSDate date]]];
     self.autolocalizationKey = @"TITLE";
 
-    if ([dp_get_current_language() isEqualToString:@"en"]) {
-        self.langSelector.selectedSegmentIndex = 0;
-    }
-
-    if ([dp_get_current_language() isEqualToString:@"ru"]) {
-        self.langSelector.selectedSegmentIndex = 1;
-    }
-
-    if ([dp_get_current_language() isEqualToString:@"de"]) {
-        self.langSelector.selectedSegmentIndex = 2;
-    }
-
-    if (dp_get_current_language() == nil) {
-        self.langSelector.selectedSegmentIndex = 3;
-    }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self updateLangSelector];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageDidChangeNotification:) name:DPLanguageDidChangeNotification object:nil];
 }
 
 - (IBAction)languageChangeAction:(id)sender {
@@ -62,6 +43,28 @@
         default:
             dp_set_current_language(nil);
             break;
+    }
+}
+
+- (void)languageDidChangeNotification:(NSNotification *)notification {
+    [self updateLangSelector];
+}
+
+- (void)updateLangSelector {
+    if ([dp_get_current_language() isEqualToString:@"en"]) {
+        self.langSelector.selectedSegmentIndex = 0;
+    }
+
+    if ([dp_get_current_language() isEqualToString:@"ru"]) {
+        self.langSelector.selectedSegmentIndex = 1;
+    }
+
+    if ([dp_get_current_language() isEqualToString:@"de"]) {
+        self.langSelector.selectedSegmentIndex = 2;
+    }
+
+    if (dp_get_current_language() == nil) {
+        self.langSelector.selectedSegmentIndex = 3;
     }
 }
 
