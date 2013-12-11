@@ -78,6 +78,9 @@
 #define dp_get_current_language() ([[DPLocalizationManager currentManager] currentLanguage])
 #define dp_set_current_language(lang) ([[DPLocalizationManager currentManager] setCurrentLanguage:lang])
 
+#define dp_get_current_filename() ([[DPLocalizationManager currentManager] localizationFileName])
+#define dp_set_current_filename(__FILENAME__) ([[DPLocalizationManager currentManager] setLocalizationFileName:__FILENAME__])
+
 /**
  @brief Notification posted by DPLocalizationManager after currentLanguage property did changed.
  */

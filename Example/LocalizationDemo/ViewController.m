@@ -54,13 +54,13 @@
 {
     switch (self.fileSelector.selectedSegmentIndex) {
         case 0:
-            [[DPLocalizationManager currentManager] setLocalizationFileName:@"Localizable"];
+            dp_set_current_filename(@"Localizable");
             break;
         case 1:
-            [[DPLocalizationManager currentManager] setLocalizationFileName:@"Localizable1"];
+            dp_set_current_filename(@"Localizable1");
             break;
         default:
-            [[DPLocalizationManager currentManager] setLocalizationFileName:nil];
+            dp_set_current_filename(nil);
             break;
     }
 }
