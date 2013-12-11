@@ -68,6 +68,8 @@
  */
 + (NSString *)preferredLanguage;
 
+@property(nonatomic, copy) NSString *localizationFileName;
+
 @end
 
 

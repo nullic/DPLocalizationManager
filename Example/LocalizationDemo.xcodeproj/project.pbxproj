@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5822FA1418587335006B05DB /* Localizable1.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5822FA1218587335006B05DB /* Localizable1.strings */; };
 		CE3D78C51835EAA10012CA3D /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
 		CE3D78C61835EAA10012CA3D /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */; };
 		CED1C4FB1845F3DD003014E7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CED1C4FA1845F3DD003014E7 /* Settings.bundle */; };
@@ -22,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5822FA1318587335006B05DB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable1.strings; sourceTree = "<group>"; };
+		5822FA151858733C006B05DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable1.strings; sourceTree = "<group>"; };
+		5822FA1618587341006B05DB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable1.strings; sourceTree = "<group>"; };
 		CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationManager.h; sourceTree = "<group>"; };
 		CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLocalizationManager.m; sourceTree = "<group>"; };
 		CE3D78C31835EAA10012CA3D /* NSObject+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DPLocalization.h"; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		CED8ADFE1833502A007E4C60 /* LocalizationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5822FA1218587335006B05DB /* Localizable1.strings */,
 				CED8AE071833502A007E4C60 /* AppDelegate.h */,
 				CED8AE081833502A007E4C60 /* AppDelegate.m */,
 				CED8AE0D1833502A007E4C60 /* ViewController.h */,
@@ -185,6 +190,7 @@
 				CED8AE2E18335082007E4C60 /* Main.storyboard in Resources */,
 				CED8AE3818335121007E4C60 /* Localizable.strings in Resources */,
 				CED8AE111833502A007E4C60 /* Images.xcassets in Resources */,
+				5822FA1418587335006B05DB /* Localizable1.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +212,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5822FA1218587335006B05DB /* Localizable1.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5822FA1318587335006B05DB /* de */,
+				5822FA151858733C006B05DB /* en */,
+				5822FA1618587341006B05DB /* ru */,
+			);
+			name = Localizable1.strings;
+			sourceTree = "<group>";
+		};
 		CED8AE3A18335121007E4C60 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
