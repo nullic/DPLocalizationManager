@@ -19,6 +19,7 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 @implementation DPLocalizationManager
 
 @synthesize currentLanguage = _currentLanguage;
+@synthesize localizationFileName = _localizationFileName;
 
 - (NSString *)currentLanguage {
     if (!_currentLanguage) {
@@ -45,8 +46,9 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 
 - (NSDictionary *)localizationStrings {
     if (!_localizationStrings && self.currentLanguage) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"Localizable" ofType:@"strings" inDirectory:nil forLocalization:self.currentLanguage];
-        path = path ? path : [[NSBundle mainBundle] pathForResource:@"Localizable" ofType:@"strings"];
+        NSString *localizationFileName = self.localizationFileName;
+        NSString *path = [[NSBundle mainBundle] pathForResource:localizationFileName ofType:@"strings" inDirectory:nil forLocalization:self.currentLanguage];
+        path = path ? path : [[NSBundle mainBundle] pathForResource:localizationFileName ofType:@"strings"];
         _localizationStrings = path ? [NSDictionary dictionaryWithContentsOfFile:path] : @{};
     }
     
@@ -164,6 +166,23 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     }
 
     return result ? result : (preferredLanguages.count ? preferredLanguages[0] : nil);
+}
+
+- (void)setLocalizationFileName:(NSString *)localizationFileName
+{
+    _localizationFileName = localizationFileName;
+    
+    self.localizationStrings = nil;
+    [[NSNotificationCenter defaultCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
+}
+
+- (NSString *)localizationFileName
+{
+    if (!_localizationFileName) {
+        _localizationFileName = @"Localizable";
+    }
+    
+    return _localizationFileName;
 }
 
 @end

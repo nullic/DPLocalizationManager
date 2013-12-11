@@ -12,6 +12,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *label;
 @property (nonatomic, weak) IBOutlet UILabel *startup;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *langSelector;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *fileSelector;
 @end
 
 @implementation ViewController
@@ -45,6 +46,21 @@
             break;
         default:
             dp_set_current_language(nil);
+            break;
+    }
+}
+
+- (IBAction)localizationFileChangeName:(id)sender
+{
+    switch (self.fileSelector.selectedSegmentIndex) {
+        case 0:
+            dp_set_current_filename(@"Localizable");
+            break;
+        case 1:
+            dp_set_current_filename(@"Localizable1");
+            break;
+        default:
+            dp_set_current_filename(nil);
             break;
     }
 }
