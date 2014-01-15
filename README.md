@@ -39,8 +39,10 @@ it simply add the following line to your Podfile:
 
 ## Localization check
 
-dpstrings.py it is Python script, that used for cheking most common usage of library. It's scan {some} folder for sources and resoures
-Usage example: dpstrings.py -p "./Project" -l "en;ru;"
+dpstrings.py it is Python script, that used for checking most common usage of library. It's scan {some} folder for sources and resoures and make validation  for common errors (missing keys, duplication).
+
+Usage example: **python dpstrings.py -p "MyProjectPath" -l "en;ru;"**.<br/>
+For more information: **python dpstrings.py --help**.
 
 
 ## License
