@@ -37,6 +37,12 @@ it simply add the following line to your Podfile:
     pod "DPLocalization"
 
 
+## Localization check
+
+dpstrings.py it is Python script, that used for cheking most common usage of library. It's scan {some} folder for sources and resoures
+Usage example: dpstrings.py -p "./Project" -l "en;ru;"
+
+
 ## License
 
 DPLocalization is available under the MIT license. See the LICENSE file for more info.
