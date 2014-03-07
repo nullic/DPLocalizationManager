@@ -7,12 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "DPAutolocalizationProxy.h"
 
 @interface ViewController ()
 @property (nonatomic, weak) IBOutlet UILabel *label;
 @property (nonatomic, weak) IBOutlet UILabel *startup;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *langSelector;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *fileSelector;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @end
 
 @implementation ViewController
@@ -20,6 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.imageView.autolocalizationImageName = @"image";
 
     self.startup.text = DPLocalizedString(@"TITLE", nil);
     self.label.autolocalizationKey = @"LABEL_TEXT";

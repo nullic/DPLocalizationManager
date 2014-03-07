@@ -94,6 +94,15 @@
 @property (nonatomic, copy) NSString *autolocalizationKey;
 @end
 
+@interface UIImageView (DPLocalization)
+/**
+ @property autolocalizationImageName
+ @brief Shortcut for add automatic localization.
+ @discussion Invoke -[self setImage:[UIImage localizedImageNamed:self.autolocalizationImageName]] on DPLanguageDidChangeNotification notification.
+ */
+@property (nonatomic, copy) NSString *autolocalizationImageName;
+@end
+
 @interface UIViewController (DPLocalization)
 /**
  @property autolocalizationKey
@@ -108,7 +117,13 @@
  @return The result is invoking of [[DPLocalizationManager currentManager] localizedImageNamed:name].
  */
 + (UIImage *)localizedImageNamed:(NSString *)name;
+
+/**
+ @return The result is invoking of [DPAutolocalizationProxy autolocalizingImageNamed:name].
+ */
++ (UIImage *)autolocalizingImageNamed:(NSString *)name;
 @end
+
 
 // Core Foundation
 
@@ -117,4 +132,11 @@
  @return The result is invoking of [[DPLocalizationManager currentManager] localizedPathForResource:name ofType:extension bundle:self].
  */
 - (NSString *)localizedPathForResource:(NSString *)name ofType:(NSString *)extension;
+@end
+
+@interface NSString (DPLocalization)
+/**
+ @return The result is invoking of [DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:localizationKey]
+ */
++ (NSString *)autolocalizingStringWithLocalizationKey:(NSString *)localizationKey;
 @end

@@ -12,6 +12,7 @@
 
 static NSString * const kAutolocKeyPathKey = @"autolocKeyPathKey";
 static NSString * const kAutolocKeyKey = @"autolocKeyKey";
+static NSString * const kAutolocImageNameKey = @"autolocImageNameKey";
 static NSString * const kAutolocArgsKey = @"autolocArgsKey";
 static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
 
@@ -41,7 +42,6 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
 
 @implementation NSObject (DPLocalization)
 
-
 - (void)setupAutolocalizationWithKey:(NSString *)key keyPath:(NSString *)keyPath {
     [self setupAutolocalizationWithKey:key keyPath:keyPath arguments:nil];
 }
@@ -60,19 +60,7 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
         NSParameterAssert(key != nil);
         NSParameterAssert(keyPath != nil);
 
-        void (^deallocBlock)() = objc_getAssociatedObject(self, (__bridge const void *)(kAutolocOnDeallocBlockKey));
-        if (!deallocBlock) {
-            NSObject * __weak selfWeak = self;
-            id observer = [[NSNotificationCenter defaultCenter] addObserverForName:DPLanguageDidChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-                __strong NSObject *selfStrong = selfWeak;
-                [selfStrong localize];
-            }];
-
-            __AutolocOnDeallocContainer__ *action = [[__AutolocOnDeallocContainer__ alloc] initWithBlock:^{
-                [[NSNotificationCenter defaultCenter] removeObserver:observer];
-            }];
-            objc_setAssociatedObject(self, (__bridge void *)(kAutolocOnDeallocBlockKey), action, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        }
+        [self addLanguageDidChangeObserver];
 
         self.autolocKey = key;
         self.autolocKeyPath = keyPath;
@@ -81,7 +69,7 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
 }
 
 - (void)removeAutolocalization {
-    objc_setAssociatedObject(self, (__bridge void *)(kAutolocOnDeallocBlockKey), nil, 0);
+    [self removeLanguageDidChangeObserver];
     self.autolocKey = nil;
     self.autolocKeyPath = nil;
     self.autolocArgs = nil;
@@ -94,6 +82,28 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
 - (void)updateAutolocalizationArguments:(NSArray *)arguments {
     self.autolocArgs = arguments;
     [self localize];
+}
+
+#pragma mark -
+
+- (void)addLanguageDidChangeObserver {
+    void (^deallocBlock)() = objc_getAssociatedObject(self, (__bridge const void *)(kAutolocOnDeallocBlockKey));
+    if (!deallocBlock) {
+        NSObject * __weak selfWeak = self;
+        id observer = [[NSNotificationCenter defaultCenter] addObserverForName:DPLanguageDidChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+            __strong NSObject *selfStrong = selfWeak;
+            [selfStrong localize];
+        }];
+
+        __AutolocOnDeallocContainer__ *action = [[__AutolocOnDeallocContainer__ alloc] initWithBlock:^{
+            [[NSNotificationCenter defaultCenter] removeObserver:observer];
+        }];
+        objc_setAssociatedObject(self, (__bridge void *)(kAutolocOnDeallocBlockKey), action, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+}
+
+- (void)removeLanguageDidChangeObserver {
+    objc_setAssociatedObject(self, (__bridge void *)(kAutolocOnDeallocBlockKey), nil, 0);
 }
 
 #pragma mark -
@@ -185,6 +195,7 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
 
 @end
 
+
 @implementation UITextField (DPLocalization)
 
 - (void)setAutolocalizationKey:(NSString *)autolocalizationKey {
@@ -197,6 +208,7 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
 
 @end
 
+
 @implementation UITextView (DPLocalization)
 
 - (void)setAutolocalizationKey:(NSString *)autolocalizationKey {
@@ -205,6 +217,32 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
 
 - (NSString *)autolocalizationKey {
     return [self autolocKey];
+}
+
+@end
+
+
+@implementation UIImageView (DPLocalization)
+
+- (void)setAutolocalizationImageName:(NSString *)name {
+    objc_setAssociatedObject(self, (__bridge void *)(kAutolocImageNameKey), name, OBJC_ASSOCIATION_COPY);
+    if ([name length]) {
+        [self addLanguageDidChangeObserver];
+        [self localize];
+    }
+    else {
+        [self removeLanguageDidChangeObserver];
+    }
+}
+
+- (NSString *)autolocalizationImageName {
+    return objc_getAssociatedObject(self, (__bridge const void *)(kAutolocImageNameKey));
+}
+
+- (void)localize {
+    if (self.autolocalizationImageName) {
+        [self setImage:[UIImage localizedImageNamed:self.autolocalizationImageName]];
+    }
 }
 
 @end
@@ -229,6 +267,10 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
     return [[DPLocalizationManager currentManager] localizedImageNamed:name];
 }
 
++ (UIImage *)autolocalizingImageNamed:(NSString *)name {
+    return [DPAutolocalizationProxy autolocalizingImageNamed:name];
+}
+
 @end
 
 #pragma mark - Core Foundation Additions -
@@ -237,6 +279,15 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
 
 - (NSString *)localizedPathForResource:(NSString *)name ofType:(NSString *)ext {
     return [[DPLocalizationManager currentManager] localizedPathForResource:name ofType:ext bundle:self];
+}
+
+@end
+
+
+@implementation NSString (DPLocalization)
+
++ (NSString *)autolocalizingStringWithLocalizationKey:(NSString *)localizationKey {
+    return [DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:localizationKey];
 }
 
 @end

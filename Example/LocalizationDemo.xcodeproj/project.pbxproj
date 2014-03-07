@@ -10,6 +10,8 @@
 		5822FA1418587335006B05DB /* Localizable1.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5822FA1218587335006B05DB /* Localizable1.strings */; };
 		CE3D78C51835EAA10012CA3D /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
 		CE3D78C61835EAA10012CA3D /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */; };
+		CE8DC38C18C99F78004E4BB8 /* DPAutolocalizationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DC38B18C99F78004E4BB8 /* DPAutolocalizationProxy.m */; };
+		CE8DC38F18C9CABF004E4BB8 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8DC39118C9CABF004E4BB8 /* image.png */; };
 		CED1C4FB1845F3DD003014E7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CED1C4FA1845F3DD003014E7 /* Settings.bundle */; };
 		CED8ADF91833502A007E4C60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED8ADF81833502A007E4C60 /* Foundation.framework */; };
 		CED8ADFB1833502A007E4C60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED8ADFA1833502A007E4C60 /* CoreGraphics.framework */; };
@@ -30,6 +32,11 @@
 		CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLocalizationManager.m; sourceTree = "<group>"; };
 		CE3D78C31835EAA10012CA3D /* NSObject+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DPLocalization.h"; sourceTree = "<group>"; };
 		CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DPLocalization.m"; sourceTree = "<group>"; };
+		CE8DC38A18C99F78004E4BB8 /* DPAutolocalizationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAutolocalizationProxy.h; sourceTree = "<group>"; };
+		CE8DC38B18C99F78004E4BB8 /* DPAutolocalizationProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAutolocalizationProxy.m; sourceTree = "<group>"; };
+		CE8DC39018C9CABF004E4BB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/image.png; sourceTree = "<group>"; };
+		CE8DC39218C9CAC3004E4BB8 /* de */ = {isa = PBXFileReference; lastKnownFileType = file; name = de; path = de.lproj/image.png; sourceTree = "<group>"; };
+		CE8DC39318C9CAC4004E4BB8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file; name = ru; path = ru.lproj/image.png; sourceTree = "<group>"; };
 		CED1C4FA1845F3DD003014E7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CED8ADF51833502A007E4C60 /* LocalizationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalizationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED8ADF81833502A007E4C60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,6 +78,8 @@
 				CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */,
 				CE3D78C31835EAA10012CA3D /* NSObject+DPLocalization.h */,
 				CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */,
+				CE8DC38A18C99F78004E4BB8 /* DPAutolocalizationProxy.h */,
+				CE8DC38B18C99F78004E4BB8 /* DPAutolocalizationProxy.m */,
 			);
 			name = DPLocalization;
 			path = ../DPLocalization;
@@ -113,6 +122,7 @@
 				CED8AE081833502A007E4C60 /* AppDelegate.m */,
 				CED8AE0D1833502A007E4C60 /* ViewController.h */,
 				CED8AE0E1833502A007E4C60 /* ViewController.m */,
+				CE8DC39118C9CABF004E4BB8 /* image.png */,
 				CED8AE2D18335082007E4C60 /* Main.storyboard */,
 				CED8AE3A18335121007E4C60 /* Localizable.strings */,
 				CED8AE101833502A007E4C60 /* Images.xcassets */,
@@ -191,6 +201,7 @@
 				CED8AE3818335121007E4C60 /* Localizable.strings in Resources */,
 				CED8AE111833502A007E4C60 /* Images.xcassets in Resources */,
 				5822FA1418587335006B05DB /* Localizable1.strings in Resources */,
+				CE8DC38F18C9CABF004E4BB8 /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8DC38C18C99F78004E4BB8 /* DPAutolocalizationProxy.m in Sources */,
 				CED8AE0F1833502A007E4C60 /* ViewController.m in Sources */,
 				CE3D78C61835EAA10012CA3D /* NSObject+DPLocalization.m in Sources */,
 				CED8AE091833502A007E4C60 /* AppDelegate.m in Sources */,
@@ -220,6 +232,16 @@
 				5822FA1618587341006B05DB /* ru */,
 			);
 			name = Localizable1.strings;
+			sourceTree = "<group>";
+		};
+		CE8DC39118C9CABF004E4BB8 /* image.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE8DC39018C9CABF004E4BB8 /* en */,
+				CE8DC39218C9CAC3004E4BB8 /* de */,
+				CE8DC39318C9CAC4004E4BB8 /* ru */,
+			);
+			name = image.png;
 			sourceTree = "<group>";
 		};
 		CED8AE3A18335121007E4C60 /* Localizable.strings */ = {

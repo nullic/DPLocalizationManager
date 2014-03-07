@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NSObject+DPLocalization.h"
+#import "DPAutolocalizationProxy.h"
 
 
 /**
