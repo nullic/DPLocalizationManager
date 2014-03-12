@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "DPAutolocalizationProxy.h"
 
 @interface ViewController ()
 @property (nonatomic, weak) IBOutlet UILabel *label;
@@ -22,7 +21,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+//    NSString *alStr = [NSString autolocalizingStringWithLocalizationKey:@"TITLE"];
+//    NSString *alPath = [[NSBundle mainBundle] autolocalizingPathForResource:@"Localizable" ofType:@"strings"];
+//
+//    dp_set_current_language(@"en");
+//    CFShow((__bridge CFTypeRef)(alStr));
+//    CFShow((__bridge CFTypeRef)(alPath));
+//
+//    dp_set_current_language(@"ru");
+//    CFShow((__bridge CFTypeRef)(alStr));
+//    CFShow((__bridge CFTypeRef)(alPath));
+//
+//    dp_set_current_language(@"de");
+//    CFShow((__bridge CFTypeRef)(alStr));
+//    CFShow((__bridge CFTypeRef)(alPath));
+
+
     self.imageView.autolocalizationImageName = @"image";
 
     self.startup.text = DPLocalizedString(@"TITLE", nil);

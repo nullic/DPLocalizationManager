@@ -132,6 +132,11 @@
  @return The result is invoking of [[DPLocalizationManager currentManager] localizedPathForResource:name ofType:extension bundle:self].
  */
 - (NSString *)localizedPathForResource:(NSString *)name ofType:(NSString *)extension;
+
+/**
+ @return The result is invoking of [DPAutolocalizationProxy autolocalizingPathForResource:name ofType:extension inBundle:self].
+ */
+- (NSString *)autolocalizingPathForResource:(NSString *)name ofType:(NSString *)extension;
 @end
 
 @interface NSString (DPLocalization)

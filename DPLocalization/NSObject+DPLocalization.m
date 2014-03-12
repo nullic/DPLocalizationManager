@@ -281,6 +281,10 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
     return [[DPLocalizationManager currentManager] localizedPathForResource:name ofType:ext bundle:self];
 }
 
+- (NSString *)autolocalizingPathForResource:(NSString *)name ofType:(NSString *)extension {
+    return [DPAutolocalizationProxy autolocalizingPathForResource:name ofType:extension inBundle:self];
+}
+
 @end
 
 

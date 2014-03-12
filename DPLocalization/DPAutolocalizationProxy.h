@@ -10,5 +10,6 @@
 
 @interface DPAutolocalizationProxy : NSProxy <NSCopying>
 + (NSString *)autolocalizingStringWithLocalizationKey:(NSString *)localizationKey;
++ (NSString *)autolocalizingPathForResource:(NSString *)name ofType:(NSString *)ext inBundle:(NSBundle *)bundle;
 + (UIImage *)autolocalizingImageNamed:(NSString *)imageNamed;
 @end

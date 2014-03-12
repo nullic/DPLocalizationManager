@@ -10,13 +10,20 @@
 #import "DPLocalizationManager.h"
 
 
-static NSString * const kLocalizationKeyKey = @"localizationKey";
-static NSString * const kLocalizationImageNameKey = @"localizationImageName";
+static NSString * const kLocalizationKeyKey = @"key";
+static NSString * const kLocalizationImageNameKey = @"imageName";
+static NSString * const kLocalizationResourseNameKey = @"resourseName";
+static NSString * const kLocalizationResourseTypeKey = @"resourseType";
+static NSString * const kLocalizationBundleKey = @"bundle";
 
-@interface DPAutolocalizationProxy ()
-@property (nonatomic, strong) id surrogate;
-@property (nonatomic, copy) NSDictionary *localizationOptions;
+@interface DPAutolocalizationProxy () {
+@protected
+    id surrogate;
+    NSString *locale;
+}
+@property (nonatomic, copy) NSDictionary *options;
 @end
+
 
 #pragma mark - Concrete -
 
@@ -26,10 +33,30 @@ static NSString * const kLocalizationImageNameKey = @"localizationImageName";
 @implementation DPAutolocalizingString
 
 - (id)surrogate {
-    if (![super surrogate]) {
-        self.surrogate = DPLocalizedString(self.localizationOptions[kLocalizationKeyKey], nil);
+    @synchronized(self) {
+        if (!self->surrogate) {
+            self->surrogate = DPLocalizedString(self.options[kLocalizationKeyKey], nil);
+        }
+        return self->surrogate;
     }
-    return [super surrogate];
+}
+
+@end
+
+#pragma mark -
+
+@interface DPAutolocalizingPath : DPAutolocalizationProxy
+@end
+
+@implementation DPAutolocalizingPath
+
+- (id)surrogate {
+    @synchronized(self) {
+        if (!self->surrogate) {
+            self->surrogate = [[DPLocalizationManager currentManager] localizedPathForResource:self.options[kLocalizationResourseNameKey] ofType:self.options[kLocalizationResourseTypeKey] bundle:self.options[kLocalizationBundleKey]];
+        }
+        return self->surrogate;
+    }
 }
 
 @end
@@ -42,10 +69,12 @@ static NSString * const kLocalizationImageNameKey = @"localizationImageName";
 @implementation DPAutolocalizingImage
 
 - (id)surrogate {
-    if (![super surrogate]) {
-        self.surrogate = [UIImage localizedImageNamed:self.localizationOptions[kLocalizationImageNameKey]];
+    @synchronized(self) {
+        if (!self->surrogate) {
+            self->surrogate = [[DPLocalizationManager currentManager] localizedImageNamed:self.options[kLocalizationImageNameKey]];
+        }
+        return self->surrogate;
     }
-    return [super surrogate];
 }
 
 @end
@@ -57,16 +86,25 @@ static NSString * const kLocalizationImageNameKey = @"localizationImageName";
 
 + (NSString *)autolocalizingStringWithLocalizationKey:(NSString *)localizationKey {
     NSParameterAssert(localizationKey != nil);
-    DPAutolocalizationProxy *string = [DPAutolocalizingString alloc];
-    string.localizationOptions = @{kLocalizationKeyKey : localizationKey};
-    return (NSString *)string;
+
+    return (NSString *)[[DPAutolocalizingString alloc] initWithOptions:@{kLocalizationKeyKey : localizationKey}];
+}
+
++ (NSString *)autolocalizingPathForResource:(NSString *)name ofType:(NSString *)ext inBundle:(NSBundle *)bundle {
+    NSParameterAssert(!(name == nil && ext == nil));
+
+    NSMutableDictionary *opts = [NSMutableDictionary dictionary];
+    [opts setValue:name forKey:kLocalizationResourseNameKey];
+    [opts setValue:ext forKey:kLocalizationResourseTypeKey];
+    [opts setValue:bundle forKey:kLocalizationBundleKey];
+
+    return (NSString *)[[DPAutolocalizingPath alloc] initWithOptions:opts];
 }
 
 + (UIImage *)autolocalizingImageNamed:(NSString *)imageName {
     NSParameterAssert(imageName != nil);
-    DPAutolocalizationProxy *image = [DPAutolocalizingImage alloc];
-    image.localizationOptions = @{kLocalizationImageNameKey : imageName};
-    return (UIImage *)image;
+
+    return (UIImage *)[[DPAutolocalizingImage alloc] initWithOptions:@{kLocalizationImageNameKey : imageName}];
 }
 
 #pragma mark -
@@ -79,9 +117,19 @@ static NSString * const kLocalizationImageNameKey = @"localizationImageName";
     return result;
 }
 
+- (instancetype)initWithOptions:(NSDictionary *)options {
+    NSParameterAssert([options count] != 0);
+
+    self.options = options;
+    self.surrogate = nil;
+
+    return self;
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 
 #pragma mark -
 
@@ -90,7 +138,7 @@ static NSString * const kLocalizationImageNameKey = @"localizationImageName";
 }
 
 - (NSString *)debugDescription {
-    return [NSString stringWithFormat:@"%@ {locale = \"%@\"; value = \"%@\"}", [super description], dp_get_current_language(), [self.surrogate debugDescription]];
+    return [NSString stringWithFormat:@"%@ {locale = \"%@\"; value = \"%@\"}", [super description], self->locale, [self.surrogate debugDescription]];
 }
 
 - (BOOL)isKindOfClass:(Class)aClass {
@@ -114,6 +162,21 @@ static NSString * const kLocalizationImageNameKey = @"localizationImageName";
     return [self.surrogate methodSignatureForSelector:selector];
 }
 
+#pragma mark - Properties
+
+- (void)setSurrogate:(id)aSurrogate {
+    @synchronized(self) {
+        self->surrogate = aSurrogate;
+        self->locale = dp_get_current_language();
+    }
+}
+
+- (id)surrogate {
+    @synchronized(self) {
+        return self->surrogate;
+    }
+}
+
 #pragma mark - Notifications
 
 - (void)languageDidChangeNotification:(NSNotification *)notification {
@@ -128,7 +191,7 @@ static NSString * const kLocalizationImageNameKey = @"localizationImageName";
 
 - (id)copyWithZone:(NSZone *)zone {
     typeof(self) result = [[self class] alloc];
-    result.localizationOptions = [self.localizationOptions copy];
+    result.options = [self.options copy];
     return result;
 }
 
