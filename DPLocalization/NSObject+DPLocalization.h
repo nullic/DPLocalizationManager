@@ -17,7 +17,6 @@
  @brief Setup update value automaticaly after DPLanguageDidChangeNotification notification was posted.
  @param key The key for a string in the Localizable.strings table.
  @param keyPath Keypath for assing localized value.
- @discussion Equal to invoking -[self setupAutolocalizationWithKey:key keyPath:keyPath].
  */
 - (void)setupAutolocalizationWithKey:(NSString *)key keyPath:(NSString *)keyPath;
 

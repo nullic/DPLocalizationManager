@@ -14,7 +14,7 @@ DPLocalization provide easy enough way to change localization inside application
 	myButton.autolocalizationKey = @"my_button_name";
 ```
 
-2. Use ```-[setupAutolocalizationWithKey:keyPath:]``` or ```-[setupAutolocalizationWithKey:keyPath:arguments:]``` method of NSObject:
+2. Use ```-[setupAutolocalizationWithKey:keyPath:]``` or ```-[setupAutolocalizationWithKey:keyPath:arguments:]``` method of **NSObject**:
 
 ```
 	[myLabel setupAutolocalizationWithKey:@"my_label_localization_key" keyPath:@"text"];
@@ -27,6 +27,26 @@ Now after changing language (for example: ```dp_set_current_language(@"de")```) 
 ###Static localization
 
 For static localization select language (for example: ```dp_set_current_language(@"de")```) and use ```DPLocalizedString()``` macro in ```NSLocalizedString()``` maner.
+
+
+###Proxy objects
+
+Use **DPAutolocalizationProxy** class methods or their replacements.
+
+```
+    NSString *str = [NSString autolocalizingStringWithLocalizationKey:@"language"];
+
+    dp_set_current_language(@"en");
+    CFShow((__bridge CFTypeRef)(str));
+    dp_set_current_language(@"ru");
+    CFShow((__bridge CFTypeRef)(str));
+```
+
+Output example:
+```
+	English
+	Russian
+```
 
 
 ## Installation
@@ -48,4 +68,3 @@ For more information: **python dpstrings.py --help**.
 ## License
 
 DPLocalization is available under the MIT license. See the LICENSE file for more info.
-
