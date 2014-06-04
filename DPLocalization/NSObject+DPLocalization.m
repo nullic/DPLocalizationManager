@@ -64,6 +64,7 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
 
         self.autolocKey = key;
         self.autolocKeyPath = keyPath;
+        self.autolocArgs = arguments;
         [self localize];
     }
 }
