@@ -115,10 +115,32 @@ static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
         NSArray *args = self.autolocArgs;
 
         if (resultString && args.count) {
-            void *argList = (void *)malloc(args.count * sizeof(id));
-            [args getObjects:(id __unsafe_unretained *)argList range:NSMakeRange(0, args.count)];
-            resultString = [[NSString alloc] initWithFormat:resultString arguments:argList];
-            free(argList);
+            static NSRegularExpression *regexp = nil;
+            static dispatch_once_t onceToken;
+            dispatch_once(&onceToken, ^{
+                regexp = [NSRegularExpression regularExpressionWithPattern:@"%([0-9]+\\$)??@" options:kNilOptions error:nil];
+            });
+
+            NSArray *matches = [regexp matchesInString:resultString options:kNilOptions range:NSMakeRange(0, resultString.length)];
+            NSMutableString *mutableStr = [resultString mutableCopy];
+            [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *match, NSUInteger idx, BOOL *stop) {
+                NSUInteger usedIndex = idx;
+                if (match.range.length > 2) {
+                    NSString *index = [resultString substringWithRange:NSMakeRange(match.range.location + 1, match.range.length - 3)];
+                    usedIndex = ([index integerValue] - 1);
+                }
+
+                id subs = args.count > idx ? args[usedIndex] : nil;
+                [mutableStr replaceCharactersInRange:match.range withString:[subs description]];
+            }];
+
+            resultString = mutableStr;
+
+//            void *argList = (void *)malloc(args.count * sizeof(id));
+//            [args getObjects:(id __unsafe_unretained *)argList range:NSMakeRange(0, args.count)];
+//
+//            resultString = [[NSString alloc] initWithFormat:resultString arguments:argList];
+//            free(argList);
         }
         [self setValue:resultString forKeyPath:self.autolocKeyPath];
     }
