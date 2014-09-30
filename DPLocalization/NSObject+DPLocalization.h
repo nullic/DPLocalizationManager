@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#ifndef IBInspectable
+    #define IBInspectable
+#endif
+
 /**
  @category NSObject (DPLocalization)
  @brief Add ability to automatic localization.
@@ -54,7 +58,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@@"text"].
  */
-@property (nonatomic, copy) NSString *autolocalizationKey;
+@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
 @end
 
 @interface UIButton (DPLocalization)
@@ -63,7 +67,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Invoke -[self setTitle:localizedValue forState:UIControlStateNormal] on DPLanguageDidChangeNotification notification.
  */
-@property (nonatomic, copy) NSString *autolocalizationKey;
+@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
 @end
 
 @interface UIBarButtonItem (DPLocalization)
@@ -72,7 +76,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@@"title"].
  */
-@property (nonatomic, copy) NSString *autolocalizationKey;
+@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
 @end
 
 @interface UITextField (DPLocalization)
@@ -81,7 +85,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@@"placeholder"].
  */
-@property (nonatomic, copy) NSString *autolocalizationKey;
+@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
 @end
 
 @interface UITextView (DPLocalization)
@@ -90,7 +94,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@@"text"].
  */
-@property (nonatomic, copy) NSString *autolocalizationKey;
+@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
 @end
 
 @interface UIImageView (DPLocalization)
@@ -99,7 +103,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Invoke -[self setImage:[UIImage localizedImageNamed:self.autolocalizationImageName]] on DPLanguageDidChangeNotification notification.
  */
-@property (nonatomic, copy) NSString *autolocalizationImageName;
+@property (nonatomic, copy) IBInspectable NSString *autolocalizationImageName;
 @end
 
 @interface UIViewController (DPLocalization)
@@ -108,7 +112,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@@"title"].
  */
-@property (nonatomic, copy) NSString *autolocalizationKey;
+@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
 @end
 
 @interface UIImage (DPLocalization)
