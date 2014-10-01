@@ -1,5 +1,9 @@
 # DPLocalization CHANGELOG
 
+## 1.4
+- Added IBInspectable macro
+- Bug fixes
+
 ## 1.3
 - Added autolocalizationImageName property for UIImageView
 - Added dp_get_language_display_name(lang) and dp_get_current_language_display_name() macros
