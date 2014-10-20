@@ -1,5 +1,8 @@
 # DPLocalization CHANGELOG
 
+## 1.4.1
+- Added DPAutolocalizedString(key, comment) macro
+
 ## 1.4
 - Added IBInspectable macro
 - Bug fixes

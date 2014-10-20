@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface DPAutolocalizationProxy : NSProxy <NSCopying>
 /**
@@ -38,3 +39,5 @@
  */
 + (UIImage *)autolocalizingImageNamed:(NSString *)name;
 @end
+
+#define DPAutolocalizedString(key, comment) ([DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:key])
