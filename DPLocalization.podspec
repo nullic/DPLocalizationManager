@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
 
   s.name         = "DPLocalization"
-  s.version      = "1.4"
+  s.version      = "1.4.1"
   s.summary      = "Provides way to change localization inside application"
   s.homepage     = "https://github.com/nullic/DPLocalizationManager"
   s.license      = "MIT"
   s.author       = { "Dmitriy Petrusevich" => "nullic@gmail.com" }
   s.platform     = :ios, "5.0"
 
-  s.source       = { :git => "https://github.com/nullic/DPLocalizationManager.git", :tag => "1.4" }
+  s.source       = { :git => "https://github.com/nullic/DPLocalizationManager.git", :tag => "1.4.1" }
   s.source_files = "DPLocalization", "DPLocalization/*.{h,m}"
   s.requires_arc = true
 
