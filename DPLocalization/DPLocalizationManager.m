@@ -186,3 +186,33 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 }
 
 @end
+
+#pragma mark - 
+
+NSString * DPLocalizedString(NSString *key, NSString *comment) {
+    return [[DPLocalizationManager currentManager] localizedStringForKey:key];
+}
+
+NSString * dp_get_current_language() {
+    return [[DPLocalizationManager currentManager] currentLanguage];
+}
+
+void dp_set_current_language(NSString *lang) {
+    [[DPLocalizationManager currentManager] setCurrentLanguage:lang];
+}
+
+NSString * dp_get_language_display_name(NSString *lang) {
+    return [[[[NSLocale alloc] initWithLocaleIdentifier:lang] displayNameForKey:NSLocaleIdentifier value:lang] capitalizedString];
+}
+
+NSString * dp_get_current_language_display_name() {
+    return dp_get_language_display_name(dp_get_current_language());
+}
+
+NSString * dp_get_current_filename() {
+    return [[DPLocalizationManager currentManager] localizationFileName];
+}
+
+void dp_set_current_filename(NSString *filename) {
+    [[DPLocalizationManager currentManager] setLocalizationFileName:filename];
+}

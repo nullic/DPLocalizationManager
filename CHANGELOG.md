@@ -1,5 +1,8 @@
 # DPLocalization CHANGELOG
 
+## 1.4.2
+- Swift support (macro -> "C" function)
+
 ## 1.4.1
 - Added DPAutolocalizedString(key, comment) macro
 

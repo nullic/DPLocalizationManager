@@ -74,16 +74,16 @@
 @end
 
 
-#define DPLocalizedString(key, comment) ([[DPLocalizationManager currentManager] localizedStringForKey:key])
+NSString * DPLocalizedString(NSString *key, NSString *comment);
 
-#define dp_get_current_language() ([[DPLocalizationManager currentManager] currentLanguage])
-#define dp_set_current_language(lang) ([[DPLocalizationManager currentManager] setCurrentLanguage:lang])
+NSString * dp_get_current_language();
+void dp_set_current_language(NSString *lang);
 
-#define dp_get_language_display_name(lang) ([[[[NSLocale alloc] initWithLocaleIdentifier:lang] displayNameForKey:NSLocaleIdentifier value:lang] capitalizedString])
-#define dp_get_current_language_display_name() (dp_get_language_display_name(dp_get_current_language()))
+NSString * dp_get_language_display_name(NSString *lang);
+NSString * dp_get_current_language_display_name();
 
-#define dp_get_current_filename() ([[DPLocalizationManager currentManager] localizationFileName])
-#define dp_set_current_filename(__FILENAME__) ([[DPLocalizationManager currentManager] setLocalizationFileName:__FILENAME__])
+NSString * dp_get_current_filename();
+void dp_set_current_filename(NSString *filename);
 
 /**
  @brief Notification posted by DPLocalizationManager after currentLanguage property did changed.

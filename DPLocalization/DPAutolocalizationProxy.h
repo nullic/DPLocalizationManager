@@ -40,4 +40,4 @@
 + (UIImage *)autolocalizingImageNamed:(NSString *)name;
 @end
 
-#define DPAutolocalizedString(key, comment) ([DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:key])
+NSString * DPAutolocalizedString(NSString *key, NSString *comment);

@@ -197,3 +197,8 @@ static NSString * const kLocalizationBundleKey = @"bundle";
 
 @end
 
+#pragma mark -
+
+NSString * DPAutolocalizedString(NSString *key, NSString *comment) {
+    return [DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:key];
+}
