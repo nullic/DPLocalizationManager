@@ -48,6 +48,13 @@
  @result Return YES if object configured for automatic localization and NO otherwise.
  */
 - (BOOL)isAutolocalizationEnabled;
+
+/**
+ @brief Called before setting new value. Default implementation invoking -[self setValue:value forKeyPath:keyPath].
+ @param value Localized value.
+ @param keyPath Keypath for assing localized value.
+ */
+- (void)setLocalizedValue:(NSString *)value forKeyPath:(NSString *)keyPath;
 @end
 
 
@@ -60,6 +67,7 @@
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@@"text"].
  */
 @property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic) IBInspectable BOOL isAttributedKey;
 @end
 
 @interface UIButton (DPLocalization)
@@ -69,6 +77,7 @@
  @discussion Invoke -[self setTitle:localizedValue forState:UIControlStateNormal] on DPLanguageDidChangeNotification notification.
  */
 @property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic) IBInspectable BOOL isAttributedKey;
 @end
 
 @interface UIBarButtonItem (DPLocalization)
@@ -87,6 +96,7 @@
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@@"placeholder"].
  */
 @property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic) IBInspectable BOOL isAttributedKey;
 @end
 
 @interface UITextView (DPLocalization)
@@ -96,6 +106,7 @@
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@@"text"].
  */
 @property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic) IBInspectable BOOL isAttributedKey;
 @end
 
 @interface UIImageView (DPLocalization)

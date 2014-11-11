@@ -193,6 +193,10 @@ NSString * DPLocalizedString(NSString *key, NSString *comment) {
     return [[DPLocalizationManager currentManager] localizedStringForKey:key];
 }
 
+NSString * DPAutolocalizedString(NSString *key, NSString *comment) {
+    return [DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:key];
+}
+
 NSString * dp_get_current_language() {
     return [[DPLocalizationManager currentManager] currentLanguage];
 }

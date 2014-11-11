@@ -39,5 +39,3 @@
  */
 + (UIImage *)autolocalizingImageNamed:(NSString *)name;
 @end
-
-NSString * DPAutolocalizedString(NSString *key, NSString *comment);

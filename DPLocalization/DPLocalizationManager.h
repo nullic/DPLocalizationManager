@@ -75,6 +75,7 @@
 
 
 NSString * DPLocalizedString(NSString *key, NSString *comment);
+NSString * DPAutolocalizedString(NSString *key, NSString *comment);
 
 NSString * dp_get_current_language();
 void dp_set_current_language(NSString *lang);
