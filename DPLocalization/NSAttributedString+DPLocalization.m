@@ -11,27 +11,31 @@
 @implementation NSAttributedString (DPLocalization)
 
 + (NSAttributedString *)dp_attibutedStringWithString:(NSString *)string font:(UIFont *)font textColor:(UIColor *)textColor {
-    NSRegularExpression *tagRegExp = [NSRegularExpression regularExpressionWithPattern:@"<(.+?)>\\{([\\S\\s]*?)\\}" options:kNilOptions error:nil];
-    NSArray *tags = [tagRegExp matchesInString:string options:kNilOptions range:NSMakeRange(0, string.length)];
+    NSMutableAttributedString *attrsString = nil;
 
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    [attrs setValue:font forKey:NSFontAttributeName];
-    [attrs setValue:textColor forKey:NSForegroundColorAttributeName];
+    if (string) {
+        NSRegularExpression *tagRegExp = [NSRegularExpression regularExpressionWithPattern:@"<(.+?)>\\{([\\S\\s]*?)\\}" options:kNilOptions error:nil];
+        NSArray *tags = [tagRegExp matchesInString:nil options:kNilOptions range:NSMakeRange(0, string.length)];
 
-    NSMutableAttributedString *attrsString = [[NSMutableAttributedString alloc] initWithString:string attributes:attrs];
+        NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+        [attrs setValue:font forKey:NSFontAttributeName];
+        [attrs setValue:textColor forKey:NSForegroundColorAttributeName];
 
-    [tags enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *match, NSUInteger idx, BOOL *stop) {
+        attrsString = [[NSMutableAttributedString alloc] initWithString:string attributes:attrs];
 
-        NSString *textString = [string substringWithRange:[match rangeAtIndex:2]];
-        NSString *styleString = [string substringWithRange:[match rangeAtIndex:1]];
+        [tags enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *match, NSUInteger idx, BOOL *stop) {
 
-        NSMutableDictionary *tagAttrs = [attrs mutableCopy];
-        [tagAttrs setValuesForKeysWithDictionary:[self stylesFromSting:styleString font:font]];
+            NSString *textString = [string substringWithRange:[match rangeAtIndex:2]];
+            NSString *styleString = [string substringWithRange:[match rangeAtIndex:1]];
 
-        NSAttributedString *replaceString = [[NSAttributedString alloc] initWithString:textString attributes:tagAttrs];
-        [attrsString replaceCharactersInRange:match.range withAttributedString:replaceString];
-    }];
+            NSMutableDictionary *tagAttrs = [attrs mutableCopy];
+            [tagAttrs setValuesForKeysWithDictionary:[self stylesFromSting:styleString font:font]];
 
+            NSAttributedString *replaceString = [[NSAttributedString alloc] initWithString:textString attributes:tagAttrs];
+            [attrsString replaceCharactersInRange:match.range withAttributedString:replaceString];
+        }];
+    }
+    
     return attrsString;
 }
 
