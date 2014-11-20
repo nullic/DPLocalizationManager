@@ -15,7 +15,7 @@
 
     if (string) {
         NSRegularExpression *tagRegExp = [NSRegularExpression regularExpressionWithPattern:@"<(.+?)>\\{([\\S\\s]*?)\\}" options:kNilOptions error:nil];
-        NSArray *tags = [tagRegExp matchesInString:nil options:kNilOptions range:NSMakeRange(0, string.length)];
+        NSArray *tags = [tagRegExp matchesInString:string options:kNilOptions range:NSMakeRange(0, string.length)];
 
         NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
         [attrs setValue:font forKey:NSFontAttributeName];
