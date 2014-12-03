@@ -56,7 +56,7 @@
 
     NSRange allStringRange = NSMakeRange(0, styleString.length);
 
-    NSString *fontName = font.familyName;
+    NSString *fontName = font.fontName;
     CGFloat fontSize = font.pointSize;
 
     NSTextCheckingResult *sizeCheck = [sizeExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
