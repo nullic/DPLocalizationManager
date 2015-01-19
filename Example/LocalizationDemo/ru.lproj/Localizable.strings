@@ -7,5 +7,5 @@
 */
 
 "TITLE" = "Russian";
-"LABEL_TEXT" = "Russian - %3$@\n%1$@\n%2$@";
+"LABEL_TEXT" = "Russian - %3$@\n<traits=bi>{%1$@}\n%2$@";
 "TEXTVIEW_TEXT" = "Russian\n\nUITextView text.\n\nSee user defined runtime attributes in storyboard.";

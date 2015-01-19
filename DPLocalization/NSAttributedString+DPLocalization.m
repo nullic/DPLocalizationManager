@@ -14,7 +14,7 @@
     NSMutableAttributedString *attrsString = nil;
 
     if (string) {
-        NSRegularExpression *tagRegExp = [NSRegularExpression regularExpressionWithPattern:@"<(.+?)>\\{([\\S\\s]*?)\\}" options:kNilOptions error:nil];
+        NSRegularExpression *tagRegExp = [NSRegularExpression regularExpressionWithPattern:@"<([^<]*?)>\\{(.*?)\\}" options:NSRegularExpressionDotMatchesLineSeparators error:nil];
         NSArray *tags = [tagRegExp matchesInString:string options:kNilOptions range:NSMakeRange(0, string.length)];
 
         NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
@@ -50,7 +50,7 @@
     dispatch_once(&onceToken, ^{
         nameExp = [NSRegularExpression regularExpressionWithPattern:@"name=\"(.+?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
         colorExp = [NSRegularExpression regularExpressionWithPattern:@"color=([0-9]{1,3}),([0-9]{1,3}),([0-9]{1,3})(,[0-9]{1,3})?" options:NSRegularExpressionCaseInsensitive error:nil];
-        traitsExp = [NSRegularExpression regularExpressionWithPattern:@"traits=([buis]+?)" options:NSRegularExpressionCaseInsensitive error:nil];
+        traitsExp = [NSRegularExpression regularExpressionWithPattern:@"traits=([buis]+)" options:NSRegularExpressionCaseInsensitive error:nil];
         sizeExp = [NSRegularExpression regularExpressionWithPattern:@"size=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
     });
 

@@ -176,6 +176,7 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 @end
 
 #pragma mark - UIKit Additions -
+#pragma mark UILabel
 
 @implementation UILabel (DPLocalization)
 
@@ -207,6 +208,8 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 @end
 
+
+#pragma mark UIButton
 
 @implementation UIButton (DPLocalization)
 
@@ -240,6 +243,8 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 @end
 
 
+#pragma mark UIBarButtonItem
+
 @implementation UIBarButtonItem (DPLocalization)
 
 - (void)setAutolocalizationKey:(NSString *)autolocalizationKey {
@@ -252,6 +257,8 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 @end
 
+
+#pragma mark UITextField
 
 @implementation UITextField (DPLocalization)
 
@@ -284,6 +291,8 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 @end
 
 
+#pragma mark UITextView
+
 @implementation UITextView (DPLocalization)
 
 - (void)setIsAttributedKey:(BOOL)isAttributedKey {
@@ -315,6 +324,8 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 @end
 
 
+#pragma mark UIImageView
+
 @implementation UIImageView (DPLocalization)
 
 - (void)setAutolocalizationImageName:(NSString *)name {
@@ -341,6 +352,8 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 @end
 
 
+#pragma mark UIViewController
+
 @implementation UIViewController (DPLocalization)
 
 - (void)setAutolocalizationKey:(NSString *)autolocalizationKey {
@@ -354,6 +367,8 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 @end
 
 
+#pragma mark UIImage
+
 @implementation UIImage (DPLocalization)
 
 + (UIImage *)localizedImageNamed:(NSString *)name {
@@ -366,7 +381,9 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 @end
 
+
 #pragma mark - Core Foundation Additions -
+#pragma mark NSBundle
 
 @implementation NSBundle (DPLocalization)
 
@@ -380,6 +397,8 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 @end
 
+
+#pragma mark NSString
 
 @implementation NSString (DPLocalization)
 
