@@ -1,3 +1,4 @@
+import io
 import argparse
 import codecs
 import os
@@ -73,24 +74,39 @@ class DPLocalizableStringsParser:
     def __init__(self):
         self.strings_info = {}
 
-    def extract_strings(self, path, patterns):
+    def extract_strings(self, path, patterns, nil=None):
         locale_pattern = re.compile("(?<=/)[a-zA-Z_]*(?=\.lproj/)")
         locale = locale_pattern.findall(path)[0]
-        text = codecs.open(path, encoding='utf-8').read()
 
-        for pattern in patterns:
-            result = pattern.findall(text)
-            for kv_tuple in result:
-                if len(kv_tuple) == 2:
-                    key, value = kv_tuple
+        try:
+            text = io.open(path, 'r', encoding = 'utf-8').read()
+        except UnicodeDecodeError:
+            text = None
 
-                    if not self.strings_info.has_key(key):
-                        self.strings_info[key] = {}
+        if text == None:
+            try:
+                text = io.open(path, 'r', encoding = 'utf-16').read()
+            except UnicodeError:
+                text = None
+                print u"WARNING: File \"{0}\" contains non UTF-8/UTF-16 characters, and will be ignored".format(path)
 
-                    if not self.strings_info[key].has_key(locale):
-                        self.strings_info[key][locale] = value
-                    else:
-                        print u"WARNING: Duplicate key: \"{0} in file \"{1}\"".format(key, path)
+        if text != None:
+            for pattern in patterns:
+                result = pattern.findall(text)
+                for kv_tuple in result:
+                    if len(kv_tuple) == 2:
+                        key, value = kv_tuple
+
+                        if not self.strings_info.has_key(key):
+                            self.strings_info[key] = {}
+
+                        if not self.strings_info[key].has_key(locale):
+                            self.strings_info[key][locale] = value
+                        else:
+                            print u"WARNING: Duplicate key: \"{0} in file \"{1}\"".format(key, path)
+
+
+
 
     def scan_dir(self, dir_path):
         files = os.listdir(dir_path)
