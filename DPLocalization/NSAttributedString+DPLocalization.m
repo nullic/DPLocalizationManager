@@ -46,12 +46,14 @@
     static NSRegularExpression *colorExp = nil;
     static NSRegularExpression *sizeExp = nil;
     static NSRegularExpression *traitsExp = nil;
+    static NSRegularExpression *linkExp = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         nameExp = [NSRegularExpression regularExpressionWithPattern:@"name=\"(.+?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
         colorExp = [NSRegularExpression regularExpressionWithPattern:@"color=([0-9]{1,3}),([0-9]{1,3}),([0-9]{1,3})(,[0-9]{1,3})?" options:NSRegularExpressionCaseInsensitive error:nil];
-        traitsExp = [NSRegularExpression regularExpressionWithPattern:@"traits=([buis]+)" options:NSRegularExpressionCaseInsensitive error:nil];
+        traitsExp = [NSRegularExpression regularExpressionWithPattern:@"traits=([!buis]+)" options:NSRegularExpressionCaseInsensitive error:nil];
         sizeExp = [NSRegularExpression regularExpressionWithPattern:@"size=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
+        linkExp = [NSRegularExpression regularExpressionWithPattern:@"link=\"(.+?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
     });
 
     NSRange allStringRange = NSMakeRange(0, styleString.length);
@@ -79,15 +81,27 @@
         [attrs setValue:styleFont forKey:NSFontAttributeName];
     }
     else {
+        NSTextCheckingResult *linkCheck = [linkExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
+        if (linkCheck) {
+            NSString *link = [styleString substringWithRange:[linkCheck rangeAtIndex:1]];
+            NSURL *url = [NSURL URLWithString:link];
+            [attrs setValue:url ? url : link forKey:NSLinkAttributeName];
+        }
+
         NSTextCheckingResult *traitsCheck = [traitsExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
         if (traitsCheck) {
             NSString *traitsString = [styleString substringWithRange:[traitsCheck rangeAtIndex:1]];
             UIFontDescriptorSymbolicTraits traits = [[styleFont fontDescriptor] symbolicTraits];
 
             if ([traitsString rangeOfString:@"b"].location != NSNotFound) traits |= UIFontDescriptorTraitBold;
-            if ([traitsString rangeOfString:@"u"].location != NSNotFound) [attrs setValue:@YES forKey:NSUnderlineStyleAttributeName];
             if ([traitsString rangeOfString:@"i"].location != NSNotFound) traits |= UIFontDescriptorTraitItalic;
-            if ([traitsString rangeOfString:@"s"].location != NSNotFound) [attrs setValue:@YES forKey:NSStrikethroughStyleAttributeName];
+            if ([traitsString rangeOfString:@"u"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSUnderlineStyleAttributeName];
+            if ([traitsString rangeOfString:@"s"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSStrikethroughStyleAttributeName];
+
+            if ([traitsString rangeOfString:@"!b"].location != NSNotFound) traits &= (~UIFontDescriptorTraitBold);
+            if ([traitsString rangeOfString:@"!i"].location != NSNotFound) traits &= (~UIFontDescriptorTraitItalic);
+            if ([traitsString rangeOfString:@"!u"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleNone) forKey:NSUnderlineStyleAttributeName];
+            if ([traitsString rangeOfString:@"!s"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleNone) forKey:NSStrikethroughStyleAttributeName];
 
             UIFontDescriptor *fontDescriptor = [[styleFont fontDescriptor] fontDescriptorWithSymbolicTraits:traits];
             [attrs setValue:[UIFont fontWithDescriptor:fontDescriptor size:fontSize] forKey:NSFontAttributeName];
