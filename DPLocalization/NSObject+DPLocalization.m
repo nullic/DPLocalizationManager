@@ -519,8 +519,11 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 }
 
 - (void)setLocalizedValue:(id)value forKeyPath:(NSString *)keyPath {
-    if ([keyPath isEqualToString:@"placeholderString"] && [self isAttributedKey]) {
-        self.placeholderAttributedString = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:nil];
+    if ([keyPath isEqualToString:@"stringValue"] && [self isAttributedKey]) {
+        self.attributedStringValue = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor];
+    }
+    else if ([keyPath isEqualToString:@"placeholderString"] && [self isAttributedKey]) {
+        self.placeholderAttributedString = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor];
     }
     else {
         [super setLocalizedValue:value forKeyPath:keyPath];

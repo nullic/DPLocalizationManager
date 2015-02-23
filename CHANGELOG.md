@@ -1,5 +1,9 @@
 # DPLocalization CHANGELOG
 
+## 1.5
+- Added OS X support
+- Added Attributed strings format (experemental)
+
 ## 1.4.2
 - Swift support (macro -> "C" function)
 
