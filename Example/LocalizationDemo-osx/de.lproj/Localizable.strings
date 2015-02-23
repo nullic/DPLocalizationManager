@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  LocalizationDemo
+
+  Created by Dmitriy Petrusevich on 23/02/15.
+  Copyright (c) 2015 Dmitriy Petrusevich. All rights reserved.
+*/
+
+"WND_TITLE" = "German";
+"LABEL_TEXT" = "German - %3$@\n%2$@\n%1$@";
+"PLACEHOLDER_TEXT" = "Placeholder (de)";
+
+"MENU_FILE" = "Datei";
+"CHECK_BOX" = "check (de)";
+"TEXTVIEW" = "Text view (de)";
+
+"ITEM_1" = "Item 1 (de)";
+"ITEM_2" = "Item 2 (de)";
+"ITEM_3" = "Item 3 (de)";

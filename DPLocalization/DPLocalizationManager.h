@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DPLocalizationPlatforms.h"
+
 #import "NSObject+DPLocalization.h"
+#import "NSAttributedString+DPLocalization.h"
+
 #import "DPAutolocalizationProxy.h"
 
 
@@ -39,11 +43,12 @@
 
 /**
  @brief Returns a localized version of an image.
- @param name The name for an image in the Localizable.strings table.
+ @param name The name associated with the desired image.
 
  @return Returns a localized version of an image for selected language. If image not found return the result of invoking -[UIImage imageNamed:].
  */
-- (UIImage *)localizedImageNamed:(NSString *)name;
+
+- (DPImage *)localizedImageNamed:(NSString *)name;
 
 /**
  @brief Returns the full pathname for the resource identified by the specified name and file extension for selected language.

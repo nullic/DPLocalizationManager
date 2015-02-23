@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		5822FA1418587335006B05DB /* Localizable1.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5822FA1218587335006B05DB /* Localizable1.strings */; };
+		B29DC3221A9AF46A00AFE219 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B29DC31D1A9AF46A00AFE219 /* AppDelegate.m */; };
+		B29DC3231A9AF46A00AFE219 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B29DC31E1A9AF46A00AFE219 /* Images.xcassets */; };
+		B29DC3251A9AF46A00AFE219 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B29DC3201A9AF46A00AFE219 /* main.m */; };
+		B29DC3261A9AF46A00AFE219 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29DC3211A9AF46A00AFE219 /* MainMenu.xib */; };
+		B29DC3291A9AF4DC00AFE219 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B29DC32B1A9AF4DC00AFE219 /* Localizable.strings */; };
+		B29DC32E1A9AF53300AFE219 /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
+		B29DC32F1A9AF53300AFE219 /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */; };
+		B29DC3301A9AF53300AFE219 /* DPAutolocalizationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DC38B18C99F78004E4BB8 /* DPAutolocalizationProxy.m */; };
+		B29DC3311A9AF53300AFE219 /* NSAttributedString+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DC07121A121A930015BAC3 /* NSAttributedString+DPLocalization.m */; };
+		B29DC3341A9B167700AFE219 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = B29DC3361A9B167700AFE219 /* image.png */; };
 		B2DC07131A121A930015BAC3 /* NSAttributedString+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DC07121A121A930015BAC3 /* NSAttributedString+DPLocalization.m */; };
 		CE3D78C51835EAA10012CA3D /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
 		CE3D78C61835EAA10012CA3D /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */; };
@@ -29,6 +39,20 @@
 		5822FA1318587335006B05DB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable1.strings; sourceTree = "<group>"; };
 		5822FA151858733C006B05DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable1.strings; sourceTree = "<group>"; };
 		5822FA1618587341006B05DB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable1.strings; sourceTree = "<group>"; };
+		B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationPlatforms.h; sourceTree = "<group>"; };
+		B29DC2FB1A9AF43E00AFE219 /* LocalizationDemo-osx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LocalizationDemo-osx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B29DC31C1A9AF46A00AFE219 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B29DC31D1A9AF46A00AFE219 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B29DC31E1A9AF46A00AFE219 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B29DC31F1A9AF46A00AFE219 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B29DC3201A9AF46A00AFE219 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B29DC3211A9AF46A00AFE219 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		B29DC32A1A9AF4DC00AFE219 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B29DC32C1A9AF4F500AFE219 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B29DC32D1A9AF4F600AFE219 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B29DC3351A9B167700AFE219 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/image.png; sourceTree = "<group>"; };
+		B29DC3371A9B167800AFE219 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/image.png; sourceTree = "<group>"; };
+		B29DC3381A9B167800AFE219 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/image.png; sourceTree = "<group>"; };
 		B2DC07111A121A930015BAC3 /* NSAttributedString+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+DPLocalization.h"; sourceTree = "<group>"; };
 		B2DC07121A121A930015BAC3 /* NSAttributedString+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+DPLocalization.m"; sourceTree = "<group>"; };
 		CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationManager.h; sourceTree = "<group>"; };
@@ -61,6 +85,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B29DC2F81A9AF43E00AFE219 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CED8ADF21833502A007E4C60 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,9 +105,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B29DC31B1A9AF46A00AFE219 /* LocalizationDemo-osx */ = {
+			isa = PBXGroup;
+			children = (
+				B29DC31C1A9AF46A00AFE219 /* AppDelegate.h */,
+				B29DC31D1A9AF46A00AFE219 /* AppDelegate.m */,
+				B29DC3211A9AF46A00AFE219 /* MainMenu.xib */,
+				B29DC3361A9B167700AFE219 /* image.png */,
+				B29DC31E1A9AF46A00AFE219 /* Images.xcassets */,
+				B29DC32B1A9AF4DC00AFE219 /* Localizable.strings */,
+				B29DC3201A9AF46A00AFE219 /* main.m */,
+				B29DC31F1A9AF46A00AFE219 /* Info.plist */,
+			);
+			path = "LocalizationDemo-osx";
+			sourceTree = "<group>";
+		};
 		CE3D78C01835EAA10012CA3D /* DPLocalization */ = {
 			isa = PBXGroup;
 			children = (
+				B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */,
 				CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */,
 				CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */,
 				CE3D78C31835EAA10012CA3D /* NSObject+DPLocalization.h */,
@@ -95,6 +142,7 @@
 			children = (
 				CE3D78C01835EAA10012CA3D /* DPLocalization */,
 				CED8ADFE1833502A007E4C60 /* LocalizationDemo */,
+				B29DC31B1A9AF46A00AFE219 /* LocalizationDemo-osx */,
 				CED8ADF71833502A007E4C60 /* Frameworks */,
 				CED8ADF61833502A007E4C60 /* Products */,
 			);
@@ -104,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				CED8ADF51833502A007E4C60 /* LocalizationDemo.app */,
+				B29DC2FB1A9AF43E00AFE219 /* LocalizationDemo-osx.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,6 +199,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B29DC2FA1A9AF43E00AFE219 /* LocalizationDemo-osx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B29DC3151A9AF43F00AFE219 /* Build configuration list for PBXNativeTarget "LocalizationDemo-osx" */;
+			buildPhases = (
+				B29DC2F71A9AF43E00AFE219 /* Sources */,
+				B29DC2F81A9AF43E00AFE219 /* Frameworks */,
+				B29DC2F91A9AF43E00AFE219 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LocalizationDemo-osx";
+			productName = "LocalizationDemo-osx";
+			productReference = B29DC2FB1A9AF43E00AFE219 /* LocalizationDemo-osx.app */;
+			productType = "com.apple.product-type.application";
+		};
 		CED8ADF41833502A007E4C60 /* LocalizationDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CED8AE271833502A007E4C60 /* Build configuration list for PBXNativeTarget "LocalizationDemo" */;
@@ -175,6 +241,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Dmitriy Petrusevich";
+				TargetAttributes = {
+					B29DC2FA1A9AF43E00AFE219 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
 			};
 			buildConfigurationList = CED8ADF01833502A007E4C60 /* Build configuration list for PBXProject "LocalizationDemo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -182,7 +253,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				ru,
 				de,
 			);
@@ -192,11 +262,23 @@
 			projectRoot = "";
 			targets = (
 				CED8ADF41833502A007E4C60 /* LocalizationDemo */,
+				B29DC2FA1A9AF43E00AFE219 /* LocalizationDemo-osx */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B29DC2F91A9AF43E00AFE219 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B29DC3231A9AF46A00AFE219 /* Images.xcassets in Resources */,
+				B29DC3291A9AF4DC00AFE219 /* Localizable.strings in Resources */,
+				B29DC3261A9AF46A00AFE219 /* MainMenu.xib in Resources */,
+				B29DC3341A9B167700AFE219 /* image.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CED8ADF31833502A007E4C60 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -213,6 +295,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B29DC2F71A9AF43E00AFE219 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B29DC3301A9AF53300AFE219 /* DPAutolocalizationProxy.m in Sources */,
+				B29DC32F1A9AF53300AFE219 /* NSObject+DPLocalization.m in Sources */,
+				B29DC3311A9AF53300AFE219 /* NSAttributedString+DPLocalization.m in Sources */,
+				B29DC32E1A9AF53300AFE219 /* DPLocalizationManager.m in Sources */,
+				B29DC3251A9AF46A00AFE219 /* main.m in Sources */,
+				B29DC3221A9AF46A00AFE219 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CED8ADF11833502A007E4C60 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -240,6 +335,26 @@
 			name = Localizable1.strings;
 			sourceTree = "<group>";
 		};
+		B29DC32B1A9AF4DC00AFE219 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B29DC32A1A9AF4DC00AFE219 /* en */,
+				B29DC32C1A9AF4F500AFE219 /* ru */,
+				B29DC32D1A9AF4F600AFE219 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		B29DC3361A9B167700AFE219 /* image.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B29DC3351A9B167700AFE219 /* en */,
+				B29DC3371A9B167800AFE219 /* ru */,
+				B29DC3381A9B167800AFE219 /* de */,
+			);
+			name = image.png;
+			sourceTree = "<group>";
+		};
 		CE8DC39118C9CABF004E4BB8 /* image.png */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -263,6 +378,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B29DC3161A9AF43F00AFE219 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "LocalizationDemo-osx/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B29DC3171A9AF43F00AFE219 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "LocalizationDemo-osx/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		CED8AE251833502A007E4C60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -296,9 +452,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -329,8 +485,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				SDKROOT = iphoneos;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -344,6 +500,7 @@
 				GCC_PREFIX_HEADER = "LocalizationDemo/LocalizationDemo-Prefix.pch";
 				INFOPLIST_FILE = "LocalizationDemo/LocalizationDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -357,6 +514,7 @@
 				GCC_PREFIX_HEADER = "LocalizationDemo/LocalizationDemo-Prefix.pch";
 				INFOPLIST_FILE = "LocalizationDemo/LocalizationDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -364,6 +522,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B29DC3151A9AF43F00AFE219 /* Build configuration list for PBXNativeTarget "LocalizationDemo-osx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B29DC3161A9AF43F00AFE219 /* Debug */,
+				B29DC3171A9AF43F00AFE219 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		CED8ADF01833502A007E4C60 /* Build configuration list for PBXProject "LocalizationDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

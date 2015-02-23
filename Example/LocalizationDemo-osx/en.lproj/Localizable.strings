@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  LocalizationDemo
+
+  Created by Dmitriy Petrusevich on 23/02/15.
+  Copyright (c) 2015 Dmitriy Petrusevich. All rights reserved.
+*/
+
+"WND_TITLE" = "English";
+"LABEL_TEXT" = "English - <size=20>{%1$@}\n%2$@\n<color=12,56,189>{%3$@}";
+"PLACEHOLDER_TEXT" = "Placeholder (en)";
+
+"MENU_FILE" = "File";
+"CHECK_BOX" = "check (en)";
+"TEXTVIEW" = "Text view (en)";
+
+"ITEM_1" = "Item 1 (en)";
+"ITEM_2" = "Item 2 (en)";
+"ITEM_3" = "Item 3 (en)";

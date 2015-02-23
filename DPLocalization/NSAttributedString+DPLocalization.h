@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "DPLocalizationPlatforms.h"
 
 @interface NSAttributedString (DPLocalization)
-+ (NSAttributedString *)dp_attibutedStringWithString:(NSString *)string font:(UIFont *)font textColor:(UIColor *)textColor;
++ (NSAttributedString *)dp_attibutedStringWithString:(NSString *)string font:(DPFont *)font textColor:(DPColor *)textColor;
 @end

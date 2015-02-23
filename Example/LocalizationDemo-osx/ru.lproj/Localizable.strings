@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  LocalizationDemo
+
+  Created by Dmitriy Petrusevich on 23/02/15.
+  Copyright (c) 2015 Dmitriy Petrusevich. All rights reserved.
+*/
+
+"WND_TITLE" = "Russian";
+"LABEL_TEXT" = "Russian - %3$@\n%1$@\n%2$@";
+"PLACEHOLDER_TEXT" = "Placeholder (ru)";
+
+"MENU_FILE" = "Файл";
+"CHECK_BOX" = "check (ru)";
+"TEXTVIEW" = "Text view (ru)";
+
+"ITEM_1" = "Item 1 (ru)";
+"ITEM_2" = "Item 2 (ru)";
+"ITEM_3" = "Item 3 (ru)";

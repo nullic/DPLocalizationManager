@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "DPLocalizationPlatforms.h"
 
 @interface DPAutolocalizationProxy : NSProxy <NSCopying>
 /**
@@ -32,10 +32,10 @@
 
 /**
  @brief Returns a localized version of an image.
- @param name    The name for an image in the Localizable.strings table.
+ @param name    The name associated with the desired image.
 
  @discussion Value is equal to invoking [[DPLocalizationManager currentManager] localizedImageNamed:name].
  @return Proxy object which value depended from selected language.
  */
-+ (UIImage *)autolocalizingImageNamed:(NSString *)name;
++ (DPImage *)autolocalizingImageNamed:(NSString *)name;
 @end

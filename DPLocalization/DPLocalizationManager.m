@@ -95,13 +95,19 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     return result ? result : NSLocalizedString(key, nil);
 }
 
-- (UIImage *)localizedImageNamed:(NSString *)name {
-    UIImage *result = nil;
+- (DPImage *)localizedImageNamed:(NSString *)name {
+    DPImage *result = nil;
     if (name && self.currentLanguage) {
-        NSString *path = [[NSString stringWithFormat:@"%@.lproj", self.currentLanguage] stringByAppendingPathComponent:name];
-        result = [UIImage imageNamed:path];
+        NSString *localizationPath = [NSString stringWithFormat:@"%@.lproj", self.currentLanguage];
+#if DPLocalization_UIKit
+        NSString *imageNamePath = [localizationPath stringByAppendingPathComponent:name];
+        result = [DPImage imageNamed:imageNamePath];
+#elif DPLocalization_AppKit
+        NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:localizationPath];
+        result = [[NSBundle bundleWithPath:bundlePath] imageForResource:name];
+#endif
     }
-    return result ? result : [UIImage imageNamed:name];
+    return result ? result : [DPImage imageNamed:name];
 }
 
 - (NSString *)localizedPathForResource:(NSString *)name ofType:(NSString *)extension bundle:(NSBundle *)bundle {

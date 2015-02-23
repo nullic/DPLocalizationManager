@@ -10,7 +10,7 @@
 
 @implementation NSAttributedString (DPLocalization)
 
-+ (NSAttributedString *)dp_attibutedStringWithString:(NSString *)string font:(UIFont *)font textColor:(UIColor *)textColor {
++ (NSAttributedString *)dp_attibutedStringWithString:(NSString *)string font:(DPFont *)font textColor:(DPColor *)textColor {
     NSMutableAttributedString *attrsString = nil;
 
     if (string) {
@@ -39,7 +39,7 @@
     return attrsString;
 }
 
-+ (NSDictionary *)stylesFromSting:(NSString *)styleString font:(UIFont *)font {
++ (NSDictionary *)stylesFromSting:(NSString *)styleString font:(DPFont *)font {
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
 
     static NSRegularExpression *nameExp = nil;
@@ -73,14 +73,18 @@
         CGFloat g = [[styleString substringWithRange:[colorCheck rangeAtIndex:2]] floatValue] / 255.0;
         CGFloat b = [[styleString substringWithRange:[colorCheck rangeAtIndex:3]] floatValue] / 255.0;
         CGFloat a = ([colorCheck rangeAtIndex:4].location != NSNotFound) ? ([[[styleString substringWithRange:[colorCheck rangeAtIndex:4]] substringFromIndex:1] floatValue] / 255.0) : 1.0;
-        [attrs setValue:[UIColor colorWithRed:r green:g blue:b alpha:a] forKey:NSForegroundColorAttributeName];
+        [attrs setValue:[DPColor colorWithRed:r green:g blue:b alpha:a] forKey:NSForegroundColorAttributeName];
     }
 
-    UIFont *styleFont = [UIFont fontWithName:fontName size:fontSize];
+    DPFont *styleFont = [DPFont fontWithName:fontName size:fontSize];
+
+#if DPLocalization_UIKit
     if (NSFoundationVersionNumber < NSFoundationVersionNumber_iOS_7_0) {
         [attrs setValue:styleFont forKey:NSFontAttributeName];
     }
-    else {
+    else
+#endif
+    {
         NSTextCheckingResult *linkCheck = [linkExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
         if (linkCheck) {
             NSString *link = [styleString substringWithRange:[linkCheck rangeAtIndex:1]];
@@ -91,20 +95,20 @@
         NSTextCheckingResult *traitsCheck = [traitsExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
         if (traitsCheck) {
             NSString *traitsString = [styleString substringWithRange:[traitsCheck rangeAtIndex:1]];
-            UIFontDescriptorSymbolicTraits traits = [[styleFont fontDescriptor] symbolicTraits];
+            DPFontSymbolicTraits traits = [[styleFont fontDescriptor] symbolicTraits];
 
-            if ([traitsString rangeOfString:@"b"].location != NSNotFound) traits |= UIFontDescriptorTraitBold;
-            if ([traitsString rangeOfString:@"i"].location != NSNotFound) traits |= UIFontDescriptorTraitItalic;
+            if ([traitsString rangeOfString:@"b"].location != NSNotFound) traits |= DPFontTraitBold;
+            if ([traitsString rangeOfString:@"i"].location != NSNotFound) traits |= DPFontTraitItalic;
+            if ([traitsString rangeOfString:@"!b"].location != NSNotFound) traits &= (~DPFontTraitBold);
+            if ([traitsString rangeOfString:@"!i"].location != NSNotFound) traits &= (~DPFontTraitItalic);
+
             if ([traitsString rangeOfString:@"u"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSUnderlineStyleAttributeName];
             if ([traitsString rangeOfString:@"s"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSStrikethroughStyleAttributeName];
-
-            if ([traitsString rangeOfString:@"!b"].location != NSNotFound) traits &= (~UIFontDescriptorTraitBold);
-            if ([traitsString rangeOfString:@"!i"].location != NSNotFound) traits &= (~UIFontDescriptorTraitItalic);
             if ([traitsString rangeOfString:@"!u"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleNone) forKey:NSUnderlineStyleAttributeName];
             if ([traitsString rangeOfString:@"!s"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleNone) forKey:NSStrikethroughStyleAttributeName];
 
-            UIFontDescriptor *fontDescriptor = [[styleFont fontDescriptor] fontDescriptorWithSymbolicTraits:traits];
-            [attrs setValue:[UIFont fontWithDescriptor:fontDescriptor size:fontSize] forKey:NSFontAttributeName];
+            DPFontDescriptor *fontDescriptor = [[styleFont fontDescriptor] fontDescriptorWithSymbolicTraits:traits];
+            [attrs setValue:[DPFont fontWithDescriptor:fontDescriptor size:fontSize] forKey:NSFontAttributeName];
         }
         else {
             [attrs setValue:styleFont forKey:NSFontAttributeName];

@@ -101,10 +101,9 @@ static NSString * const kLocalizationBundleKey = @"bundle";
     return (NSString *)[[DPAutolocalizingPath alloc] initWithOptions:opts];
 }
 
-+ (UIImage *)autolocalizingImageNamed:(NSString *)imageName {
++ (DPImage *)autolocalizingImageNamed:(NSString *)imageName {
     NSParameterAssert(imageName != nil);
-
-    return (UIImage *)[[DPAutolocalizingImage alloc] initWithOptions:@{kLocalizationImageNameKey : imageName}];
+    return (DPImage *)[[DPAutolocalizingImage alloc] initWithOptions:@{kLocalizationImageNameKey : imageName}];
 }
 
 #pragma mark -
