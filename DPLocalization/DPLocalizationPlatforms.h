@@ -1,6 +1,6 @@
 //
 //  DPLocalizationPlatforms.h
-//  PostTrack
+//  DP Commons
 //
 //  Created by Dmitriy Petrusevich on 17/02/15.
 //  Copyright (c) 2015 Dmitriy Petrusevich. All rights reserved.

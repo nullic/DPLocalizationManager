@@ -11,6 +11,7 @@
 
 
 static NSString * const kLocalizationKeyKey = @"key";
+static NSString * const kLocalizationTableKey = @"table";
 static NSString * const kLocalizationImageNameKey = @"imageName";
 static NSString * const kLocalizationResourseNameKey = @"resourseName";
 static NSString * const kLocalizationResourseTypeKey = @"resourseType";
@@ -35,7 +36,7 @@ static NSString * const kLocalizationBundleKey = @"bundle";
 - (id)surrogate {
     @synchronized(self) {
         if (!self->surrogate) {
-            self->surrogate = DPLocalizedString(self.options[kLocalizationKeyKey], nil);
+            self->surrogate = DPLocalizedStringFromTable(self.options[kLocalizationKeyKey], self.options[kLocalizationTableKey], nil);
         }
         return self->surrogate;
     }
@@ -85,9 +86,17 @@ static NSString * const kLocalizationBundleKey = @"bundle";
 @implementation DPAutolocalizationProxy
 
 + (NSString *)autolocalizingStringWithLocalizationKey:(NSString *)localizationKey {
+    return [self autolocalizingStringWithLocalizationKey:localizationKey tableName:nil];
+}
+
++ (NSString *)autolocalizingStringWithLocalizationKey:(NSString *)localizationKey tableName:(NSString *)tableName {
     NSParameterAssert(localizationKey != nil);
 
-    return (NSString *)[[DPAutolocalizingString alloc] initWithOptions:@{kLocalizationKeyKey : localizationKey}];
+    NSMutableDictionary *options = [NSMutableDictionary dictionaryWithCapacity:2];
+    [options setValue:localizationKey forKey:kLocalizationKeyKey];
+    [options setValue:tableName forKey:kLocalizationTableKey];
+
+    return (NSString *)[[DPAutolocalizingString alloc] initWithOptions:options];
 }
 
 + (NSString *)autolocalizingPathForResource:(NSString *)name ofType:(NSString *)ext inBundle:(NSBundle *)bundle {

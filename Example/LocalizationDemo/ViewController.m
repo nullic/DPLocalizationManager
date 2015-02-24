@@ -37,7 +37,6 @@
 //    CFShow((__bridge CFTypeRef)(alStr));
 //    CFShow((__bridge CFTypeRef)(alPath));
 
-
     self.imageView.autolocalizationImageName = @"image";
 
     self.startup.text = DPLocalizedString(@"TITLE", nil);
@@ -73,13 +72,13 @@
 {
     switch (self.fileSelector.selectedSegmentIndex) {
         case 0:
-            dp_set_current_filename(@"Localizable");
+            [DPLocalizationManager currentManager].defaultStringTableName = @"Localizable";
             break;
         case 1:
-            dp_set_current_filename(@"Localizable1");
+            [DPLocalizationManager currentManager].defaultStringTableName = @"Localizable1";
             break;
         default:
-            dp_set_current_filename(nil);
+            [DPLocalizationManager currentManager].defaultStringTableName = nil;
             break;
     }
 }

@@ -1,5 +1,8 @@
 # DPLocalization CHANGELOG
 
+## 1.6
+- Added Multiple string tables support
+
 ## 1.5
 - Added OS X support
 - Added Attributed strings format (experemental)

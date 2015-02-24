@@ -13,13 +13,13 @@ NSString * const DPLanguageDidChangeNotification = @"DPLanguageDidChangeNotifica
 NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 
 @interface DPLocalizationManager ()
-@property (nonatomic, strong) NSDictionary *localizationStrings;
+@property (nonatomic, strong) NSMutableDictionary *tables;
 @end
 
 @implementation DPLocalizationManager
 
 @synthesize currentLanguage = _currentLanguage;
-@synthesize localizationFileName = _localizationFileName;
+@synthesize defaultStringTableName = _defaultStringTableName;
 
 - (NSString *)currentLanguage {
     if (!_currentLanguage) {
@@ -36,7 +36,8 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 
     if (newLanguage != _currentLanguage && !(newLanguage && [_currentLanguage isEqualToString:newLanguage])) {
         _currentLanguage = newLanguage;
-        self.localizationStrings = nil;
+        [self.tables removeAllObjects];
+
         [[NSNotificationCenter defaultCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
 
         [[NSUserDefaults standardUserDefaults] setObject:newLanguage forKey:DPLanguagePreferenceKey];
@@ -44,15 +45,31 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     }
 }
 
-- (NSDictionary *)localizationStrings {
-    if (!_localizationStrings && self.currentLanguage) {
-        NSString *localizationFileName = self.localizationFileName;
-        NSString *path = [[NSBundle mainBundle] pathForResource:localizationFileName ofType:@"strings" inDirectory:nil forLocalization:self.currentLanguage];
-        path = path ? path : [[NSBundle mainBundle] pathForResource:localizationFileName ofType:@"strings"];
-        _localizationStrings = path ? [NSDictionary dictionaryWithContentsOfFile:path] : @{};
+- (NSMutableDictionary *)tables {
+    if (!_tables) {
+        _tables = [[NSMutableDictionary alloc] init];
     }
-    
-    return _localizationStrings;
+    return _tables;
+}
+
+- (void)loadTableNamedIfNeeded:(NSString *)tableName {
+    if (tableName && self.tables[tableName] == nil && self.currentLanguage) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:tableName ofType:@"strings" inDirectory:nil forLocalization:self.currentLanguage];
+        path = path ? path : [[NSBundle mainBundle] pathForResource:tableName ofType:@"strings"];
+        NSDictionary *tableContent = path ? [NSDictionary dictionaryWithContentsOfFile:path] : nil;
+        self.tables[tableName] = tableContent ? tableContent : @{};
+    }
+}
+
+- (NSString *)defaultStringTableName {
+    return _defaultStringTableName ? _defaultStringTableName : @"Localizable";
+}
+
+- (void)setDefaultStringTableName:(NSString *)defaultStringTableName {
+    if ([defaultStringTableName isEqualToString:[self defaultStringTableName]] == NO) {
+        _defaultStringTableName = [defaultStringTableName copy];
+        [[NSNotificationCenter defaultCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
+    }
 }
 
 #pragma mark -
@@ -89,10 +106,18 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 #pragma mark - Localization
 
 - (NSString *)localizedStringForKey:(NSString *)key {
+    return [self localizedStringForKey:key table:self.defaultStringTableName];
+}
+
+- (NSString *)localizedStringForKey:(NSString *)key table:(NSString *)table {
     NSParameterAssert([key isKindOfClass:[NSString class]]);
-    
-    NSString *result = self.localizationStrings[key];
-    return result ? result : NSLocalizedString(key, nil);
+    NSParameterAssert([table isKindOfClass:[NSString class]] || table == nil);
+
+    NSString *tableName = [table length] ? table : self.defaultStringTableName;
+    [self loadTableNamedIfNeeded:tableName];
+
+    NSString *result = self.tables[tableName][key];
+    return result ? result : NSLocalizedStringFromTable(key, tableName, nil);
 }
 
 - (DPImage *)localizedImageNamed:(NSString *)name {
@@ -174,29 +199,30 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     return result ? result : (preferredLanguages.count ? preferredLanguages[0] : nil);
 }
 
-- (void)setLocalizationFileName:(NSString *)localizationFileName
-{
-    _localizationFileName = localizationFileName;
-    
-    self.localizationStrings = nil;
-    [[NSNotificationCenter defaultCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
+#pragma mark - Deprecated
+
+- (void)setLocalizationFileName:(NSString *)localizationFileName {
+    [self setDefaultStringTableName:localizationFileName];
 }
 
-- (NSString *)localizationFileName
-{
-    if (!_localizationFileName) {
-        _localizationFileName = @"Localizable";
-    }
-    
-    return _localizationFileName;
+- (NSString *)localizationFileName {
+    return [self defaultStringTableName];
 }
 
 @end
 
-#pragma mark - 
+
+#pragma mark -
+#pragma mark "C" Functions
+#pragma mark -
+
 
 NSString * DPLocalizedString(NSString *key, NSString *comment) {
     return [[DPLocalizationManager currentManager] localizedStringForKey:key];
+}
+
+NSString * DPLocalizedStringFromTable(NSString *key, NSString *table, NSString *comment) {
+    return [[DPLocalizationManager currentManager] localizedStringForKey:key table:table];
 }
 
 NSString * DPAutolocalizedString(NSString *key, NSString *comment) {
@@ -218,6 +244,8 @@ NSString * dp_get_language_display_name(NSString *lang) {
 NSString * dp_get_current_language_display_name() {
     return dp_get_language_display_name(dp_get_current_language());
 }
+
+#pragma mark Deprecated
 
 NSString * dp_get_current_filename() {
     return [[DPLocalizationManager currentManager] localizationFileName];

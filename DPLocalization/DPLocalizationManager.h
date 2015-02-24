@@ -27,6 +27,12 @@
 @property (nonatomic, copy) NSString *currentLanguage;
 
 /**
+ @property defaultStringsTableName
+ @brief Default string table name used for localization.
+ */
+@property(nonatomic, copy) NSString *defaultStringTableName;
+
+/**
  @brief Returns shared DPLocalizationManager object.
 
  @return Returns instance used for control locazition.
@@ -35,15 +41,24 @@
 
 /**
  @brief Returns a localized version of a string.
- @param key The key for a string in the Localizable.strings table.
+ @param key     The key for a string in the -[self defaultStringsTableName] table.
 
- @return Returns a localized version of a string for selected language. If string not found return the result of NSLocalizedString macro.
+ @return The result is invoking of -[self localizedStringForKey:key table:self.defaultStringsTableName].
  */
 - (NSString *)localizedStringForKey:(NSString *)key;
 
 /**
+ @brief Returns a localized version of a string.
+ @param key     The key for a string in the table identified by tableName.
+ @param table   The receiver’s string table to search. If tableName is nil or is an empty string, the method attempts to use the table in Localizable.strings.
+ 
+ @return Returns a localized version of a string for selected language. If string not found return the result of NSLocalizedStringFromTable macro.
+ */
+- (NSString *)localizedStringForKey:(NSString *)key table:(NSString *)table;
+
+/**
  @brief Returns a localized version of an image.
- @param name The name associated with the desired image.
+ @param name    The name associated with the desired image.
 
  @return Returns a localized version of an image for selected language. If image not found return the result of invoking -[UIImage imageNamed:].
  */
@@ -52,9 +67,9 @@
 
 /**
  @brief Returns the full pathname for the resource identified by the specified name and file extension for selected language.
- @param name The name of the resource file.
- @param extension If extension is an empty string or nil, the extension is assumed not to exist and the file is the first file encountered that exactly matches name.
- @param bundle If bundle is nil, the bundle is assumed as main bundle.
+ @param name        The name of the resource file.
+ @param extension   If extension is an empty string or nil, the extension is assumed not to exist and the file is the first file encountered that exactly matches name.
+ @param bundle      If bundle is nil, the bundle is assumed as main bundle.
 
  @return The result is invoking of [bundle pathForResource:name ofType:extension inDirectory:nil forLocalization:currentLanguage]. If result is nil return [bundle pathForResource:name ofType:extension] instead.
  */
@@ -74,12 +89,13 @@
  */
 + (NSString *)preferredLanguage;
 
-@property(nonatomic, copy) NSString *localizationFileName;
+@property(nonatomic, copy) NSString *localizationFileName DEPRECATED_MSG_ATTRIBUTE("Use 'defaultStringTableName' property. This property will be removed in further releases.");
 
 @end
 
 
 NSString * DPLocalizedString(NSString *key, NSString *comment);
+NSString * DPLocalizedStringFromTable(NSString *key, NSString *table, NSString *comment);
 NSString * DPAutolocalizedString(NSString *key, NSString *comment);
 
 NSString * dp_get_current_language();
@@ -88,8 +104,8 @@ void dp_set_current_language(NSString *lang);
 NSString * dp_get_language_display_name(NSString *lang);
 NSString * dp_get_current_language_display_name();
 
-NSString * dp_get_current_filename();
-void dp_set_current_filename(NSString *filename);
+NSString * dp_get_current_filename() DEPRECATED_ATTRIBUTE;
+void dp_set_current_filename(NSString *filename) DEPRECATED_ATTRIBUTE;
 
 /**
  @brief Notification posted by DPLocalizationManager after currentLanguage property did changed.
