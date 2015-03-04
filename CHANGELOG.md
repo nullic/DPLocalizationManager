@@ -1,5 +1,11 @@
 # DPLocalization CHANGELOG
 
+## 1.6.1
+- Fixed Set current language to 'nil' before reading
+- Added 'Proxy object' now may be used as element od arguments array (see -[setupAutolocalizationWithKey: keyPath: arguments:])
+- Added Support 'u' and 's' traits attribute for iOS < 7.0
+- Added DPAutolocalizedStringFromTable(key, tableName, comment) function
+
 ## 1.6
 - Added Multiple string tables support
 

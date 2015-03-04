@@ -85,6 +85,17 @@ static NSString * const kLocalizationBundleKey = @"bundle";
 
 @implementation DPAutolocalizationProxy
 
++ (NSNotificationCenter *)notificationCenter {
+    static dispatch_once_t onceToken;
+    static NSNotificationCenter *notificationCenter = nil;
+    dispatch_once(&onceToken, ^{
+        notificationCenter = [[NSNotificationCenter alloc] init];
+    });
+    return notificationCenter;
+}
+
+#pragma mark -
+
 + (NSString *)autolocalizingStringWithLocalizationKey:(NSString *)localizationKey {
     return [self autolocalizingStringWithLocalizationKey:localizationKey tableName:nil];
 }
@@ -120,7 +131,7 @@ static NSString * const kLocalizationBundleKey = @"bundle";
 + (instancetype)alloc {
     DPAutolocalizationProxy *result = [super alloc];
     if (result) {
-        [[NSNotificationCenter defaultCenter] addObserver:result selector:@selector(languageDidChangeNotification:) name:DPLanguageDidChangeNotification object:nil];
+        [[self notificationCenter] addObserver:result selector:@selector(languageDidChangeNotification:) name:DPLanguageDidChangeNotification object:nil];
     }
     return result;
 }
@@ -135,9 +146,8 @@ static NSString * const kLocalizationBundleKey = @"bundle";
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[[self class] notificationCenter] removeObserver:self];
 }
-
 
 #pragma mark -
 

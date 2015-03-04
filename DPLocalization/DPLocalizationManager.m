@@ -33,11 +33,13 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 - (void)setCurrentLanguage:(NSString *)currentLanguage {
     NSString *newLanguage = ([currentLanguage isKindOfClass:[NSString class]]) ? [currentLanguage stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : nil;
     newLanguage = (newLanguage.length == 0) ? nil : newLanguage;
+    NSString *curLang = [self currentLanguage];
 
-    if (newLanguage != _currentLanguage && !(newLanguage && [_currentLanguage isEqualToString:newLanguage])) {
+    if (newLanguage != curLang && !(newLanguage && [curLang isEqualToString:newLanguage])) {
         _currentLanguage = newLanguage;
         [self.tables removeAllObjects];
 
+        [[DPAutolocalizationProxy notificationCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
 
         [[NSUserDefaults standardUserDefaults] setObject:newLanguage forKey:DPLanguagePreferenceKey];
@@ -68,6 +70,8 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 - (void)setDefaultStringTableName:(NSString *)defaultStringTableName {
     if ([defaultStringTableName isEqualToString:[self defaultStringTableName]] == NO) {
         _defaultStringTableName = [defaultStringTableName copy];
+        
+        [[DPAutolocalizationProxy notificationCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
     }
 }
@@ -227,6 +231,10 @@ NSString * DPLocalizedStringFromTable(NSString *key, NSString *table, NSString *
 
 NSString * DPAutolocalizedString(NSString *key, NSString *comment) {
     return [DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:key];
+}
+
+NSString * DPAutolocalizedStringFromTable(NSString *key, NSString *tableName, NSString *comment) {
+    return [DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:key tableName:tableName];
 }
 
 NSString * dp_get_current_language() {

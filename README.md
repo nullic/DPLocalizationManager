@@ -51,7 +51,7 @@ Output example:
 
 ## Attributed strings
 
-Some contols are support attributed values. You can specify attributes using special format (<**attributes**>{**string**}), it also reqire to set ```isAttributedKey``` property to ```YES```. Attributes will apply to string inside {}, other parts will use parameters specified by control. For example:
+Some contols (since iOS 6) are support attributed values. You can specify attributes using special format (<**attributes**>{**string**}), it also reqire to set ```isAttributedKey``` property to ```YES```. Attributes will apply for string inside {}, other parts will use parameters specified by control. For example:
 ```
 /* Localizable.strings */
 "TITLE" = "English <color=12,56,189 size=12>{(en)}";

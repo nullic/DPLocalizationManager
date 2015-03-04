@@ -89,23 +89,57 @@
  */
 + (NSString *)preferredLanguage;
 
-@property(nonatomic, copy) NSString *localizationFileName DEPRECATED_MSG_ATTRIBUTE("Use 'defaultStringTableName' property. This property will be removed in further releases.");
+@property(nonatomic, copy) NSString *localizationFileName DEPRECATED_MSG_ATTRIBUTE("Use 'defaultStringTableName' property instead. This property will be removed in further releases.");
 
 @end
 
 
+/**
+ @return The result is invoking of [[DPLocalizationManager currentManager] localizedStringForKey:key];
+ */
 NSString * DPLocalizedString(NSString *key, NSString *comment);
+
+/**
+ @return The result is invoking of [[DPLocalizationManager currentManager] localizedStringForKey:key table:table];
+ */
 NSString * DPLocalizedStringFromTable(NSString *key, NSString *table, NSString *comment);
+
+/**
+ @return The result is invoking of [DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:key];
+ */
 NSString * DPAutolocalizedString(NSString *key, NSString *comment);
 
+/**
+ @return The result is invoking of [DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:key tableName:tableName];
+ */
+NSString * DPAutolocalizedStringFromTable(NSString *key, NSString *tableName, NSString *comment);
+
+/**
+ @return The result is invoking of [[DPLocalizationManager currentManager] currentLanguage];
+ */
 NSString * dp_get_current_language();
+
+/**
+ @brief Equal to [[DPLocalizationManager currentManager] setCurrentLanguage:lang];
+ */
 void dp_set_current_language(NSString *lang);
 
+
+/**
+ @brief     Return language name that can be shown to user.
+ @param     lang Language code (i.e.: "en", "ru", "fr" and etc.)
+ @return    The result is invoking of [[[[NSLocale alloc] initWithLocaleIdentifier:lang] displayNameForKey:NSLocaleIdentifier value:lang] capitalizedString];
+ */
 NSString * dp_get_language_display_name(NSString *lang);
+
+/**
+ @return    The result is invoking of dp_get_language_display_name(dp_get_current_language())
+ */
 NSString * dp_get_current_language_display_name();
 
-NSString * dp_get_current_filename() DEPRECATED_ATTRIBUTE;
-void dp_set_current_filename(NSString *filename) DEPRECATED_ATTRIBUTE;
+
+NSString * dp_get_current_filename() DEPRECATED_MSG_ATTRIBUTE("Use 'defaultStringTableName' property instead. This function will be removed in further releases.");
+void dp_set_current_filename(NSString *filename) DEPRECATED_MSG_ATTRIBUTE("Use 'defaultStringTableName' property instead. This function will be removed in further releases.");
 
 /**
  @brief Notification posted by DPLocalizationManager after currentLanguage property did changed.

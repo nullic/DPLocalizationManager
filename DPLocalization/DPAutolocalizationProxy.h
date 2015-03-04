@@ -10,6 +10,13 @@
 #import "DPLocalizationPlatforms.h"
 
 @interface DPAutolocalizationProxy : NSProxy <NSCopying>
+
+/**
+ @return            Notification center user for deviler notification to proxy objects.
+ @discussion        DPLocalizationManager post DPLanguageDidChangeNotification notification via +[DPAutolocalizationProxy notificationCenter], then post via +[NSNotificationCenter defaultCenter].
+ */
++ (NSNotificationCenter *)notificationCenter;
+
 /**
  @brief             Return a localized version of a string.
  @param key         The key for a string in the [[DPLocalizationManager currentManager] defaultStringsTableName] table.

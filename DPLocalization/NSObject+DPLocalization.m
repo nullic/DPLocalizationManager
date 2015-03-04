@@ -138,7 +138,7 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
                 usedIndex = ([index integerValue] - 1);
             }
 
-            id subs = arguments.count > idx ? arguments[usedIndex] : nil;
+            id subs = (arguments.count > usedIndex) ? arguments[usedIndex] : nil;
             [mutableStr replaceCharactersInRange:match.range withString:[subs description]];
         }];
 
