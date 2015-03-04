@@ -9,3 +9,10 @@
 "TITLE" = "English";
 "LABEL_TEXT" = "English - <traits=ibus size=12>{%1$@}\n%2$@\n<names=\"Courier-BoldOblique\" color=12,56,189>{%3$@}";
 "TEXTVIEW_TEXT" = "English\n\nUITextView text. <link=\"https://github.com/nullic/DPLocalizationManager\">{link to DPLocalizationManager} \n\nSee user defined runtime attributes in storyboard.";
+
+
+"TESTS_STRING" = "en";
+"TESTS_STRING_ARGS_1" = "en %@ %@ %@";
+"TESTS_STRING_ARGS_2" = "en %3$@ %1$@ %2$@";
+"TESTS_STRING_ARGS_3" = "en %1$@ %1$@ %1$@";
+"TESTS_STRING_ARGS_4" = "en %2$@ %3$@ %4$@";

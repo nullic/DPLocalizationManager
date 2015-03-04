@@ -20,14 +20,38 @@
                ReferencedContainer = "container:LocalizationDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B294056B1AA439180049BF70"
+               BuildableName = "Localization Tests iOS.xctest"
+               BlueprintName = "Localization Tests iOS"
+               ReferencedContainer = "container:LocalizationDemo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      buildConfiguration = "Testing">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B294056B1AA439180049BF70"
+               BuildableName = "Localization Tests iOS.xctest"
+               BlueprintName = "Localization Tests iOS"
+               ReferencedContainer = "container:LocalizationDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

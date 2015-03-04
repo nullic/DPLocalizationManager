@@ -9,3 +9,10 @@
 "TITLE" = "German";
 "LABEL_TEXT" = "German - %3$@\n%2$@\n<traits=bi>{%1$@}";
 "TEXTVIEW_TEXT" = "German\n\nUITextView text.\n\nSee user defined runtime attributes in storyboard.";
+
+
+"TESTS_STRING" = "de";
+"TESTS_STRING_ARGS_1" = "de %@ %@ %@";
+"TESTS_STRING_ARGS_2" = "de %3$@ %1$@ %2$@";
+"TESTS_STRING_ARGS_3" = "de %1$@ %1$@ %1$@";
+"TESTS_STRING_ARGS_4" = "de %2$@ %3$@ %4$@";
