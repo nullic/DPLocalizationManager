@@ -1,0 +1,3 @@
+language: objective-c
+xcode_project: Example/LocalizationDemo.xcodeproj
+xcode_scheme: LocalizationDemo

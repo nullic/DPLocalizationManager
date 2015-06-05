@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/nullic/DPLocalizationManager.svg)](https://travis-ci.org/nullic/DPLocalizationManager)
+ 
+
 # DPLocalization
 
 DPLocalization provide easy enough way to change localization inside application.
