@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.org/nullic/DPLocalizationManager.svg)](https://travis-ci.org/nullic/DPLocalizationManager)
+[![Version](https://img.shields.io/cocoapods/v/DPLocalization.svg?style=flat)](http://cocoapods.org/pods/DPLocalization)
+[![License](https://img.shields.io/cocoapods/l/DPLocalization.svg?style=flat)](http://cocoapods.org/pods/DPLocalization)
+[![Platform](https://img.shields.io/cocoapods/p/DPLocalization.svg?style=flat)](http://cocoapods.org/pods/DPLocalization)
  
 
 # DPLocalization

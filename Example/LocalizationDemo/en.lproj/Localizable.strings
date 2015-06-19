@@ -8,7 +8,7 @@
 
 "TITLE" = "English";
 "LABEL_TEXT" = "English - <traits=ibus size=12>{%1$@}\n%2$@\n<names=\"Courier-BoldOblique\" color=12,56,189>{%3$@}";
-"TEXTVIEW_TEXT" = "English\n\nUITextView text. <link=\"https://github.com/nullic/DPLocalizationManager\">{link to DPLocalizationManager} \n\nSee user defined runtime attributes in storyboard.";
+"TEXTVIEW_TEXT" = "English\n\nUITextView text. <link=\"https://github.com/nullic/DPLocalizationManager\" traits=b>{link to DPLocalizationManager} \n\nSee user defined runtime attributes in storyboard.";
 
 
 "TESTS_STRING" = "en";

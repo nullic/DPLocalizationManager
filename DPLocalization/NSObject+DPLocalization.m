@@ -320,7 +320,13 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 - (void)setLocalizedValue:(id)value forKeyPath:(NSString *)keyPath {
     if ([self isAttributedKey]) {
-        self.attributedText = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor];
+        NSMutableAttributedString *attrStr = [[NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor] mutableCopy];
+
+        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        paragraph.alignment = self.textAlignment;
+        [attrStr addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, attrStr.length)];
+
+        self.attributedText = attrStr;
     }
     else {
         [super setLocalizedValue:value forKeyPath:keyPath];

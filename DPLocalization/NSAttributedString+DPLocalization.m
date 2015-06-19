@@ -76,7 +76,7 @@
         [attrs setValue:[DPColor colorWithRed:r green:g blue:b alpha:a] forKey:NSForegroundColorAttributeName];
     }
 
-    DPFont *styleFont = [DPFont fontWithName:fontName size:fontSize];
+    DPFont *styleFont = font ? [DPFont fontWithName:fontName size:fontSize] : nil;
 
 #if DPLocalization_UIKit
     if (NSFoundationVersionNumber < NSFoundationVersionNumber_iOS_7_0) {

@@ -1,5 +1,8 @@
 # DPLocalization CHANGELOG
 
+## 1.6.2
+- Fixed UITextView incorrect text alignment
+
 ## 1.6.1
 - Fixed Set current language to 'nil' before reading
 - Added 'Proxy object' now may be used as element od arguments array (see -[setupAutolocalizationWithKey: keyPath: arguments:])
