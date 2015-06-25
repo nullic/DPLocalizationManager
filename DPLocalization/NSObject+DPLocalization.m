@@ -133,8 +133,9 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
         NSMutableString *mutableStr = [resultString mutableCopy];
         [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *match, NSUInteger idx, BOOL *stop) {
             NSUInteger usedIndex = idx;
-            if (match.range.length > 2) {
-                NSString *index = [resultString substringWithRange:NSMakeRange(match.range.location + 1, match.range.length - 3)];
+            NSRange indexRandge = [match rangeAtIndex:1];
+            if (indexRandge.location != NSNotFound) {
+                NSString *index = [resultString substringWithRange:indexRandge];
                 usedIndex = ([index integerValue] - 1);
             }
 
