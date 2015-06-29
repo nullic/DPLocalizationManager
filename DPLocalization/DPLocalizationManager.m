@@ -240,7 +240,14 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 
 - (NSString *)_substitudePluralStringWithValue:(NSNumber *)value variants:(NSDictionary *)variants {
     enum DPPluralRule rule = [value pluralRuleWithRules:self.plural_rules_func];
-    return variants[dp_key_from_pluralrule(rule)];
+
+    NSString *result = variants[dp_key_from_pluralrule(rule)];
+    if (result == nil) {
+        NSLog(@"WARNING: Can't find '%@'", dp_key_from_pluralrule(rule));
+        result = variants[dp_key_from_pluralrule(DPPluralRuleUnknown)];
+    }
+
+    return result;
 }
 
 #pragma mark - Languages
@@ -252,7 +259,7 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
         NSFileManager *fileManager = [[NSFileManager alloc] init];
         NSDirectoryEnumerator *dirEnumerator = [fileManager enumeratorAtURL:[[NSBundle mainBundle] bundleURL]
                                                  includingPropertiesForKeys:@[NSURLNameKey, NSURLIsDirectoryKey]
-                                                                    options:NSDirectoryEnumerationSkipsHiddenFiles
+                                                                    options:NSDirectoryEnumerationSkipsHiddenFiles | NSDirectoryEnumerationSkipsSubdirectoryDescendants
                                                                errorHandler:nil];
 
         NSMutableArray *result = [NSMutableArray array];
@@ -288,6 +295,8 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 + (NSString *)preferredLanguage {
     NSArray *preferredLanguages = [NSLocale preferredLanguages];
     NSArray *supportedLanguages = [self supportedLanguages];
+    NSString *developerLanguage = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleDevelopmentRegion"];
+    supportedLanguages = [supportedLanguages count] > 0 ? supportedLanguages : @[developerLanguage ? developerLanguage : @"en"];
 
     NSString *result = nil;
     for (NSString *language in preferredLanguages) {
