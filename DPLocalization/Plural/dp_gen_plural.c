@@ -319,7 +319,7 @@ enum DPPluralRule dp_plural_rules_be(double n, int i, int v, int w, int f, int t
 	if (n_mod_10 == 1 && n_mod_100 != 11) { // n % 10 = 1 and n % 100 != 11
 		return DPPluralRuleOne;
 	}
-	if ((n_mod_10 >= 2 && n_mod_10 <= 4) && (n_mod_100 < 12 && n_mod_100 > 14)) { // n % 10 = 2..4 and n % 100 != 12..14
+	if ((n_mod_10 >= 2 && n_mod_10 <= 4) && !(n_mod_100 >= 12 && n_mod_100 <= 14)) { // n % 10 = 2..4 and n % 100 != 12..14
 		return DPPluralRuleFew;
 	}
 	if (n_mod_10 == 0 || (n_mod_10 >= 5 && n_mod_10 <= 9) || (n_mod_100 >= 11 && n_mod_100 <= 14)) { // n % 10 = 0 or n % 10 = 5..9 or n % 100 = 11..14
@@ -389,7 +389,7 @@ enum DPPluralRule dp_plural_rules_br(double n, int i, int v, int w, int f, int t
 	if (n_mod_10 == 2 && (n_mod_100 != 12 && n_mod_100 != 72 && n_mod_100 != 92)) { // n % 10 = 2 and n % 100 != 12,72,92
 		return DPPluralRuleTwo;
 	}
-	if (((n_mod_10 >= 3 && n_mod_10 <= 4) || n_mod_10 == 9) && ((n_mod_100 < 10 && n_mod_100 > 19) && (n_mod_100 < 70 && n_mod_100 > 79) && (n_mod_100 < 90 && n_mod_100 > 99))) { // n % 10 = 3..4,9 and n % 100 != 10..19,70..79,90..99
+	if (((n_mod_10 >= 3 && n_mod_10 <= 4) || n_mod_10 == 9) && (!(n_mod_100 >= 10 && n_mod_100 <= 19) && !(n_mod_100 >= 70 && n_mod_100 <= 79) && !(n_mod_100 >= 90 && n_mod_100 <= 99))) { // n % 10 = 3..4,9 and n % 100 != 10..19,70..79,90..99
 		return DPPluralRuleFew;
 	}
 	if (n != 0 && n_mod_1000000 == 0) { // n != 0 and n % 1000000 = 0
@@ -415,7 +415,7 @@ enum DPPluralRule dp_plural_rules_bs(double n, int i, int v, int w, int f, int t
 	if ((v == 0 && i_mod_10 == 1 && i_mod_100 != 11) || (f_mod_10 == 1 && f_mod_100 != 11)) { // v = 0 and i % 10 = 1 and i % 100 != 11 or f % 10 = 1 and f % 100 != 11
 		return DPPluralRuleOne;
 	}
-	if ((v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && (i_mod_100 < 12 && i_mod_100 > 14)) || ((f_mod_10 >= 2 && f_mod_10 <= 4) && (f_mod_100 < 12 && f_mod_100 > 14))) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14 or f % 10 = 2..4 and f % 100 != 12..14
+	if ((v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && !(i_mod_100 >= 12 && i_mod_100 <= 14)) || ((f_mod_10 >= 2 && f_mod_10 <= 4) && !(f_mod_100 >= 12 && f_mod_100 <= 14))) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14 or f % 10 = 2..4 and f % 100 != 12..14
 		return DPPluralRuleFew;
 	}
 	return DPPluralRuleOther;
@@ -769,7 +769,7 @@ enum DPPluralRule dp_plural_rules_he(double n, int i, int v, int w, int f, int t
 	if (i == 2 && v == 0) { // i = 2 and v = 0
 		return DPPluralRuleTwo;
 	}
-	if (v == 0 && (n < 0 && n > 10) && n_mod_10 == 0) { // v = 0 and n != 0..10 and n % 10 = 0
+	if (v == 0 && !(n >= 0 && n <= 10) && n_mod_10 == 0) { // v = 0 and n != 0..10 and n % 10 = 0
 		return DPPluralRuleMany;
 	}
 	return DPPluralRuleOther;
@@ -792,7 +792,7 @@ enum DPPluralRule dp_plural_rules_hr(double n, int i, int v, int w, int f, int t
 	if ((v == 0 && i_mod_10 == 1 && i_mod_100 != 11) || (f_mod_10 == 1 && f_mod_100 != 11)) { // v = 0 and i % 10 = 1 and i % 100 != 11 or f % 10 = 1 and f % 100 != 11
 		return DPPluralRuleOne;
 	}
-	if ((v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && (i_mod_100 < 12 && i_mod_100 > 14)) || ((f_mod_10 >= 2 && f_mod_10 <= 4) && (f_mod_100 < 12 && f_mod_100 > 14))) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14 or f % 10 = 2..4 and f % 100 != 12..14
+	if ((v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && !(i_mod_100 >= 12 && i_mod_100 <= 14)) || ((f_mod_10 >= 2 && f_mod_10 <= 4) && !(f_mod_100 >= 12 && f_mod_100 <= 14))) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14 or f % 10 = 2..4 and f % 100 != 12..14
 		return DPPluralRuleFew;
 	}
 	return DPPluralRuleOther;
@@ -888,7 +888,7 @@ enum DPPluralRule dp_plural_rules_iw(double n, int i, int v, int w, int f, int t
 	if (i == 2 && v == 0) { // i = 2 and v = 0
 		return DPPluralRuleTwo;
 	}
-	if (v == 0 && (n < 0 && n > 10) && n_mod_10 == 0) { // v = 0 and n != 0..10 and n % 10 = 0
+	if (v == 0 && !(n >= 0 && n <= 10) && n_mod_10 == 0) { // v = 0 and n != 0..10 and n % 10 = 0
 		return DPPluralRuleMany;
 	}
 	return DPPluralRuleOther;
@@ -1125,10 +1125,10 @@ enum DPPluralRule dp_plural_rules_lt(double n, int i, int v, int w, int f, int t
 	int n_mod_10 = (int)n % 10;
 	int n_mod_100 = (int)n % 100;
 
-	if (n_mod_10 == 1 && (n_mod_100 < 11 && n_mod_100 > 19)) { // n % 10 = 1 and n % 100 != 11..19
+	if (n_mod_10 == 1 && !(n_mod_100 >= 11 && n_mod_100 <= 19)) { // n % 10 = 1 and n % 100 != 11..19
 		return DPPluralRuleOne;
 	}
-	if ((n_mod_10 >= 2 && n_mod_10 <= 9) && (n_mod_100 < 11 && n_mod_100 > 19)) { // n % 10 = 2..9 and n % 100 != 11..19
+	if ((n_mod_10 >= 2 && n_mod_10 <= 9) && !(n_mod_100 >= 11 && n_mod_100 <= 19)) { // n % 10 = 2..9 and n % 100 != 11..19
 		return DPPluralRuleFew;
 	}
 	if (f != 0) { // f != 0
@@ -1406,7 +1406,7 @@ enum DPPluralRule dp_plural_rules_pl(double n, int i, int v, int w, int f, int t
 	if (i == 1 && v == 0) { // i = 1 and v = 0
 		return DPPluralRuleOne;
 	}
-	if (v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && (i_mod_100 < 12 && i_mod_100 > 14)) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14
+	if (v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && !(i_mod_100 >= 12 && i_mod_100 <= 14)) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14
 		return DPPluralRuleFew;
 	}
 	if ((v == 0 && i != 1 && (i_mod_10 >= 0 && i_mod_10 <= 1)) || (v == 0 && (i_mod_10 >= 5 && i_mod_10 <= 9)) || (v == 0 && (i_mod_100 >= 12 && i_mod_100 <= 14))) { // v = 0 and i != 1 and i % 10 = 0..1 or v = 0 and i % 10 = 5..9 or v = 0 and i % 100 = 12..14
@@ -1494,7 +1494,7 @@ enum DPPluralRule dp_plural_rules_ru(double n, int i, int v, int w, int f, int t
 	if (v == 0 && i_mod_10 == 1 && i_mod_100 != 11) { // v = 0 and i % 10 = 1 and i % 100 != 11
 		return DPPluralRuleOne;
 	}
-	if (v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && (i_mod_100 < 12 && i_mod_100 > 14)) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14
+	if (v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && !(i_mod_100 >= 12 && i_mod_100 <= 14)) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14
 		return DPPluralRuleFew;
 	}
 	if ((v == 0 && i_mod_10 == 0) || (v == 0 && (i_mod_10 >= 5 && i_mod_10 <= 9)) || (v == 0 && (i_mod_100 >= 11 && i_mod_100 <= 14))) { // v = 0 and i % 10 = 0 or v = 0 and i % 10 = 5..9 or v = 0 and i % 100 = 11..14
@@ -1570,7 +1570,7 @@ enum DPPluralRule dp_plural_rules_sh(double n, int i, int v, int w, int f, int t
 	if ((v == 0 && i_mod_10 == 1 && i_mod_100 != 11) || (f_mod_10 == 1 && f_mod_100 != 11)) { // v = 0 and i % 10 = 1 and i % 100 != 11 or f % 10 = 1 and f % 100 != 11
 		return DPPluralRuleOne;
 	}
-	if ((v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && (i_mod_100 < 12 && i_mod_100 > 14)) || ((f_mod_10 >= 2 && f_mod_10 <= 4) && (f_mod_100 < 12 && f_mod_100 > 14))) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14 or f % 10 = 2..4 and f % 100 != 12..14
+	if ((v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && !(i_mod_100 >= 12 && i_mod_100 <= 14)) || ((f_mod_10 >= 2 && f_mod_10 <= 4) && !(f_mod_100 >= 12 && f_mod_100 <= 14))) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14 or f % 10 = 2..4 and f % 100 != 12..14
 		return DPPluralRuleFew;
 	}
 	return DPPluralRuleOther;
@@ -1712,7 +1712,7 @@ enum DPPluralRule dp_plural_rules_sr(double n, int i, int v, int w, int f, int t
 	if ((v == 0 && i_mod_10 == 1 && i_mod_100 != 11) || (f_mod_10 == 1 && f_mod_100 != 11)) { // v = 0 and i % 10 = 1 and i % 100 != 11 or f % 10 = 1 and f % 100 != 11
 		return DPPluralRuleOne;
 	}
-	if ((v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && (i_mod_100 < 12 && i_mod_100 > 14)) || ((f_mod_10 >= 2 && f_mod_10 <= 4) && (f_mod_100 < 12 && f_mod_100 > 14))) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14 or f % 10 = 2..4 and f % 100 != 12..14
+	if ((v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && !(i_mod_100 >= 12 && i_mod_100 <= 14)) || ((f_mod_10 >= 2 && f_mod_10 <= 4) && !(f_mod_100 >= 12 && f_mod_100 <= 14))) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14 or f % 10 = 2..4 and f % 100 != 12..14
 		return DPPluralRuleFew;
 	}
 	return DPPluralRuleOther;
@@ -1881,7 +1881,7 @@ enum DPPluralRule dp_plural_rules_uk(double n, int i, int v, int w, int f, int t
 	if (v == 0 && i_mod_10 == 1 && i_mod_100 != 11) { // v = 0 and i % 10 = 1 and i % 100 != 11
 		return DPPluralRuleOne;
 	}
-	if (v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && (i_mod_100 < 12 && i_mod_100 > 14)) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14
+	if (v == 0 && (i_mod_10 >= 2 && i_mod_10 <= 4) && !(i_mod_100 >= 12 && i_mod_100 <= 14)) { // v = 0 and i % 10 = 2..4 and i % 100 != 12..14
 		return DPPluralRuleFew;
 	}
 	if ((v == 0 && i_mod_10 == 0) || (v == 0 && (i_mod_10 >= 5 && i_mod_10 <= 9)) || (v == 0 && (i_mod_100 >= 11 && i_mod_100 <= 14))) { // v = 0 and i % 10 = 0 or v = 0 and i % 10 = 5..9 or v = 0 and i % 100 = 11..14

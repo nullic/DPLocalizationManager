@@ -208,7 +208,7 @@ def generate_condition_string(rule_string, pre_calc_vars):
             else:
                 val_from = range_match.group(1)
                 val_to = range_match.group(2)
-                substr += "(" + var_name + ' < ' + val_from + ' && ' + var_name + ' > ' + val_to + ")"
+                substr += "!(" + var_name + ' >= ' + val_from + ' && ' + var_name + ' <= ' + val_to + ")"
 
         if len(vals_list) > 1:
             substr = "(" + substr + ")"
