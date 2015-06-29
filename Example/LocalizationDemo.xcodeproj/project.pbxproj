@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5822FA1418587335006B05DB /* Localizable1.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5822FA1218587335006B05DB /* Localizable1.strings */; };
+		B203935E1B41496600F30C6A /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
+		B204BED91B37F70E00AF575F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B204BED81B37F70E00AF575F /* SecondViewController.m */; };
+		B21CE18B1B414E9400D6E9FA /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
+		B21CE18C1B414E9400D6E9FA /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */; };
+		B230487A1B3BCF220060BC1D /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */; };
+		B292EB2F1B37EF9900942BC9 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = B292EB311B37EF9900942BC9 /* Localizable.stringsdict */; };
 		B294057F1AA439DF0049BF70 /* BasicManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B294057E1AA439DF0049BF70 /* BasicManagerTests.m */; };
 		B29405811AA4504B0049BF70 /* BasicNSObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B29405801AA4504B0049BF70 /* BasicNSObjectTests.m */; };
 		B29405861AA450DF0049BF70 /* UIKitExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B29405841AA450DF0049BF70 /* UIKitExtensionTests.m */; };
@@ -54,7 +60,20 @@
 		5822FA1318587335006B05DB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable1.strings; sourceTree = "<group>"; };
 		5822FA151858733C006B05DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable1.strings; sourceTree = "<group>"; };
 		5822FA1618587341006B05DB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable1.strings; sourceTree = "<group>"; };
+		B203935C1B41496600F30C6A /* dp_gen_plural.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dp_gen_plural.c; sourceTree = "<group>"; };
+		B203935D1B41496600F30C6A /* dp_gen_plural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dp_gen_plural.h; sourceTree = "<group>"; };
+		B204BED71B37F70E00AF575F /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		B204BED81B37F70E00AF575F /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		B21CE1891B414E8A00D6E9FA /* parser.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = parser.py; sourceTree = "<group>"; };
+		B21CE18A1B414E8A00D6E9FA /* plurals.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = plurals.xml; sourceTree = "<group>"; };
+		B21CE18D1B41502900D6E9FA /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		B21CE18E1B41502900D6E9FA /* DPLocalization.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = DPLocalization.podspec; path = ../DPLocalization.podspec; sourceTree = "<group>"; };
+		B21CE18F1B41502900D6E9FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B23048781B3BCD4F0060BC1D /* Plural+DPLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Plural+DPLocalization.h"; sourceTree = "<group>"; };
+		B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plural+DPLocalization.m"; sourceTree = "<group>"; };
 		B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationPlatforms.h; sourceTree = "<group>"; };
+		B292EB301B37EF9900942BC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		B292EB321B37EF9B00942BC9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		B294056C1AA439180049BF70 /* Localization Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Localization Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B294057E1AA439DF0049BF70 /* BasicManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicManagerTests.m; sourceTree = "<group>"; };
 		B29405801AA4504B0049BF70 /* BasicNSObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicNSObjectTests.m; sourceTree = "<group>"; };
@@ -135,6 +154,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B23048741B3BCD0F0060BC1D /* Plural */ = {
+			isa = PBXGroup;
+			children = (
+				B21CE1891B414E8A00D6E9FA /* parser.py */,
+				B21CE18A1B414E8A00D6E9FA /* plurals.xml */,
+				B203935C1B41496600F30C6A /* dp_gen_plural.c */,
+				B203935D1B41496600F30C6A /* dp_gen_plural.h */,
+				B23048781B3BCD4F0060BC1D /* Plural+DPLocalization.h */,
+				B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */,
+			);
+			path = Plural;
+			sourceTree = "<group>";
+		};
 		B29405781AA439B20049BF70 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +207,7 @@
 		CE3D78C01835EAA10012CA3D /* DPLocalization */ = {
 			isa = PBXGroup;
 			children = (
+				B23048741B3BCD0F0060BC1D /* Plural */,
 				B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */,
 				CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */,
 				CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */,
@@ -198,6 +231,9 @@
 				B29405781AA439B20049BF70 /* Tests */,
 				CED8ADF71833502A007E4C60 /* Frameworks */,
 				CED8ADF61833502A007E4C60 /* Products */,
+				B21CE18D1B41502900D6E9FA /* CHANGELOG.md */,
+				B21CE18E1B41502900D6E9FA /* DPLocalization.podspec */,
+				B21CE18F1B41502900D6E9FA /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,9 +266,12 @@
 				CED8AE081833502A007E4C60 /* AppDelegate.m */,
 				CED8AE0D1833502A007E4C60 /* ViewController.h */,
 				CED8AE0E1833502A007E4C60 /* ViewController.m */,
+				B204BED71B37F70E00AF575F /* SecondViewController.h */,
+				B204BED81B37F70E00AF575F /* SecondViewController.m */,
 				CE8DC39118C9CABF004E4BB8 /* image.png */,
 				CED8AE2D18335082007E4C60 /* Main.storyboard */,
 				CED8AE3A18335121007E4C60 /* Localizable.strings */,
+				B292EB311B37EF9900942BC9 /* Localizable.stringsdict */,
 				CED8AE101833502A007E4C60 /* Images.xcassets */,
 				CED8ADFF1833502A007E4C60 /* Supporting Files */,
 				CED1C4FA1845F3DD003014E7 /* Settings.bundle */,
@@ -311,7 +350,7 @@
 		CED8ADED1833502A007E4C60 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Dmitriy Petrusevich";
 				TargetAttributes = {
 					B294056B1AA439180049BF70 = {
@@ -371,6 +410,7 @@
 				CED8AE2E18335082007E4C60 /* Main.storyboard in Resources */,
 				CED8AE3818335121007E4C60 /* Localizable.strings in Resources */,
 				CED8AE111833502A007E4C60 /* Images.xcassets in Resources */,
+				B292EB2F1B37EF9900942BC9 /* Localizable.stringsdict in Resources */,
 				5822FA1418587335006B05DB /* Localizable1.strings in Resources */,
 				CE8DC38F18C9CABF004E4BB8 /* image.png in Resources */,
 			);
@@ -396,6 +436,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B29DC3301A9AF53300AFE219 /* DPAutolocalizationProxy.m in Sources */,
+				B21CE18B1B414E9400D6E9FA /* dp_gen_plural.c in Sources */,
+				B21CE18C1B414E9400D6E9FA /* Plural+DPLocalization.m in Sources */,
 				B29DC32F1A9AF53300AFE219 /* NSObject+DPLocalization.m in Sources */,
 				B29DC3311A9AF53300AFE219 /* NSAttributedString+DPLocalization.m in Sources */,
 				B29DC32E1A9AF53300AFE219 /* DPLocalizationManager.m in Sources */,
@@ -408,10 +450,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B203935E1B41496600F30C6A /* dp_gen_plural.c in Sources */,
+				B230487A1B3BCF220060BC1D /* Plural+DPLocalization.m in Sources */,
 				CE8DC38C18C99F78004E4BB8 /* DPAutolocalizationProxy.m in Sources */,
 				CED8AE0F1833502A007E4C60 /* ViewController.m in Sources */,
 				CE3D78C61835EAA10012CA3D /* NSObject+DPLocalization.m in Sources */,
 				CED8AE091833502A007E4C60 /* AppDelegate.m in Sources */,
+				B204BED91B37F70E00AF575F /* SecondViewController.m in Sources */,
 				CE3D78C51835EAA10012CA3D /* DPLocalizationManager.m in Sources */,
 				CED8AE051833502A007E4C60 /* main.m in Sources */,
 				B2DC07131A121A930015BAC3 /* NSAttributedString+DPLocalization.m in Sources */,
@@ -437,6 +482,15 @@
 				5822FA1618587341006B05DB /* ru */,
 			);
 			name = Localizable1.strings;
+			sourceTree = "<group>";
+		};
+		B292EB311B37EF9900942BC9 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B292EB301B37EF9900942BC9 /* en */,
+				B292EB321B37EF9B00942BC9 /* ru */,
+			);
+			name = Localizable.stringsdict;
 			sourceTree = "<group>";
 		};
 		B29DC32B1A9AF4DC00AFE219 /* Localizable.strings */ = {
@@ -565,7 +619,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -658,7 +711,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -697,7 +749,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

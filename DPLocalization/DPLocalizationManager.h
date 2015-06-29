@@ -13,6 +13,7 @@
 #import "NSAttributedString+DPLocalization.h"
 
 #import "DPAutolocalizationProxy.h"
+#import "Plural+DPLocalization.h"
 
 
 /**
@@ -55,6 +56,16 @@
  @return Returns a localized version of a string for selected language. If string not found return the result of NSLocalizedStringFromTable macro.
  */
 - (NSString *)localizedStringForKey:(NSString *)key table:(NSString *)table;
+
+/**
+ @brief Returns a localized version of a string. Method use plural rules if {defaultStringTableName}.stringsdict exist.
+ @param key         The key for a string in the table identified by tableName.
+ @param table       The receiver’s string table to search. If tableName is nil or is an empty string, the method attempts to use the table in Localizable.strings.
+ @param arguments   List of arguments to substitute into localized string.
+
+ @return Returns a localized version of a string for selected language.
+ */
+- (NSString *)localizedStringForKey:(NSString *)key table:(NSString *)table arguments:(NSArray *)arguments;
 
 /**
  @brief Returns a localized version of an image.

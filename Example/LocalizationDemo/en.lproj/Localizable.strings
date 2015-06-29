@@ -11,6 +11,8 @@
 "TEXTVIEW_TEXT" = "English\n\nUITextView text. <link=\"https://github.com/nullic/DPLocalizationManager\" traits=b>{link to DPLocalizationManager} \n\nSee user defined runtime attributes in storyboard.";
 
 
+"FILES_REMAINING_T" = "FILES_REMAINING_FORMAT";
+
 "TESTS_STRING" = "en";
 "TESTS_STRING_ARGS_1" = "en %@ %@ %@";
 "TESTS_STRING_ARGS_2" = "en %3$@ %1$@ %2$@";

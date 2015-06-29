@@ -14,6 +14,8 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 
 @interface DPLocalizationManager ()
 @property (nonatomic, strong) NSMutableDictionary *tables;
+@property (nonatomic, strong) NSMutableDictionary *pluralRuleTables;
+@property (nonatomic) dp_plural_rules_func plural_rules_func;
 @end
 
 @implementation DPLocalizationManager
@@ -38,6 +40,8 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     if (newLanguage != curLang && !(newLanguage && [curLang isEqualToString:newLanguage])) {
         _currentLanguage = newLanguage;
         [self.tables removeAllObjects];
+        [self.pluralRuleTables removeAllObjects];
+        self.plural_rules_func = newLanguage ? dp_plural_rules_for_lang_code(newLanguage) : NULL;
 
         [[DPAutolocalizationProxy notificationCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
@@ -47,19 +51,42 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     }
 }
 
-- (NSMutableDictionary *)tables {
-    if (!_tables) {
-        _tables = [[NSMutableDictionary alloc] init];
+- (NSString *)usedLanguage {
+    return self.currentLanguage ? self.currentLanguage : [[self class] preferredLanguage];
+}
+
+- (dp_plural_rules_func)plural_rules_func {
+    if (_plural_rules_func == NULL) {
+        _plural_rules_func = dp_plural_rules_for_lang_code(self.usedLanguage);
     }
+    return _plural_rules_func;
+}
+
+- (NSMutableDictionary *)tables {
+    if (!_tables) _tables = [[NSMutableDictionary alloc] init];
     return _tables;
 }
 
+- (NSMutableDictionary *)pluralRuleTables {
+    if (_pluralRuleTables == nil) _pluralRuleTables = [[NSMutableDictionary alloc] init];
+    return _pluralRuleTables;
+}
+
 - (void)loadTableNamedIfNeeded:(NSString *)tableName {
-    if (tableName && self.tables[tableName] == nil && self.currentLanguage) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:tableName ofType:@"strings" inDirectory:nil forLocalization:self.currentLanguage];
-        path = path ? path : [[NSBundle mainBundle] pathForResource:tableName ofType:@"strings"];
-        NSDictionary *tableContent = path ? [NSDictionary dictionaryWithContentsOfFile:path] : nil;
-        self.tables[tableName] = tableContent ? tableContent : @{};
+    if (tableName && self.tables[tableName] == nil) {
+        {
+            NSString *path = [[NSBundle mainBundle] pathForResource:tableName ofType:@"strings" inDirectory:nil forLocalization:self.currentLanguage];
+            path = path ? path : [[NSBundle mainBundle] pathForResource:tableName ofType:@"strings"];
+            NSDictionary *tableContent = path ? [NSDictionary dictionaryWithContentsOfFile:path] : nil;
+            self.tables[tableName] = tableContent ? tableContent : @{};
+        }
+
+        {
+            NSString *path = [[NSBundle mainBundle] pathForResource:tableName ofType:@"stringsdict" inDirectory:nil forLocalization:self.currentLanguage];
+            path = path ? path : [[NSBundle mainBundle] pathForResource:tableName ofType:@"stringsdict"];
+            NSDictionary *tableContent = path ? [NSDictionary dictionaryWithContentsOfFile:path] : nil;
+            self.pluralRuleTables[tableName] = tableContent ? tableContent : @{};
+        }
     }
 }
 
@@ -120,8 +147,71 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     NSString *tableName = [table length] ? table : self.defaultStringTableName;
     [self loadTableNamedIfNeeded:tableName];
 
-    NSString *result = self.tables[tableName][key];
+    NSString *result = result = self.tables[tableName][key];
     return result ? result : NSLocalizedStringFromTable(key, tableName, nil);
+}
+
+- (NSString *)localizedStringForKey:(NSString *)key table:(NSString *)table arguments:(NSArray *)arguments {
+    NSString *tableName = [table length] ? table : self.defaultStringTableName;
+
+    NSString *resultString = [self localizedStringForKey:key table:tableName];
+
+    if (arguments.count > 0) {
+        NSDictionary *pluralRules = self.pluralRuleTables[tableName][key];
+
+        if (pluralRules != nil) {
+            static NSRegularExpression *regexp = nil;
+            static dispatch_once_t onceToken;
+            dispatch_once(&onceToken, ^{
+                regexp = [NSRegularExpression regularExpressionWithPattern:@"%([0-9]+\\$)??#@(.+?)@" options:kNilOptions error:nil];
+            });
+
+            NSString *format = pluralRules[@"NSStringLocalizedFormatKey"];
+            NSMutableString *mutableStr = [format mutableCopy];
+
+            NSArray *matches = [regexp matchesInString:format options:kNilOptions range:NSMakeRange(0, format.length)];
+            [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *match, NSUInteger idx, BOOL *stop) {
+                NSUInteger usedIndex = idx;
+                NSRange indexRandge = [match rangeAtIndex:1];
+                if (indexRandge.location != NSNotFound) {
+                    NSString *index = [resultString substringWithRange:indexRandge];
+                    usedIndex = ([index integerValue] - 1);
+                }
+
+                id argument = (arguments.count > usedIndex) ? arguments[usedIndex] : nil;
+
+                NSString *argName = [mutableStr substringWithRange:[match rangeAtIndex:2]];
+                NSString *string = [self _substitudePluralStringWithValue:argument variants:pluralRules[argName]];
+                [mutableStr replaceCharactersInRange:match.range withString:string];
+            }];
+
+            resultString = mutableStr;
+        }
+
+        static NSRegularExpression *regexp = nil;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            regexp = [NSRegularExpression regularExpressionWithPattern:@"%([0-9]+\\$)??@" options:kNilOptions error:nil];
+        });
+
+        NSArray *matches = [regexp matchesInString:resultString options:kNilOptions range:NSMakeRange(0, resultString.length)];
+        NSMutableString *mutableStr = [resultString mutableCopy];
+        [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *match, NSUInteger idx, BOOL *stop) {
+            NSUInteger usedIndex = idx;
+            NSRange indexRandge = [match rangeAtIndex:1];
+            if (indexRandge.location != NSNotFound) {
+                NSString *index = [resultString substringWithRange:indexRandge];
+                usedIndex = ([index integerValue] - 1);
+            }
+
+            id subs = (arguments.count > usedIndex) ? arguments[usedIndex] : nil;
+            [mutableStr replaceCharactersInRange:match.range withString:[subs description]];
+        }];
+
+        resultString = mutableStr;
+    }
+
+    return resultString;
 }
 
 - (DPImage *)localizedImageNamed:(NSString *)name {
@@ -144,6 +234,13 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     NSString *path = [searchBundle pathForResource:name ofType:extension inDirectory:nil forLocalization:self.currentLanguage];
     path = path ? path : [searchBundle pathForResource:name ofType:extension];
     return path;
+}
+
+#pragma mark - Utils
+
+- (NSString *)_substitudePluralStringWithValue:(NSNumber *)value variants:(NSDictionary *)variants {
+    enum DPPluralRule rule = [value pluralRuleWithRules:self.plural_rules_func];
+    return variants[dp_key_from_pluralrule(rule)];
 }
 
 #pragma mark - Languages

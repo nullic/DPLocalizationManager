@@ -11,6 +11,8 @@
 "TEXTVIEW_TEXT" = "Russian\n\nUITextView text.\n\nSee user defined runtime attributes in storyboard.";
 
 
+"FILES_REMAINING_T" = "FILES_REMAINING_FORMAT";
+
 "TESTS_STRING" = "ru";
 "TESTS_STRING_ARGS_1" = "ru %@ %@ %@";
 "TESTS_STRING_ARGS_2" = "ru %3$@ %1$@ %2$@";

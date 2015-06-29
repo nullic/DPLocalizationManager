@@ -120,32 +120,7 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 }
 
 - (void)localizeWithLocalizationKey:(NSString *)key arguments:(NSArray *)arguments keyPath:(NSString *)keyPath {
-    NSString *resultString = DPLocalizedString(key, nil);
-
-    if (resultString && arguments.count) {
-        static NSRegularExpression *regexp = nil;
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            regexp = [NSRegularExpression regularExpressionWithPattern:@"%([0-9]+\\$)??@" options:kNilOptions error:nil];
-        });
-
-        NSArray *matches = [regexp matchesInString:resultString options:kNilOptions range:NSMakeRange(0, resultString.length)];
-        NSMutableString *mutableStr = [resultString mutableCopy];
-        [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *match, NSUInteger idx, BOOL *stop) {
-            NSUInteger usedIndex = idx;
-            NSRange indexRandge = [match rangeAtIndex:1];
-            if (indexRandge.location != NSNotFound) {
-                NSString *index = [resultString substringWithRange:indexRandge];
-                usedIndex = ([index integerValue] - 1);
-            }
-
-            id subs = (arguments.count > usedIndex) ? arguments[usedIndex] : nil;
-            [mutableStr replaceCharactersInRange:match.range withString:[subs description]];
-        }];
-
-        resultString = mutableStr;
-    }
-
+    NSString *resultString = [[DPLocalizationManager currentManager] localizedStringForKey:key table:nil arguments:arguments];
     [self setLocalizedValue:resultString forKeyPath:keyPath];
 }
 

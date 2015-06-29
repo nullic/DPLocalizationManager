@@ -11,6 +11,8 @@
 "TEXTVIEW_TEXT" = "German\n\nUITextView text.\n\nSee user defined runtime attributes in storyboard.";
 
 
+"FILES_REMAINING_T" = "FILES_REMAINING_FORMAT";
+
 "TESTS_STRING" = "de";
 "TESTS_STRING_ARGS_1" = "de %@ %@ %@";
 "TESTS_STRING_ARGS_2" = "de %3$@ %1$@ %2$@";

@@ -1,5 +1,9 @@
 # DPLocalization CHANGELOG
 
+## 1.7
+- Added Plural rules (integer only)
+- Added -[DPLocalizationManager localizedStringForKey: table: arguments:]
+
 ## 1.6.2
 - Fixed UITextView incorrect text alignment
 
