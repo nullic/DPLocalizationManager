@@ -11,6 +11,7 @@
 @interface SecondViewController ()
 @property (nonatomic, weak) IBOutlet UILabel *countLabel;
 @property (nonatomic, weak) IBOutlet UIStepper *stepper;
+@property (nonatomic, strong) NSNumberFormatter *numberFormatter;
 @end
 
 @implementation SecondViewController
@@ -18,12 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self.countLabel updateAutolocalizationArguments:@[[NSNumber numberWithInt:self.stepper.value]]];
+    self.numberFormatter = [[NSNumberFormatter alloc] init];
+    self.numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+
+    DPFormattedValue *numberValue = [DPFormattedValue formattedValueWithValue:@(self.stepper.value) formatter:self.numberFormatter];
+    [self.countLabel updateAutolocalizationArguments:@[numberValue]];
 }
 
 
 - (IBAction)stepperValueChanged:(id)sender {
-    [self.countLabel updateAutolocalizationArguments:@[[NSNumber numberWithInt:self.stepper.value]]];
+    DPFormattedValue *numberValue = [DPFormattedValue formattedValueWithValue:@(self.stepper.value) formatter:self.numberFormatter];
+    [self.countLabel updateAutolocalizationArguments:@[numberValue]];
 }
 
 @end

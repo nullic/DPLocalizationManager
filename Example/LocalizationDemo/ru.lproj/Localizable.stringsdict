@@ -14,6 +14,8 @@
                 <string>@</string>
                 <key>one</key>
                 <string>Остался %@ файл (one)</string>
+                <key>few</key>
+                <string>Осталось %@ файла (few)</string>
                 <key>many</key>
                 <string>Осталось %@ файлов (many)</string>
                 <key>other</key>

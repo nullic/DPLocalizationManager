@@ -14,6 +14,7 @@
 
 #import "DPAutolocalizationProxy.h"
 #import "Plural+DPLocalization.h"
+#import "DPFormattedValue.h"
 
 
 /**

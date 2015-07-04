@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DPFormattedValue.h"
 
 @interface ViewController ()
 @property (nonatomic, weak) IBOutlet UILabel *label;
@@ -39,9 +40,15 @@
 
     self.imageView.autolocalizationImageName = @"image";
 
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateStyle = NSDateFormatterFullStyle;
+    formatter.timeStyle = NSDateFormatterNoStyle;
+
+    DPFormattedValue *dateValue = [DPFormattedValue formattedValueWithValue:[NSDate date] formatter:formatter];
     self.startup.text = DPLocalizedString(@"TITLE", nil);
     self.label.autolocalizationKey = @"LABEL_TEXT";
-    [self.label updateAutolocalizationArguments:@[@"Hello", @1234567890, [NSDate date]]];
+    [self.label updateAutolocalizationArguments:@[@"Hello", @12.34, dateValue]];
     self.autolocalizationKey = @"TITLE";
 
     NSLog(@"Preffered language: %@", [DPLocalizationManager preferredLanguage]);

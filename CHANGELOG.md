@@ -1,8 +1,9 @@
 # DPLocalization CHANGELOG
 
 ## 1.7
-- Added Plural rules (integer only)
+- Added Plural rules (NSNumber - integer only, DPFormattedNumberValue - decimal)
 - Added -[DPLocalizationManager localizedStringForKey: table: arguments:]
+- Added [DPFormattedValue class]
 
 ## 1.6.2
 - Fixed UITextView incorrect text alignment
