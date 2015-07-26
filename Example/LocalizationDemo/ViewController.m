@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "DPFormattedValue.h"
 
 @interface ViewController ()
 @property (nonatomic, weak) IBOutlet UILabel *label;

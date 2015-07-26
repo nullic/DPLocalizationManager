@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5822FA1418587335006B05DB /* Localizable1.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5822FA1218587335006B05DB /* Localizable1.strings */; };
+		A2A866B01B64FF6E00F57D37 /* NSAttributedString+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AA1B64FF6E00F57D37 /* NSAttributedString+DPLocalization.m */; };
+		A2A866B11B64FF6E00F57D37 /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AC1B64FF6E00F57D37 /* NSObject+DPLocalization.m */; };
+		A2A866B21B64FF6E00F57D37 /* DPAutolocalizationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AF1B64FF6E00F57D37 /* DPAutolocalizationProxy.m */; };
 		B203935E1B41496600F30C6A /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
 		B204BED91B37F70E00AF575F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B204BED81B37F70E00AF575F /* SecondViewController.m */; };
 		B21CE18B1B414E9400D6E9FA /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
@@ -25,16 +28,10 @@
 		B29DC3261A9AF46A00AFE219 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29DC3211A9AF46A00AFE219 /* MainMenu.xib */; };
 		B29DC3291A9AF4DC00AFE219 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B29DC32B1A9AF4DC00AFE219 /* Localizable.strings */; };
 		B29DC32E1A9AF53300AFE219 /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
-		B29DC32F1A9AF53300AFE219 /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */; };
-		B29DC3301A9AF53300AFE219 /* DPAutolocalizationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DC38B18C99F78004E4BB8 /* DPAutolocalizationProxy.m */; };
-		B29DC3311A9AF53300AFE219 /* NSAttributedString+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DC07121A121A930015BAC3 /* NSAttributedString+DPLocalization.m */; };
 		B29DC3341A9B167700AFE219 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = B29DC3361A9B167700AFE219 /* image.png */; };
 		B2B6D5081B4280A700EC46BA /* DPFormattedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */; };
 		B2B6D5091B4280A700EC46BA /* DPFormattedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */; };
-		B2DC07131A121A930015BAC3 /* NSAttributedString+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DC07121A121A930015BAC3 /* NSAttributedString+DPLocalization.m */; };
 		CE3D78C51835EAA10012CA3D /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
-		CE3D78C61835EAA10012CA3D /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */; };
-		CE8DC38C18C99F78004E4BB8 /* DPAutolocalizationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DC38B18C99F78004E4BB8 /* DPAutolocalizationProxy.m */; };
 		CE8DC38F18C9CABF004E4BB8 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8DC39118C9CABF004E4BB8 /* image.png */; };
 		CED1C4FB1845F3DD003014E7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CED1C4FA1845F3DD003014E7 /* Settings.bundle */; };
 		CED8ADF91833502A007E4C60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED8ADF81833502A007E4C60 /* Foundation.framework */; };
@@ -62,6 +59,13 @@
 		5822FA1318587335006B05DB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable1.strings; sourceTree = "<group>"; };
 		5822FA151858733C006B05DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable1.strings; sourceTree = "<group>"; };
 		5822FA1618587341006B05DB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable1.strings; sourceTree = "<group>"; };
+		A2A866A71B64FE6400F57D37 /* DPLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLocalization.h; sourceTree = "<group>"; };
+		A2A866A91B64FF6E00F57D37 /* NSAttributedString+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+DPLocalization.h"; sourceTree = "<group>"; };
+		A2A866AA1B64FF6E00F57D37 /* NSAttributedString+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+DPLocalization.m"; sourceTree = "<group>"; };
+		A2A866AB1B64FF6E00F57D37 /* NSObject+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DPLocalization.h"; sourceTree = "<group>"; };
+		A2A866AC1B64FF6E00F57D37 /* NSObject+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DPLocalization.m"; sourceTree = "<group>"; };
+		A2A866AE1B64FF6E00F57D37 /* DPAutolocalizationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAutolocalizationProxy.h; sourceTree = "<group>"; };
+		A2A866AF1B64FF6E00F57D37 /* DPAutolocalizationProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAutolocalizationProxy.m; sourceTree = "<group>"; };
 		B203935C1B41496600F30C6A /* dp_gen_plural.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dp_gen_plural.c; sourceTree = "<group>"; };
 		B203935D1B41496600F30C6A /* dp_gen_plural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dp_gen_plural.h; sourceTree = "<group>"; };
 		B204BED71B37F70E00AF575F /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
@@ -99,14 +103,8 @@
 		B29DC3381A9B167800AFE219 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/image.png; sourceTree = "<group>"; };
 		B2B6D5061B4280A700EC46BA /* DPFormattedValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPFormattedValue.h; sourceTree = "<group>"; };
 		B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPFormattedValue.m; sourceTree = "<group>"; };
-		B2DC07111A121A930015BAC3 /* NSAttributedString+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+DPLocalization.h"; sourceTree = "<group>"; };
-		B2DC07121A121A930015BAC3 /* NSAttributedString+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+DPLocalization.m"; sourceTree = "<group>"; };
 		CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationManager.h; sourceTree = "<group>"; };
 		CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLocalizationManager.m; sourceTree = "<group>"; };
-		CE3D78C31835EAA10012CA3D /* NSObject+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DPLocalization.h"; sourceTree = "<group>"; };
-		CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DPLocalization.m"; sourceTree = "<group>"; };
-		CE8DC38A18C99F78004E4BB8 /* DPAutolocalizationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAutolocalizationProxy.h; sourceTree = "<group>"; };
-		CE8DC38B18C99F78004E4BB8 /* DPAutolocalizationProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAutolocalizationProxy.m; sourceTree = "<group>"; };
 		CE8DC39018C9CABF004E4BB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/image.png; sourceTree = "<group>"; };
 		CE8DC39218C9CAC3004E4BB8 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/image.png; sourceTree = "<group>"; };
 		CE8DC39318C9CAC4004E4BB8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/image.png; sourceTree = "<group>"; };
@@ -158,6 +156,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2A866A81B64FF6E00F57D37 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A2A866A91B64FF6E00F57D37 /* NSAttributedString+DPLocalization.h */,
+				A2A866AA1B64FF6E00F57D37 /* NSAttributedString+DPLocalization.m */,
+				A2A866AB1B64FF6E00F57D37 /* NSObject+DPLocalization.h */,
+				A2A866AC1B64FF6E00F57D37 /* NSObject+DPLocalization.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		A2A866AD1B64FF6E00F57D37 /* Proxy */ = {
+			isa = PBXGroup;
+			children = (
+				A2A866AE1B64FF6E00F57D37 /* DPAutolocalizationProxy.h */,
+				A2A866AF1B64FF6E00F57D37 /* DPAutolocalizationProxy.m */,
+			);
+			path = Proxy;
+			sourceTree = "<group>";
+		};
 		B23048741B3BCD0F0060BC1D /* Plural */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,17 +238,14 @@
 		CE3D78C01835EAA10012CA3D /* DPLocalization */ = {
 			isa = PBXGroup;
 			children = (
+				A2A866A81B64FF6E00F57D37 /* Categories */,
+				A2A866AD1B64FF6E00F57D37 /* Proxy */,
 				B2B6D5051B427E6100EC46BA /* Formatter */,
 				B23048741B3BCD0F0060BC1D /* Plural */,
 				B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */,
 				CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */,
 				CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */,
-				CE3D78C31835EAA10012CA3D /* NSObject+DPLocalization.h */,
-				CE3D78C41835EAA10012CA3D /* NSObject+DPLocalization.m */,
-				CE8DC38A18C99F78004E4BB8 /* DPAutolocalizationProxy.h */,
-				CE8DC38B18C99F78004E4BB8 /* DPAutolocalizationProxy.m */,
-				B2DC07111A121A930015BAC3 /* NSAttributedString+DPLocalization.h */,
-				B2DC07121A121A930015BAC3 /* NSAttributedString+DPLocalization.m */,
+				A2A866A71B64FE6400F57D37 /* DPLocalization.h */,
 			);
 			name = DPLocalization;
 			path = ../DPLocalization;
@@ -449,11 +464,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B29DC3301A9AF53300AFE219 /* DPAutolocalizationProxy.m in Sources */,
 				B21CE18B1B414E9400D6E9FA /* dp_gen_plural.c in Sources */,
 				B21CE18C1B414E9400D6E9FA /* Plural+DPLocalization.m in Sources */,
-				B29DC32F1A9AF53300AFE219 /* NSObject+DPLocalization.m in Sources */,
-				B29DC3311A9AF53300AFE219 /* NSAttributedString+DPLocalization.m in Sources */,
 				B29DC32E1A9AF53300AFE219 /* DPLocalizationManager.m in Sources */,
 				B2B6D5091B4280A700EC46BA /* DPFormattedValue.m in Sources */,
 				B29DC3251A9AF46A00AFE219 /* main.m in Sources */,
@@ -467,15 +479,15 @@
 			files = (
 				B203935E1B41496600F30C6A /* dp_gen_plural.c in Sources */,
 				B230487A1B3BCF220060BC1D /* Plural+DPLocalization.m in Sources */,
-				CE8DC38C18C99F78004E4BB8 /* DPAutolocalizationProxy.m in Sources */,
 				CED8AE0F1833502A007E4C60 /* ViewController.m in Sources */,
-				CE3D78C61835EAA10012CA3D /* NSObject+DPLocalization.m in Sources */,
 				CED8AE091833502A007E4C60 /* AppDelegate.m in Sources */,
 				B204BED91B37F70E00AF575F /* SecondViewController.m in Sources */,
 				CE3D78C51835EAA10012CA3D /* DPLocalizationManager.m in Sources */,
+				A2A866B11B64FF6E00F57D37 /* NSObject+DPLocalization.m in Sources */,
+				A2A866B21B64FF6E00F57D37 /* DPAutolocalizationProxy.m in Sources */,
 				CED8AE051833502A007E4C60 /* main.m in Sources */,
 				B2B6D5081B4280A700EC46BA /* DPFormattedValue.m in Sources */,
-				B2DC07131A121A930015BAC3 /* NSAttributedString+DPLocalization.m in Sources */,
+				A2A866B01B64FF6E00F57D37 /* NSAttributedString+DPLocalization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

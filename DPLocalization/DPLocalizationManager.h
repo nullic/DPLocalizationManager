@@ -9,13 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "DPLocalizationPlatforms.h"
 
-#import "NSObject+DPLocalization.h"
-#import "NSAttributedString+DPLocalization.h"
-
-#import "DPAutolocalizationProxy.h"
-#import "Plural+DPLocalization.h"
-#import "DPFormattedValue.h"
-
 
 /**
  @class DPLocalizationManager
