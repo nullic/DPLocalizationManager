@@ -9,6 +9,7 @@
 #import "NSObject+DPLocalization.h"
 #import "NSAttributedString+DPLocalization.h"
 #import "DPLocalizationManager.h"
+#import "DPAutolocalizationProxy.h"
 #import <objc/runtime.h>
 
 static NSString * const kAutolocKeyPathKey = @"autolocKeyPathKey";

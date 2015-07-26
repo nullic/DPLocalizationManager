@@ -7,6 +7,8 @@
 //
 
 #import "DPLocalizationManager.h"
+#import "Plural+DPLocalization.h"
+#import "DPAutolocalizationProxy.h"
 
 
 NSString * const DPLanguageDidChangeNotification = @"DPLanguageDidChangeNotification";
