@@ -8,9 +8,9 @@
 
 #import "DPLocalizationManager.h"
 
-#import "Categories/NSObject+DPLocalization.h"
-#import "Categories/NSAttributedString+DPLocalization.h"
+#import "NSObject+DPLocalization.h"
+#import "NSAttributedString+DPLocalization.h"
 
-#import "Proxy/DPAutolocalizationProxy.h"
-#import "Plural/Plural+DPLocalization.h"
-#import "Formatter/DPFormattedValue.h"
+#import "DPAutolocalizationProxy.h"
+#import "Plural+DPLocalization.h"
+#import "DPFormattedValue.h"
