@@ -37,7 +37,7 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 - (void)setCurrentLanguage:(NSString *)currentLanguage {
     NSString *newLanguage = ([currentLanguage isKindOfClass:[NSString class]]) ? [currentLanguage stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : nil;
     newLanguage = (newLanguage.length == 0) ? nil : newLanguage;
-    NSString *curLang = [self currentLanguage];
+    NSString *curLang = _currentLanguage;
 
     if (newLanguage != curLang && !(newLanguage && [curLang isEqualToString:newLanguage])) {
         _currentLanguage = newLanguage;
