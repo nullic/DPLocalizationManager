@@ -137,6 +137,15 @@
 @property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
 @end
 
+@interface UISegmentedControl (DPLocalization)
+/**
+ @property autolocalizationPrefixKey
+ @brief Shortcut for add automatic localization.
+ @discussion Invoke -[self setTitle:DPLocalizedString({autolocalizationPrefixKey}{segment}, nil) forSegmentAtIndex:{segment}] on DPLanguageDidChangeNotification notification.
+ */
+@property (nonatomic, copy) IBInspectable NSString *autolocalizationPrefixKey;
+@end
+
 @interface UIImageView (DPLocalization)
 /**
  @property autolocalizationImageName

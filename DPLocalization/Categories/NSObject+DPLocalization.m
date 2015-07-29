@@ -15,6 +15,7 @@
 static NSString * const kAutolocKeyPathKey = @"autolocKeyPathKey";
 static NSString * const kAutolocKeyKey = @"autolocKeyKey";
 static NSString * const kAutolocImageNameKey = @"autolocImageNameKey";
+static NSString * const kAutolocPrefixKeyKey = @"autolocPrefixKeyKey";
 static NSString * const kAutolocArgsKey = @"autolocArgsKey";
 static NSString * const kAutolocOnDeallocBlockKey = @"autolocOnDeallocBlockKey";
 static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
@@ -323,6 +324,38 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 - (NSString *)autolocalizationKey {
     return [self autolocKey];
+}
+
+@end
+
+
+#pragma mark UISegmentedControl
+
+@implementation UISegmentedControl (DPLocalization)
+
+- (void)setAutolocalizationPrefixKey:(NSString *)name {
+    objc_setAssociatedObject(self, (__bridge void *)(kAutolocPrefixKeyKey), name, OBJC_ASSOCIATION_COPY);
+    if ([name length]) {
+        [self addLanguageDidChangeObserver];
+        [self localize];
+    }
+    else {
+        [self removeLanguageDidChangeObserver];
+    }
+}
+
+- (NSString *)autolocalizationPrefixKey {
+    return objc_getAssociatedObject(self, (__bridge const void *)(kAutolocPrefixKeyKey));
+}
+
+- (void)localize {
+    NSString *templateKey = self.autolocalizationPrefixKey;
+    if (templateKey) {
+        for (NSUInteger index = 0; index < self.numberOfSegments; index++) {
+            NSString *key = [templateKey stringByAppendingFormat:@"%ld", (long)index];
+            [self setTitle:DPLocalizedString(key, nil) forSegmentAtIndex:index];
+        }
+    }
 }
 
 @end
