@@ -54,6 +54,15 @@ Output example:
 	Russian
 ```
 
+ 
+## Plural rules
+ 
+[List of all supported languages.](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html) Currently library suported only cardinal type.
+Library use .stringsdict files ([Stringsdict File Format](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/StringsdictFileFormat/StringsdictFileFormat.html)), with little changes:
+* ***NSStringFormatValueTypeKey*** is ignored
+* ***format specifiers*** must be 'Objective-C object'
+
+ 
 
 ## Attributed strings
 
