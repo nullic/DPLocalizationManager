@@ -13,9 +13,9 @@
 		A2A866B21B64FF6E00F57D37 /* DPAutolocalizationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AF1B64FF6E00F57D37 /* DPAutolocalizationProxy.m */; };
 		B203935E1B41496600F30C6A /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
 		B204BED91B37F70E00AF575F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B204BED81B37F70E00AF575F /* SecondViewController.m */; };
-		B21CE18B1B414E9400D6E9FA /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
-		B21CE18C1B414E9400D6E9FA /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */; };
 		B230487A1B3BCF220060BC1D /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */; };
+		B26A05AC1BA6D72E00C1BEF3 /* CustomBundle in Resources */ = {isa = PBXBuildFile; fileRef = B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */; };
+		B26A05AD1BA6D72E00C1BEF3 /* CustomBundle in Resources */ = {isa = PBXBuildFile; fileRef = B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */; };
 		B292EB2F1B37EF9900942BC9 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = B292EB311B37EF9900942BC9 /* Localizable.stringsdict */; };
 		B294057F1AA439DF0049BF70 /* BasicManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B294057E1AA439DF0049BF70 /* BasicManagerTests.m */; };
 		B29405811AA4504B0049BF70 /* BasicNSObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B29405801AA4504B0049BF70 /* BasicNSObjectTests.m */; };
@@ -27,10 +27,15 @@
 		B29DC3251A9AF46A00AFE219 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B29DC3201A9AF46A00AFE219 /* main.m */; };
 		B29DC3261A9AF46A00AFE219 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29DC3211A9AF46A00AFE219 /* MainMenu.xib */; };
 		B29DC3291A9AF4DC00AFE219 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B29DC32B1A9AF4DC00AFE219 /* Localizable.strings */; };
-		B29DC32E1A9AF53300AFE219 /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
 		B29DC3341A9B167700AFE219 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = B29DC3361A9B167700AFE219 /* image.png */; };
 		B2B6D5081B4280A700EC46BA /* DPFormattedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */; };
-		B2B6D5091B4280A700EC46BA /* DPFormattedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */; };
+		B2DB3AA21BA6CF4000D9D18D /* NSAttributedString+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AA1B64FF6E00F57D37 /* NSAttributedString+DPLocalization.m */; };
+		B2DB3AA31BA6CF4000D9D18D /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AC1B64FF6E00F57D37 /* NSObject+DPLocalization.m */; };
+		B2DB3AA41BA6CF4000D9D18D /* DPAutolocalizationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AF1B64FF6E00F57D37 /* DPAutolocalizationProxy.m */; };
+		B2DB3AA51BA6CF4000D9D18D /* DPFormattedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */; };
+		B2DB3AA61BA6CF4000D9D18D /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
+		B2DB3AA71BA6CF4000D9D18D /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */; };
+		B2DB3AA81BA6CF4000D9D18D /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
 		CE3D78C51835EAA10012CA3D /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
 		CE8DC38F18C9CABF004E4BB8 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8DC39118C9CABF004E4BB8 /* image.png */; };
 		CED1C4FB1845F3DD003014E7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CED1C4FA1845F3DD003014E7 /* Settings.bundle */; };
@@ -78,6 +83,7 @@
 		B23048781B3BCD4F0060BC1D /* Plural+DPLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Plural+DPLocalization.h"; sourceTree = "<group>"; };
 		B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plural+DPLocalization.m"; sourceTree = "<group>"; };
 		B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationPlatforms.h; sourceTree = "<group>"; };
+		B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CustomBundle; sourceTree = "<group>"; };
 		B292EB301B37EF9900942BC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		B292EB321B37EF9B00942BC9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		B294056C1AA439180049BF70 /* Localization Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Localization Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,6 +263,7 @@
 				CE3D78C01835EAA10012CA3D /* DPLocalization */,
 				CED8ADFE1833502A007E4C60 /* LocalizationDemo */,
 				B29DC31B1A9AF46A00AFE219 /* LocalizationDemo-osx */,
+				B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */,
 				B29405781AA439B20049BF70 /* Tests */,
 				CED8ADF71833502A007E4C60 /* Frameworks */,
 				CED8ADF61833502A007E4C60 /* Products */,
@@ -425,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B29DC3231A9AF46A00AFE219 /* Images.xcassets in Resources */,
+				B26A05AD1BA6D72E00C1BEF3 /* CustomBundle in Resources */,
 				B29DC3291A9AF4DC00AFE219 /* Localizable.strings in Resources */,
 				B29DC3261A9AF46A00AFE219 /* MainMenu.xib in Resources */,
 				B29DC3341A9B167700AFE219 /* image.png in Resources */,
@@ -436,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED1C4FB1845F3DD003014E7 /* Settings.bundle in Resources */,
+				B26A05AC1BA6D72E00C1BEF3 /* CustomBundle in Resources */,
 				CED8AE2E18335082007E4C60 /* Main.storyboard in Resources */,
 				CED8AE3818335121007E4C60 /* Localizable.strings in Resources */,
 				CED8AE111833502A007E4C60 /* Images.xcassets in Resources */,
@@ -464,12 +473,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B21CE18B1B414E9400D6E9FA /* dp_gen_plural.c in Sources */,
-				B21CE18C1B414E9400D6E9FA /* Plural+DPLocalization.m in Sources */,
-				B29DC32E1A9AF53300AFE219 /* DPLocalizationManager.m in Sources */,
-				B2B6D5091B4280A700EC46BA /* DPFormattedValue.m in Sources */,
+				B2DB3AA51BA6CF4000D9D18D /* DPFormattedValue.m in Sources */,
+				B2DB3AA61BA6CF4000D9D18D /* dp_gen_plural.c in Sources */,
+				B2DB3AA71BA6CF4000D9D18D /* Plural+DPLocalization.m in Sources */,
+				B2DB3AA81BA6CF4000D9D18D /* DPLocalizationManager.m in Sources */,
+				B2DB3AA41BA6CF4000D9D18D /* DPAutolocalizationProxy.m in Sources */,
+				B2DB3AA31BA6CF4000D9D18D /* NSObject+DPLocalization.m in Sources */,
 				B29DC3251A9AF46A00AFE219 /* main.m in Sources */,
 				B29DC3221A9AF46A00AFE219 /* AppDelegate.m in Sources */,
+				B2DB3AA21BA6CF4000D9D18D /* NSAttributedString+DPLocalization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

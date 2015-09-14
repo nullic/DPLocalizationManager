@@ -23,9 +23,15 @@
 
 /**
  @property defaultStringsTableName
- @brief Default string table name used for localization.
+ @brief Default bundle used for localization.
  */
 @property(nonatomic, copy) NSString *defaultStringTableName;
+
+/**
+ @property defaultBundle
+ @brief Default string table name used for localization.
+ */
+@property(nonatomic, strong) NSBundle *defaultBundle;
 
 /**
  @brief Returns shared DPLocalizationManager object.

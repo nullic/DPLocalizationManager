@@ -52,6 +52,7 @@
 
     NSLog(@"Preffered language: %@", [DPLocalizationManager preferredLanguage]);
     NSLog(@"Selected language: %@", dp_get_current_language());
+    NSLog(@"Supported language: %@", [DPLocalizationManager supportedLanguages]);
 
     [self updateLangSelector];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageDidChangeNotification:) name:DPLanguageDidChangeNotification object:nil];

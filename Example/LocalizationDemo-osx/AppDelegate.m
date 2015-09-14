@@ -7,12 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "DPLocalizationManager.h"
+#import "DPLocalization.h"
 
 
 @interface AppDelegate ()
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSSegmentedControl *langSelector;
+@property (weak) IBOutlet NSSegmentedControl *bundleSelector;
 @property (weak) IBOutlet NSTextField *label;
 @end
 
@@ -21,6 +22,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     NSLog(@"Preffered language: %@", [DPLocalizationManager preferredLanguage]);
     NSLog(@"Selected language: %@", dp_get_current_language());
+    NSLog(@"Supported language: %@", [DPLocalizationManager supportedLanguages]);
 
     [self updateLangSelector];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageDidChangeNotification:) name:DPLanguageDidChangeNotification object:nil];
@@ -69,6 +71,27 @@
     if (dp_get_current_language() == nil) {
         self.langSelector.selectedSegment = 3;
     }
+}
+
+- (IBAction)bundleDidChange:(id)sender {
+    switch (self.bundleSelector.selectedSegment) {
+        case 0:
+            [DPLocalizationManager currentManager].defaultBundle = nil;
+            break;
+
+        case 1: {
+            NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"CustomBundle"];
+            [DPLocalizationManager currentManager].defaultBundle = [[NSBundle alloc] initWithPath:bundlePath];
+            break;
+        }
+
+        default:
+            break;
+    }
+
+    NSLog(@"Preffered language: %@", [[DPLocalizationManager currentManager].defaultBundle preferredLanguage]);
+    NSLog(@"Selected language: %@", dp_get_current_language());
+    NSLog(@"Supported language: %@", [[DPLocalizationManager currentManager].defaultBundle supportedLanguages]);
 }
 
 @end

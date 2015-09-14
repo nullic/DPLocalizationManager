@@ -252,7 +252,7 @@
 
 
 //MARK: -
-//MARK: Common
+//MARK: - Common
 
 @interface NSBundle (DPLocalization)
 /**
@@ -264,6 +264,20 @@
  @return The result is invoking of [DPAutolocalizationProxy autolocalizingPathForResource:name ofType:extension inBundle:self].
  */
 - (NSString *)autolocalizingPathForResource:(NSString *)name ofType:(NSString *)extension;
+
+/**
+ @brief Array of languages that may be found inside bundle.
+
+ @return Array of language codes (i.e.: "en", "ru", "fr" and etc.) or empty array if no language found.
+ */
+- (NSArray *)supportedLanguages;
+
+/**
+ @brief Return code for preferred application language.
+
+ @return Return first occurrence [NSLocale preferredLanguages] into [self supportedLanguages] or first element of [NSLocale preferredLanguages] array if [NSLocale preferredLanguages] and [self supportedLanguages] doesn't intersect.
+ */
+- (NSString *)preferredLanguage;
 @end
 
 @interface NSString (DPLocalization)
@@ -283,4 +297,5 @@
  @return The result is invoking of [DPAutolocalizationProxy autolocalizingImageNamed:name].
  */
 + (DPImage *)autolocalizingImageNamed:(NSString *)name;
+
 @end

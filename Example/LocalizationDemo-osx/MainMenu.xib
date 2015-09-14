@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9046"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -13,6 +13,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="bundleSelector" destination="3sw-ad-5sB" id="Azq-OV-ZP9"/>
                 <outlet property="label" destination="HMT-AO-czH" id="996-rj-UDg"/>
                 <outlet property="langSelector" destination="eiB-Es-95H" id="su2-9U-AVb"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -695,18 +696,6 @@
                             <action selector="languageDidChange:" target="Voe-Tx-rLC" id="MV6-Ak-V1i"/>
                         </connections>
                     </segmentedControl>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HMT-AO-czH">
-                        <rect key="frame" x="18" y="240" width="278" height="64"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" placeholderString="dfgdfg" id="EhH-6n-6ox">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="isAttributedKey" value="YES"/>
-                            <userDefinedRuntimeAttribute type="string" keyPath="autolocalizationKey" value="LABEL_TEXT"/>
-                        </userDefinedRuntimeAttributes>
-                    </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RzN-pg-oJE">
                         <rect key="frame" x="20" y="150" width="274" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="eqk-38-Fkw">
@@ -730,12 +719,12 @@
                     </button>
                     <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9Z-dC-w7o">
                         <rect key="frame" x="20" y="14" width="440" height="106"/>
-                        <clipView key="contentView" misplaced="YES" id="eAM-AU-A7h">
-                            <rect key="frame" x="1" y="1" width="223" height="133"/>
+                        <clipView key="contentView" ambiguous="YES" id="eAM-AU-A7h">
+                            <rect key="frame" x="1" y="1" width="423" height="104"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="PyW-lJ-I4D">
-                                    <rect key="frame" x="0.0" y="0.0" width="223" height="133"/>
+                                <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="PyW-lJ-I4D">
+                                    <rect key="frame" x="0.0" y="0.0" width="423" height="104"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="423" height="104"/>
@@ -754,8 +743,8 @@
                             <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="got-Fn-X3F">
-                            <rect key="frame" x="224" y="1" width="15" height="133"/>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="got-Fn-X3F">
+                            <rect key="frame" x="424" y="1" width="15" height="104"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
@@ -792,6 +781,31 @@
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
+                    <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3sw-ad-5sB">
+                        <rect key="frame" x="18" y="287" width="278" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="JpL-oO-hdh">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="Main bundle" width="136" selected="YES"/>
+                                <segment label="Custom bundle" width="135" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                        <connections>
+                            <action selector="bundleDidChange:" target="Voe-Tx-rLC" id="PGh-Ya-ciA"/>
+                        </connections>
+                    </segmentedControl>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HMT-AO-czH">
+                        <rect key="frame" x="18" y="180" width="278" height="64"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" placeholderString="dfgdfg" id="EhH-6n-6ox">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isAttributedKey" value="YES"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="autolocalizationKey" value="LABEL_TEXT"/>
+                        </userDefinedRuntimeAttributes>
+                    </textField>
                 </subviews>
             </view>
             <userDefinedRuntimeAttributes>

@@ -47,9 +47,12 @@
 
 #pragma mark - Localization
 
-- (void)testLocalizedStrings {
+- (void)testLocalizedStringsTables {
     NSString *preferredLanguage = [DPLocalizationManager preferredLanguage];
     XCTAssertNotNil(preferredLanguage);
+
+    [DPLocalizationManager currentManager].defaultBundle = nil;
+    XCTAssertEqualObjects([DPLocalizationManager currentManager].defaultBundle, [NSBundle mainBundle]);
 
 // "TESTS_STRING" - language code + " 1"
 
@@ -98,6 +101,67 @@
     dp_set_current_language(@"de");
     XCTAssertTrue([dp_get_current_language() isEqualToString:@"de"]);
     XCTAssertTrue([DPLocalizedString(@"TESTS_STRING", nil) isEqualToString:@"de"]);
+}
+
+- (void)testLocalizedStringsBundles {
+    NSString *preferredLanguage = [DPLocalizationManager preferredLanguage];
+    XCTAssertNotNil(preferredLanguage);
+
+    NSString *bundlePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"CustomBundle"];
+    [DPLocalizationManager currentManager].defaultBundle = [[NSBundle alloc] initWithPath:bundlePath];
+    XCTAssertEqualObjects(([DPLocalizationManager currentManager].defaultBundle.bundlePath), bundlePath);
+
+    // "TESTS_STRING" - language code + " 1"
+
+    [[DPLocalizationManager currentManager] setDefaultStringTableName:@"Localizable1"];
+
+    dp_set_current_language(nil);
+    XCTAssertNil(dp_get_current_language());
+    XCTAssertTrue([DPLocalizedString(@"TESTS_STRING", nil) isEqualToString:[preferredLanguage stringByAppendingString:@" 1 b2"]]);
+
+    dp_set_current_language(@"en");
+    XCTAssertTrue([dp_get_current_language() isEqualToString:@"en"]);
+    XCTAssertTrue([DPLocalizedString(@"TESTS_STRING", nil) isEqualToString:@"en 1 b2"]);
+
+    dp_set_current_language(@"ru");
+    XCTAssertTrue([dp_get_current_language() isEqualToString:@"ru"]);
+    XCTAssertTrue([DPLocalizedString(@"TESTS_STRING", nil) isEqualToString:@"ru 1 b2"]);
+
+    dp_set_current_language(nil);
+    XCTAssertNil(dp_get_current_language());
+    XCTAssertTrue([DPLocalizedString(@"TESTS_STRING", nil) isEqualToString:[preferredLanguage stringByAppendingString:@" 1 b2"]]);
+
+    dp_set_current_language(@"de");
+    XCTAssertTrue([dp_get_current_language() isEqualToString:@"de"]);
+    XCTAssertTrue([DPLocalizedString(@"TESTS_STRING", nil) isEqualToString:@"de 1 b2"]);
+
+    // "TESTS_STRING" - language code
+
+    [[DPLocalizationManager currentManager] setDefaultStringTableName:nil];
+
+    dp_set_current_language(nil);
+    XCTAssertNil(dp_get_current_language());
+    XCTAssertTrue([DPLocalizedString(@"TESTS_STRING", nil) isEqualToString:[preferredLanguage stringByAppendingString:@" b2"]]);
+
+    dp_set_current_language(@"en");
+    XCTAssertTrue([dp_get_current_language() isEqualToString:@"en"]);
+    XCTAssertTrue([DPLocalizedString(@"TESTS_STRING", nil) isEqualToString:@"en b2"]);
+
+    dp_set_current_language(@"ru");
+    XCTAssertTrue([dp_get_current_language() isEqualToString:@"ru"]);
+    XCTAssertTrue([DPLocalizedString(@"TESTS_STRING", nil) isEqualToString:@"ru b2"]);
+
+    dp_set_current_language(nil);
+    XCTAssertNil(dp_get_current_language());
+    XCTAssertTrue([DPLocalizedString(@"TESTS_STRING", nil) isEqualToString:[preferredLanguage stringByAppendingString:@" b2"]]);
+
+    dp_set_current_language(@"de");
+    XCTAssertTrue([dp_get_current_language() isEqualToString:@"de"]);
+    XCTAssertTrue([DPLocalizedString(@"TESTS_STRING", nil) isEqualToString:@"de b2"]);
+
+
+    // Rollback defaultBundle and check changes
+    [self testLocalizedStringsTables];
 }
 
 - (void)testLocalizedPath {

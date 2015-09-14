@@ -9,6 +9,7 @@
 #import "DPLocalizationManager.h"
 #import "Plural+DPLocalization.h"
 #import "DPAutolocalizationProxy.h"
+#import "NSObject+DPLocalization.h"
 
 
 NSString * const DPLanguageDidChangeNotification = @"DPLanguageDidChangeNotification";
@@ -24,6 +25,7 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 
 @synthesize currentLanguage = _currentLanguage;
 @synthesize defaultStringTableName = _defaultStringTableName;
+@synthesize defaultBundle = _defaultBundle;
 
 - (NSString *)currentLanguage {
     if (!_currentLanguage) {
@@ -53,7 +55,7 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 }
 
 - (NSString *)usedLanguage {
-    return self.currentLanguage ? self.currentLanguage : [[self class] preferredLanguage];
+    return self.currentLanguage ? self.currentLanguage : [self.defaultBundle preferredLanguage];
 }
 
 - (dp_plural_rules_func)plural_rules_func {
@@ -76,15 +78,15 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 - (void)loadTableNamedIfNeeded:(NSString *)tableName {
     if (tableName && self.tables[tableName] == nil) {
         {
-            NSString *path = [[NSBundle mainBundle] pathForResource:tableName ofType:@"strings" inDirectory:nil forLocalization:self.currentLanguage];
-            path = path ? path : [[NSBundle mainBundle] pathForResource:tableName ofType:@"strings"];
+            NSString *path = [self.defaultBundle pathForResource:tableName ofType:@"strings" inDirectory:nil forLocalization:self.currentLanguage];
+            path = path ? path : [self.defaultBundle pathForResource:tableName ofType:@"strings"];
             NSDictionary *tableContent = path ? [NSDictionary dictionaryWithContentsOfFile:path] : nil;
             self.tables[tableName] = tableContent ? tableContent : @{};
         }
 
         {
-            NSString *path = [[NSBundle mainBundle] pathForResource:tableName ofType:@"stringsdict" inDirectory:nil forLocalization:self.currentLanguage];
-            path = path ? path : [[NSBundle mainBundle] pathForResource:tableName ofType:@"stringsdict"];
+            NSString *path = [self.defaultBundle pathForResource:tableName ofType:@"stringsdict" inDirectory:nil forLocalization:self.currentLanguage];
+            path = path ? path : [self.defaultBundle pathForResource:tableName ofType:@"stringsdict"];
             NSDictionary *tableContent = path ? [NSDictionary dictionaryWithContentsOfFile:path] : nil;
             self.pluralRuleTables[tableName] = tableContent ? tableContent : @{};
         }
@@ -99,6 +101,21 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     if ([defaultStringTableName isEqualToString:[self defaultStringTableName]] == NO) {
         _defaultStringTableName = [defaultStringTableName copy];
         
+        [[DPAutolocalizationProxy notificationCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
+    }
+}
+
+- (NSBundle *)defaultBundle {
+    return _defaultBundle ? _defaultBundle : [NSBundle mainBundle];
+}
+
+- (void)setDefaultBundle:(NSBundle *)defaultBundle {
+    if (_defaultBundle != defaultBundle) {
+        _defaultBundle = defaultBundle;
+
+        [self.tables removeAllObjects];
+        [self.pluralRuleTables removeAllObjects];
         [[DPAutolocalizationProxy notificationCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
     }
@@ -149,7 +166,7 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     [self loadTableNamedIfNeeded:tableName];
 
     NSString *result = result = self.tables[tableName][key];
-    return result ? result : NSLocalizedStringFromTable(key, tableName, nil);
+    return result ?: [self.defaultBundle localizedStringForKey:key value:@"" table:tableName];
 }
 
 - (NSString *)localizedStringForKey:(NSString *)key table:(NSString *)table arguments:(NSArray *)arguments {
@@ -217,21 +234,24 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 
 - (DPImage *)localizedImageNamed:(NSString *)name {
     DPImage *result = nil;
+
     if (name && self.currentLanguage) {
         NSString *localizationPath = [NSString stringWithFormat:@"%@.lproj", self.currentLanguage];
 #if DPLocalization_UIKit
         NSString *imageNamePath = [localizationPath stringByAppendingPathComponent:name];
         result = [DPImage imageNamed:imageNamePath];
 #elif DPLocalization_AppKit
-        NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:localizationPath];
+        NSString *resourcePath = [self.defaultBundle resourcePath] ?: self.defaultBundle.bundlePath;
+        NSString *bundlePath = [resourcePath stringByAppendingPathComponent:localizationPath];
         result = [[NSBundle bundleWithPath:bundlePath] imageForResource:name];
 #endif
     }
+    
     return result ? result : [DPImage imageNamed:name];
 }
 
 - (NSString *)localizedPathForResource:(NSString *)name ofType:(NSString *)extension bundle:(NSBundle *)bundle {
-    NSBundle *searchBundle = bundle ? bundle : [NSBundle mainBundle];
+    NSBundle *searchBundle = bundle ? bundle : self.defaultBundle;
     NSString *path = [searchBundle pathForResource:name ofType:extension inDirectory:nil forLocalization:self.currentLanguage];
     path = path ? path : [searchBundle pathForResource:name ofType:extension];
     return path;
@@ -257,57 +277,14 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
     static NSArray *supportedLanguages = nil;
 
     if (supportedLanguages == nil) {
-        NSFileManager *fileManager = [[NSFileManager alloc] init];
-        NSDirectoryEnumerator *dirEnumerator = [fileManager enumeratorAtURL:[[NSBundle mainBundle] bundleURL]
-                                                 includingPropertiesForKeys:@[NSURLNameKey, NSURLIsDirectoryKey]
-                                                                    options:NSDirectoryEnumerationSkipsHiddenFiles | NSDirectoryEnumerationSkipsSubdirectoryDescendants
-                                                               errorHandler:nil];
-
-        NSMutableArray *result = [NSMutableArray array];
-        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(.+?)\\.lproj" options:0 error:nil];
-
-        for (NSURL *theURL in dirEnumerator) {
-            NSString *fileName = nil;
-            NSNumber *isDirectory = nil;
-
-            [theURL getResourceValue:&fileName forKey:NSURLNameKey error:NULL];
-            [theURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:NULL];
-
-            if (isDirectory.boolValue) {
-                NSArray *results = [regex matchesInString:fileName options:0 range:NSMakeRange(0, fileName.length)];
-                if (results.count == 1) {
-                    NSTextCheckingResult *match = results[0];
-                    if (match.numberOfRanges == 2) {
-                        NSString *language = [fileName substringWithRange:[match rangeAtIndex:1]];
-                        [result addObject:language];
-                        [dirEnumerator skipDescendants];
-                    }
-
-                }
-            }
-        }
-
-        supportedLanguages = result;
+        supportedLanguages = [[NSBundle mainBundle] supportedLanguages];
     }
 
     return supportedLanguages;
 }
 
 + (NSString *)preferredLanguage {
-    NSArray *preferredLanguages = [NSLocale preferredLanguages];
-    NSArray *supportedLanguages = [self supportedLanguages];
-    NSString *developerLanguage = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleDevelopmentRegion"];
-    supportedLanguages = [supportedLanguages count] > 0 ? supportedLanguages : @[developerLanguage ? developerLanguage : @"en"];
-
-    NSString *result = nil;
-    for (NSString *language in preferredLanguages) {
-        if ([supportedLanguages indexOfObject:language] != NSNotFound) {
-            result = language;
-            break;
-        }
-    }
-
-    return result ? result : (preferredLanguages.count ? preferredLanguages[0] : nil);
+    return [[NSBundle mainBundle] preferredLanguage];
 }
 
 #pragma mark - Deprecated

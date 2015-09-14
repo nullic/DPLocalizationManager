@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="N2e-a6-ccs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="N2e-a6-ccs">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -94,7 +94,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="7cq-fx-5sz">
-                        <barButtonItem key="rightBarButtonItem" title="plural" id="JDb-Ki-Jy9">
+                        <barButtonItem key="rightBarButtonItem" title="More" id="JDb-Ki-Jy9">
                             <connections>
                                 <segue destination="I0u-Ge-zgc" kind="push" id="NNZ-w6-pgz"/>
                             </connections>
@@ -137,11 +137,23 @@
                                     <action selector="stepperValueChanged:" destination="I0u-Ge-zgc" eventType="valueChanged" id="qtu-9d-IOd"/>
                                 </connections>
                             </stepper>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="V5w-aC-EsH">
+                                <rect key="frame" x="16" y="107" width="288" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Main bundle"/>
+                                    <segment title="Custom bundle"/>
+                                </segments>
+                                <connections>
+                                    <action selector="bundleDidChange:" destination="I0u-Ge-zgc" eventType="valueChanged" id="Lzm-k0-DaY"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bnw-Od-u3C"/>
                     <connections>
+                        <outlet property="bundleSelector" destination="V5w-aC-EsH" id="h19-WF-J6Y"/>
                         <outlet property="countLabel" destination="FSi-Ay-X8t" id="cUs-L7-pUc"/>
                         <outlet property="stepper" destination="az1-BI-dFq" id="ySH-Tw-oth"/>
                     </connections>
@@ -151,9 +163,4 @@
             <point key="canvasLocation" x="472" y="144"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

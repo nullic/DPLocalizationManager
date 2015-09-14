@@ -621,6 +621,74 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
     return [DPAutolocalizationProxy autolocalizingPathForResource:name ofType:extension inBundle:self];
 }
 
+- (NSArray *)supportedLanguages {
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+
+    NSDirectoryEnumerator *dirEnumerator = [fileManager enumeratorAtURL:([self resourceURL] ?: [self bundleURL])
+                                             includingPropertiesForKeys:@[NSURLNameKey, NSURLIsDirectoryKey]
+                                                                options:NSDirectoryEnumerationSkipsHiddenFiles | NSDirectoryEnumerationSkipsSubdirectoryDescendants
+                                                           errorHandler:nil];
+
+    NSMutableArray *result = [NSMutableArray array];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(.+?)\\.lproj" options:0 error:nil];
+
+    for (NSURL *theURL in dirEnumerator) {
+        NSString *fileName = nil;
+        NSNumber *isDirectory = nil;
+
+        [theURL getResourceValue:&fileName forKey:NSURLNameKey error:NULL];
+        [theURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:NULL];
+
+        if (isDirectory.boolValue) {
+            NSArray *results = [regex matchesInString:fileName options:0 range:NSMakeRange(0, fileName.length)];
+            if (results.count == 1) {
+                NSTextCheckingResult *match = results[0];
+                if (match.numberOfRanges == 2) {
+                    NSString *language = [fileName substringWithRange:[match rangeAtIndex:1]];
+                    [result addObject:language];
+                    [dirEnumerator skipDescendants];
+                }
+
+            }
+        }
+    }
+
+
+    return result;
+}
+
+- (NSString *)preferredLanguage {
+    NSArray *preferredLanguages = [NSLocale preferredLanguages];
+    NSArray *supportedLanguages = [self supportedLanguages];
+    NSString *developerLanguage = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleDevelopmentRegion"];
+    supportedLanguages = [supportedLanguages count] > 0 ? supportedLanguages : @[developerLanguage ? developerLanguage : @"en"];
+
+    NSString *result = nil;
+    for (NSString *language in preferredLanguages) {
+        if ([supportedLanguages indexOfObject:language] != NSNotFound) {
+            result = language;
+            break;
+        }
+    }
+
+    if (result == nil) {
+        for (NSString *language in preferredLanguages) {
+            NSRange range = [language rangeOfString:@"-"];
+
+            if (range.location != NSNotFound) {
+                NSString *shortLang = [language substringToIndex:range.location];
+                if ([supportedLanguages indexOfObject:shortLang] != NSNotFound) {
+                    result = shortLang;
+                    break;
+                }
+            }
+        }
+
+    }
+
+    return result ? result : (preferredLanguages.count ? preferredLanguages[0] : nil);
+}
+
 @end
 
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>FILES_REMAINING_FORMAT</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@files@</string>
+            <key>files</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>@</string>
+                <key>one</key>
+                <string>Остался %@ файл (one)</string>
+                <key>few</key>
+                <string>Осталось %@ файла (few)</string>
+                <key>many</key>
+                <string>Осталось %@ файлов (many)</string>
+                <key>other</key>
+                <string>Осталось %@ файла (other)</string>
+            </dict>
+        </dict>
+    </dict>
+</plist>

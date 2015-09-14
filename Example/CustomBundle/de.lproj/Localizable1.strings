@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  LocalizationDemo
+
+  Created by dmitriy.petrusevich on 13.11.13.
+  Copyright (c) 2013 Dmitriy Petrusevich. All rights reserved.
+*/
+
+"TITLE" = "German 11 B2";
+"LABEL_TEXT" = "German - %3$@\n%2$@\n%1$@ 11";
+"TEXTVIEW_TEXT" = "German\n\nUITextView text.\n\nSee user defined runtime attributes in storyboard. 11";
+
+
+"TESTS_STRING" = "de 1 b2";

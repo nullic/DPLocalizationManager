@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  LocalizationDemo
+
+  Created by dmitriy.petrusevich on 13.11.13.
+  Copyright (c) 2013 Dmitriy Petrusevich. All rights reserved.
+*/
+
+"TITLE" = "Russian B2";
+"LABEL_TEXT" = "Russian - %3$@\n<traits=bi>{%1$@}\n%2$@";
+"TEXTVIEW_TEXT" = "Russian\n\nUITextView text.\n\nSee user defined runtime attributes in storyboard.";
+
+
+"FILES_REMAINING_T" = "FILES_REMAINING_FORMAT";
+
+"TESTS_STRING" = "ru b2";
+"TESTS_STRING_ARGS_1" = "ru %@ %@ %@";
+"TESTS_STRING_ARGS_2" = "ru %3$@ %1$@ %2$@";
+"TESTS_STRING_ARGS_3" = "ru %1$@ %1$@ %1$@";
+"TESTS_STRING_ARGS_4" = "ru %2$@ %3$@ %4$@";

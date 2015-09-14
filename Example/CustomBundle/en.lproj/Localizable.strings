@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  LocalizationDemo
+
+  Created by dmitriy.petrusevich on 13.11.13.
+  Copyright (c) 2013 Dmitriy Petrusevich. All rights reserved.
+*/
+
+"TITLE" = "English B2";
+"LABEL_TEXT" = "English - <traits=ibus size=12>{%1$@}\n%2$@\n<names=\"Courier-BoldOblique\" color=12,56,189>{%3$@}";
+"TEXTVIEW_TEXT" = "English\n\nUITextView text. <link=\"https://github.com/nullic/DPLocalizationManager\" traits=b>{link to DPLocalizationManager} \n\nSee user defined runtime attributes in storyboard.";
+
+
+"FILES_REMAINING_T" = "FILES_REMAINING_FORMAT";
+
+"TESTS_STRING" = "en b2";
+"TESTS_STRING_ARGS_1" = "en %@ %@ %@";
+"TESTS_STRING_ARGS_2" = "en %3$@ %1$@ %2$@";
+"TESTS_STRING_ARGS_3" = "en %1$@ %1$@ %1$@";
+"TESTS_STRING_ARGS_4" = "en %2$@ %3$@ %4$@";
