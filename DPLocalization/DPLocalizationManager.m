@@ -41,15 +41,14 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 
     if (newLanguage != curLang && !(newLanguage && [curLang isEqualToString:newLanguage])) {
         _currentLanguage = newLanguage;
+        [[NSUserDefaults standardUserDefaults] setObject:newLanguage forKey:DPLanguagePreferenceKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
         [self.tables removeAllObjects];
         [self.pluralRuleTables removeAllObjects];
         self.plural_rules_func = newLanguage ? dp_plural_rules_for_lang_code(newLanguage) : NULL;
-
         [[DPAutolocalizationProxy notificationCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:DPLanguageDidChangeNotification object:self];
-
-        [[NSUserDefaults standardUserDefaults] setObject:newLanguage forKey:DPLanguagePreferenceKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
