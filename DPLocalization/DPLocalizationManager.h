@@ -80,7 +80,7 @@
  @brief Returns the full pathname for the resource identified by the specified name and file extension for selected language.
  @param name        The name of the resource file.
  @param extension   If extension is an empty string or nil, the extension is assumed not to exist and the file is the first file encountered that exactly matches name.
- @param bundle      If bundle is nil, the bundle is assumed as main bundle.
+ @param bundle      If bundle is nil, the bundle is assumed as 'default' bundle.
 
  @return The result is invoking of [bundle pathForResource:name ofType:extension inDirectory:nil forLocalization:currentLanguage]. If result is nil return [bundle pathForResource:name ofType:extension] instead.
  */
@@ -96,7 +96,7 @@
 /**
  @brief Return code for preferred application language.
 
- @return Return first occurrence [NSLocale preferredLanguages] into [self supportedLanguages] or first element of [NSLocale preferredLanguages] array if [NSLocale preferredLanguages] and [self supportedLanguages] doesn't intersect.
+ @return [[NSBundle mainBundle] preferredLanguage].
  */
 + (NSString *)preferredLanguage;
 

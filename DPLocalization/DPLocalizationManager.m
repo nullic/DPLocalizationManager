@@ -274,13 +274,7 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 #pragma mark - Languages
 
 + (NSArray *)supportedLanguages {
-    static NSArray *supportedLanguages = nil;
-
-    if (supportedLanguages == nil) {
-        supportedLanguages = [[NSBundle mainBundle] supportedLanguages];
-    }
-
-    return supportedLanguages;
+    return [[NSBundle mainBundle] localizations];
 }
 
 + (NSString *)preferredLanguage {

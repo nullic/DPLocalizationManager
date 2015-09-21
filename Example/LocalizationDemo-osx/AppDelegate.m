@@ -91,7 +91,7 @@
 
     NSLog(@"Preffered language: %@", [[DPLocalizationManager currentManager].defaultBundle preferredLanguage]);
     NSLog(@"Selected language: %@", dp_get_current_language());
-    NSLog(@"Supported language: %@", [[DPLocalizationManager currentManager].defaultBundle supportedLanguages]);
+    NSLog(@"Supported language: %@", [[DPLocalizationManager currentManager].defaultBundle localizations]);
 }
 
 @end

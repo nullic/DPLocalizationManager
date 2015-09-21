@@ -14,6 +14,7 @@
 		B203935E1B41496600F30C6A /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
 		B204BED91B37F70E00AF575F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B204BED81B37F70E00AF575F /* SecondViewController.m */; };
 		B230487A1B3BCF220060BC1D /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */; };
+		B25FDA0E1BAC1659005CFBA0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25FDA0D1BAC1659005CFBA0 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		B26A05AC1BA6D72E00C1BEF3 /* CustomBundle in Resources */ = {isa = PBXBuildFile; fileRef = B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */; };
 		B26A05AD1BA6D72E00C1BEF3 /* CustomBundle in Resources */ = {isa = PBXBuildFile; fileRef = B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */; };
 		B292EB2F1B37EF9900942BC9 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = B292EB311B37EF9900942BC9 /* Localizable.stringsdict */; };
@@ -36,6 +37,8 @@
 		B2DB3AA61BA6CF4000D9D18D /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
 		B2DB3AA71BA6CF4000D9D18D /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */; };
 		B2DB3AA81BA6CF4000D9D18D /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
+		B2F0D3D31BA7E59900718038 /* DPLocalizationBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F0D3D21BA7E59900718038 /* DPLocalizationBundle.m */; };
+		B2F0D3D41BA7E59900718038 /* DPLocalizationBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F0D3D21BA7E59900718038 /* DPLocalizationBundle.m */; };
 		CE3D78C51835EAA10012CA3D /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
 		CE8DC38F18C9CABF004E4BB8 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8DC39118C9CABF004E4BB8 /* image.png */; };
 		CED1C4FB1845F3DD003014E7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CED1C4FA1845F3DD003014E7 /* Settings.bundle */; };
@@ -83,6 +86,7 @@
 		B23048781B3BCD4F0060BC1D /* Plural+DPLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Plural+DPLocalization.h"; sourceTree = "<group>"; };
 		B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plural+DPLocalization.m"; sourceTree = "<group>"; };
 		B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationPlatforms.h; sourceTree = "<group>"; };
+		B25FDA0D1BAC1659005CFBA0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CustomBundle; sourceTree = "<group>"; };
 		B292EB301B37EF9900942BC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		B292EB321B37EF9B00942BC9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 		B29DC3381A9B167800AFE219 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/image.png; sourceTree = "<group>"; };
 		B2B6D5061B4280A700EC46BA /* DPFormattedValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPFormattedValue.h; sourceTree = "<group>"; };
 		B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPFormattedValue.m; sourceTree = "<group>"; };
+		B2F0D3D11BA7E59900718038 /* DPLocalizationBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationBundle.h; sourceTree = "<group>"; };
+		B2F0D3D21BA7E59900718038 /* DPLocalizationBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLocalizationBundle.m; sourceTree = "<group>"; };
 		CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationManager.h; sourceTree = "<group>"; };
 		CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLocalizationManager.m; sourceTree = "<group>"; };
 		CE8DC39018C9CABF004E4BB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/image.png; sourceTree = "<group>"; };
@@ -241,6 +247,15 @@
 			path = Formatter;
 			sourceTree = "<group>";
 		};
+		B2F0D3D01BA7E56F00718038 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				B2F0D3D11BA7E59900718038 /* DPLocalizationBundle.h */,
+				B2F0D3D21BA7E59900718038 /* DPLocalizationBundle.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		CE3D78C01835EAA10012CA3D /* DPLocalization */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +263,7 @@
 				A2A866AD1B64FF6E00F57D37 /* Proxy */,
 				B2B6D5051B427E6100EC46BA /* Formatter */,
 				B23048741B3BCD0F0060BC1D /* Plural */,
+				B2F0D3D01BA7E56F00718038 /* Storage */,
 				B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */,
 				CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */,
 				CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */,
@@ -311,6 +327,7 @@
 				CED8AE101833502A007E4C60 /* Images.xcassets */,
 				CED8ADFF1833502A007E4C60 /* Supporting Files */,
 				CED1C4FA1845F3DD003014E7 /* Settings.bundle */,
+				B25FDA0D1BAC1659005CFBA0 /* Launch Screen.storyboard */,
 			);
 			path = LocalizationDemo;
 			sourceTree = "<group>";
@@ -446,6 +463,7 @@
 				CED1C4FB1845F3DD003014E7 /* Settings.bundle in Resources */,
 				B26A05AC1BA6D72E00C1BEF3 /* CustomBundle in Resources */,
 				CED8AE2E18335082007E4C60 /* Main.storyboard in Resources */,
+				B25FDA0E1BAC1659005CFBA0 /* Launch Screen.storyboard in Resources */,
 				CED8AE3818335121007E4C60 /* Localizable.strings in Resources */,
 				CED8AE111833502A007E4C60 /* Images.xcassets in Resources */,
 				B292EB2F1B37EF9900942BC9 /* Localizable.stringsdict in Resources */,
@@ -477,6 +495,7 @@
 				B2DB3AA61BA6CF4000D9D18D /* dp_gen_plural.c in Sources */,
 				B2DB3AA71BA6CF4000D9D18D /* Plural+DPLocalization.m in Sources */,
 				B2DB3AA81BA6CF4000D9D18D /* DPLocalizationManager.m in Sources */,
+				B2F0D3D41BA7E59900718038 /* DPLocalizationBundle.m in Sources */,
 				B2DB3AA41BA6CF4000D9D18D /* DPAutolocalizationProxy.m in Sources */,
 				B2DB3AA31BA6CF4000D9D18D /* NSObject+DPLocalization.m in Sources */,
 				B29DC3251A9AF46A00AFE219 /* main.m in Sources */,
@@ -489,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2F0D3D31BA7E59900718038 /* DPLocalizationBundle.m in Sources */,
 				B203935E1B41496600F30C6A /* dp_gen_plural.c in Sources */,
 				B230487A1B3BCF220060BC1D /* Plural+DPLocalization.m in Sources */,
 				CED8AE0F1833502A007E4C60 /* ViewController.m in Sources */,

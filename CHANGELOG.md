@@ -3,6 +3,7 @@
 ## 1.8
 - Fixed Set current language to 'nil' before reading
 - Added defaultBundle property. ".strings" resources can be stored outside mainBundle.
+- Added [DPLocalizationBundle class]
 
 ## 1.7
 - Added Plural rules (NSNumber - integer only, DPFormattedNumberValue - decimal)

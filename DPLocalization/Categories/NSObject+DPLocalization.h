@@ -266,16 +266,9 @@
 - (NSString *)autolocalizingPathForResource:(NSString *)name ofType:(NSString *)extension;
 
 /**
- @brief Array of languages that may be found inside bundle.
-
- @return Array of language codes (i.e.: "en", "ru", "fr" and etc.) or empty array if no language found.
- */
-- (NSArray *)supportedLanguages;
-
-/**
  @brief Return code for preferred application language.
 
- @return Return first occurrence [NSLocale preferredLanguages] into [self supportedLanguages] or first element of [NSLocale preferredLanguages] array if [NSLocale preferredLanguages] and [self supportedLanguages] doesn't intersect.
+ @return Return first element of [self preferredLocalizations], or [[NSBundle mainBundle] developmentLocalization] if 'preferredLocalizations' array is empty, or "en" if 'developmentLocalization' cannot be determined.
  */
 - (NSString *)preferredLanguage;
 @end
