@@ -14,7 +14,6 @@
 		B203935E1B41496600F30C6A /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
 		B204BED91B37F70E00AF575F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B204BED81B37F70E00AF575F /* SecondViewController.m */; };
 		B230487A1B3BCF220060BC1D /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */; };
-		B25FDA0E1BAC1659005CFBA0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25FDA0D1BAC1659005CFBA0 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		B26A05AC1BA6D72E00C1BEF3 /* CustomBundle in Resources */ = {isa = PBXBuildFile; fileRef = B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */; };
 		B26A05AD1BA6D72E00C1BEF3 /* CustomBundle in Resources */ = {isa = PBXBuildFile; fileRef = B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */; };
 		B292EB2F1B37EF9900942BC9 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = B292EB311B37EF9900942BC9 /* Localizable.stringsdict */; };
@@ -29,6 +28,7 @@
 		B29DC3261A9AF46A00AFE219 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29DC3211A9AF46A00AFE219 /* MainMenu.xib */; };
 		B29DC3291A9AF4DC00AFE219 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B29DC32B1A9AF4DC00AFE219 /* Localizable.strings */; };
 		B29DC3341A9B167700AFE219 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = B29DC3361A9B167700AFE219 /* image.png */; };
+		B2A0A1D61BAFE15400559277 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A0A1D51BAFE15400559277 /* Launch Screen.xib */; };
 		B2B6D5081B4280A700EC46BA /* DPFormattedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */; };
 		B2DB3AA21BA6CF4000D9D18D /* NSAttributedString+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AA1B64FF6E00F57D37 /* NSAttributedString+DPLocalization.m */; };
 		B2DB3AA31BA6CF4000D9D18D /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AC1B64FF6E00F57D37 /* NSObject+DPLocalization.m */; };
@@ -86,7 +86,6 @@
 		B23048781B3BCD4F0060BC1D /* Plural+DPLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Plural+DPLocalization.h"; sourceTree = "<group>"; };
 		B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plural+DPLocalization.m"; sourceTree = "<group>"; };
 		B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationPlatforms.h; sourceTree = "<group>"; };
-		B25FDA0D1BAC1659005CFBA0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CustomBundle; sourceTree = "<group>"; };
 		B292EB301B37EF9900942BC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		B292EB321B37EF9B00942BC9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -111,6 +110,7 @@
 		B29DC3351A9B167700AFE219 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/image.png; sourceTree = "<group>"; };
 		B29DC3371A9B167800AFE219 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/image.png; sourceTree = "<group>"; };
 		B29DC3381A9B167800AFE219 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/image.png; sourceTree = "<group>"; };
+		B2A0A1D51BAFE15400559277 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		B2B6D5061B4280A700EC46BA /* DPFormattedValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPFormattedValue.h; sourceTree = "<group>"; };
 		B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPFormattedValue.m; sourceTree = "<group>"; };
 		B2F0D3D11BA7E59900718038 /* DPLocalizationBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationBundle.h; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 				CED8AE101833502A007E4C60 /* Images.xcassets */,
 				CED8ADFF1833502A007E4C60 /* Supporting Files */,
 				CED1C4FA1845F3DD003014E7 /* Settings.bundle */,
-				B25FDA0D1BAC1659005CFBA0 /* Launch Screen.storyboard */,
+				B2A0A1D51BAFE15400559277 /* Launch Screen.xib */,
 			);
 			path = LocalizationDemo;
 			sourceTree = "<group>";
@@ -462,8 +462,8 @@
 			files = (
 				CED1C4FB1845F3DD003014E7 /* Settings.bundle in Resources */,
 				B26A05AC1BA6D72E00C1BEF3 /* CustomBundle in Resources */,
+				B2A0A1D61BAFE15400559277 /* Launch Screen.xib in Resources */,
 				CED8AE2E18335082007E4C60 /* Main.storyboard in Resources */,
-				B25FDA0E1BAC1659005CFBA0 /* Launch Screen.storyboard in Resources */,
 				CED8AE3818335121007E4C60 /* Localizable.strings in Resources */,
 				CED8AE111833502A007E4C60 /* Images.xcassets in Resources */,
 				B292EB2F1B37EF9900942BC9 /* Localizable.stringsdict in Resources */,
