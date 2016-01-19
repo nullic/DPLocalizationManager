@@ -10,6 +10,7 @@
 
 @interface DPFormattedValue : NSObject
 + (instancetype)formattedValueWithValue:(id)value formatter:(NSFormatter *)formatter;
++ (instancetype)formattedValueWithValue:(id)value formatter:(NSFormatter *)formatter locale:(NSLocale *)locale;
 
 - (id)value;
 - (NSFormatter *)formatter;

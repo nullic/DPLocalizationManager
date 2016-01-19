@@ -80,6 +80,24 @@ static NSString * const kLocalizationBundleKey = @"bundle";
 
 @end
 
+#pragma mark -
+
+@interface DPAutolocalizingLocale : DPAutolocalizationProxy
+@end
+
+@implementation DPAutolocalizingLocale
+
+- (id)surrogate {
+    @synchronized(self) {
+        if (!self->surrogate) {
+            self->surrogate = dp_get_current_language() ? [NSLocale localeWithLocaleIdentifier:dp_get_current_language()] : [NSLocale currentLocale];
+        }
+        return self->surrogate;
+    }
+}
+
+@end
+
 
 #pragma mark - Abstract -
 
@@ -126,6 +144,10 @@ static NSString * const kLocalizationBundleKey = @"bundle";
     return (DPImage *)[[DPAutolocalizingImage alloc] initWithOptions:@{kLocalizationImageNameKey : imageName}];
 }
 
++ (NSLocale *)autolocalizingLocale {
+    return (NSLocale *)[[DPAutolocalizingLocale alloc] initWithOptions:nil];
+}
+
 #pragma mark -
 
 + (instancetype)alloc {
@@ -137,11 +159,8 @@ static NSString * const kLocalizationBundleKey = @"bundle";
 }
 
 - (instancetype)initWithOptions:(NSDictionary *)options {
-    NSParameterAssert([options count] != 0);
-
     self.options = options;
     self.surrogate = nil;
-
     return self;
 }
 

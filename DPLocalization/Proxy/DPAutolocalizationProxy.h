@@ -55,4 +55,6 @@
  @return            Proxy object which value depended from selected language.
  */
 + (DPImage *)autolocalizingImageNamed:(NSString *)name;
+
++ (NSLocale *)autolocalizingLocale;
 @end

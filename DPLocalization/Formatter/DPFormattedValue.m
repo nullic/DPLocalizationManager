@@ -10,6 +10,7 @@
 
 @interface DPFormattedValue ()
 @property (nonatomic, copy) NSFormatter *formatter;
+@property (nonatomic, copy) NSLocale *locale;
 @property (nonatomic, copy) id value;
 @property (nonatomic, copy) NSString *formattedValue;
 @end
@@ -29,24 +30,26 @@
 @implementation DPFormattedValue
 
 + (instancetype)formattedValueWithValue:(id)value formatter:(NSFormatter *)formatter {
+    return [self formattedValueWithValue:value formatter:formatter locale:nil];
+}
+
++ (instancetype)formattedValueWithValue:(id)value formatter:(NSFormatter *)formatter locale:(NSLocale *)locale {
     DPFormattedValue *result = nil;
     
     if ([value isKindOfClass:[NSNumber class]] && [formatter isKindOfClass:[NSNumberFormatter class]]) {
         result = [[DPFormattedNumberValue alloc] init];
-        result.formatter = (NSNumberFormatter *)formatter;
-        result.value = value;
     }
     else if ([value isKindOfClass:[NSDate class]] && [formatter isKindOfClass:[NSDateFormatter class]]) {
         result = [[DPFormattedDateValue alloc] init];
-        result.formatter = (NSDateFormatter *)formatter;
-        result.value = value;
     }
     else {
         result = [[self alloc] init];
-        result.formatter = formatter;
-        result.value = value;
     }
-    
+
+    result.formatter = formatter;
+    result.value = value;
+    result.locale = locale;
+
     return result;
 }
 
@@ -56,11 +59,11 @@
 }
 
 - (NSString *)description {
-    return self.formattedValue;
+    return [self descriptionWithLocale:self.locale];
 }
 
 - (NSString *)descriptionWithLocale:(NSLocale *)locale {
-    return [self description];
+    return self.formattedValue;
 }
 
 @end
@@ -73,13 +76,18 @@
 @dynamic formatter;
 
 - (NSString *)descriptionWithLocale:(NSLocale *)locale {
-    NSLocale *currentFormatterLocale = self.formatter.locale;
+    if (locale == nil) {
+        return [super descriptionWithLocale:locale];
+    }
+    else {
+        NSLocale *currentFormatterLocale = self.formatter.locale;
 
-    self.formatter.locale = locale;
-    NSString *result = [self.formatter stringForObjectValue:self.value];
-    self.formatter.locale = currentFormatterLocale;
+        self.formatter.locale = locale;
+        NSString *result = [self.formatter stringForObjectValue:self.value];
+        self.formatter.locale = currentFormatterLocale;
 
-    return result;
+        return result;
+    }
 }
 
 @end
@@ -92,13 +100,18 @@
 @dynamic formatter;
 
 - (NSString *)descriptionWithLocale:(NSLocale *)locale {
-    NSLocale *currentFormatterLocale = self.formatter.locale;
+    if (locale == nil) {
+        return [super descriptionWithLocale:locale];
+    }
+    else {
+        NSLocale *currentFormatterLocale = self.formatter.locale;
 
-    self.formatter.locale = locale;
-    NSString *result = [self.formatter stringForObjectValue:self.value];
-    self.formatter.locale = currentFormatterLocale;
+        self.formatter.locale = locale;
+        NSString *result = [self.formatter stringForObjectValue:self.value];
+        self.formatter.locale = currentFormatterLocale;
 
-    return result;
+        return result;
+    }
 }
 
 @end
