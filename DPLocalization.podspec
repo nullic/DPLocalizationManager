@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DPLocalization"
-  s.version      = "1.8"
+  s.version      = "1.8.1"
   s.summary      = "Provides way to change localization inside application"
   s.homepage     = "https://github.com/nullic/DPLocalizationManager"
   s.license      = "MIT"
