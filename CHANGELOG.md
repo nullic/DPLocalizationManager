@@ -1,5 +1,9 @@
 # DPLocalization CHANGELOG
 
+## 1.8.1
+- Added +[DPAutolocalizationProxy autolocalizingLocale]
+- Added +[DPFormattedValue formattedValueWithValue: formatter: locale:]
+
 ## 1.8
 - Fixed Set current language to 'nil' before reading
 - Added defaultBundle property. ".strings" resources can be stored outside mainBundle.

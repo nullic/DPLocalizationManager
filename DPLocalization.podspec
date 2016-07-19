@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = { "Dmitriy Petrusevich" => "nullic@gmail.com" }
   s.platforms    = { :ios => "5.0", :osx => "10.7" }
   
-  s.source       = { :git => "https://github.com/nullic/DPLocalizationManager.git", :tag => "1.8" }
+  s.source       = { :git => "https://github.com/nullic/DPLocalizationManager.git", :tag => "1.8.1" }
   s.source_files = "DPLocalization", "DPLocalization/*.{h,m}", "DPLocalization/Plural/*.{h,m,c}", "DPLocalization/Formatter/*.{h,m}", "DPLocalization/Proxy/*.{h,m}", "DPLocalization/Categories/*.{h,m}", "DPLocalization/Storage/*.{h,m}"
   s.requires_arc = true
 
