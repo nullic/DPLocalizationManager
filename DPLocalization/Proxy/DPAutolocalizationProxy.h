@@ -34,7 +34,7 @@
  @discussion        Value is equal to invoking DPLocalizedStringFromTable(key, tableName, nil);
  @return            Proxy object which value depended from selected language.
  */
-+ (NSString *)autolocalizingStringWithLocalizationKey:(NSString *)localizationKey tableName:(NSString *)tableName;
++ (NSString *)autolocalizingStringWithLocalizationKey:(NSString *)key tableName:(NSString *)tableName;
 
 /**
  @brief             Returns the full pathname for the resource identified by the specified name and file extension for selected language.

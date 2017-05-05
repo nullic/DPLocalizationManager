@@ -1,5 +1,8 @@
 # DPLocalization CHANGELOG
 
+## 1.8.2
+- Fixed https://github.com/nullic/DPLocalizationManager/issues/10
+
 ## 1.8.1
 - Added +[DPAutolocalizationProxy autolocalizingLocale]
 - Added +[DPFormattedValue formattedValueWithValue: formatter: locale:]
