@@ -1,5 +1,9 @@
 # DPLocalization CHANGELOG
 
+## 1.8.3
+- Added nullability
+- Added Swift project example
+
 ## 1.8.2
 - Fixed https://github.com/nullic/DPLocalizationManager/issues/10
 
