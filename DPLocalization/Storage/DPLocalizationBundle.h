@@ -18,7 +18,7 @@
 
  @return Returns instance used for store locazition strings.
  */
-+ (instancetype)defaultBundle;
++ (instancetype _Nonnull)defaultBundle;
 
 /**
  @brief Save/Remove strings table.
@@ -30,7 +30,7 @@
  
  @return 'YES' if operation operation was succeeded.
  */
-- (BOOL)setStringsTable:(NSDictionary *)table withName:(NSString *)tableName language:(NSString *)languageCode error:(NSError **)error;
+- (BOOL)setStringsTable:(NSDictionary *_Nullable)table withName:(NSString *_Nullable)tableName language:(NSString *_Nullable)languageCode error:(NSError *_Nullable*_Nullable)error;
 
 /**
  @param tableName       Name of strings table. "Localizable" - if value is 'nil'
@@ -38,6 +38,7 @@
 
  @return Strings table if exist.
  */
-- (NSDictionary *)stringsTableWithName:(NSString *)tableName language:(NSString *)languageCode;
+- (NSDictionary *_Nullable)stringsTableWithName:(NSString *_Nullable)tableName language:(NSString *_Nullable)languageCode;
 
 @end
+

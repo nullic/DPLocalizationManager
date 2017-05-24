@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "DPLocalizationPlatforms.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface DPAutolocalizationProxy : NSProxy <NSCopying>
 
 /**
@@ -34,7 +36,7 @@
  @discussion        Value is equal to invoking DPLocalizedStringFromTable(key, tableName, nil);
  @return            Proxy object which value depended from selected language.
  */
-+ (NSString *)autolocalizingStringWithLocalizationKey:(NSString *)key tableName:(NSString *)tableName;
++ (NSString *)autolocalizingStringWithLocalizationKey:(NSString *)key tableName:(NSString *_Nullable)tableName;
 
 /**
  @brief             Returns the full pathname for the resource identified by the specified name and file extension for selected language.
@@ -45,7 +47,7 @@
  @discussion        Value is equal to invoking [[DPLocalizationManager currentManager] localizedPathForResource:name ofType:ext bundle:bundle].
  @return            Proxy object which value depended from selected language.
  */
-+ (NSString *)autolocalizingPathForResource:(NSString *)name ofType:(NSString *)ext inBundle:(NSBundle *)bundle;
++ (NSString *_Nullable)autolocalizingPathForResource:(NSString *_Nullable)name ofType:(NSString *_Nullable)ext inBundle:(NSBundle *_Nullable)bundle;
 
 /**
  @brief             Returns a localized version of an image.
@@ -54,7 +56,9 @@
  @discussion        Value is equal to invoking [[DPLocalizationManager currentManager] localizedImageNamed:name].
  @return            Proxy object which value depended from selected language.
  */
-+ (DPImage *)autolocalizingImageNamed:(NSString *)name;
++ (DPImage *_Nullable)autolocalizingImageNamed:(NSString *)name;
 
 + (NSLocale *)autolocalizingLocale;
 @end
+
+NS_ASSUME_NONNULL_END

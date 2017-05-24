@@ -13,6 +13,8 @@
     #define IBInspectable
 #endif
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  @category NSObject (DPLocalization)
  @brief Add ability to automatic localization.
@@ -23,7 +25,7 @@
  @param key         The key for a string in the Localizable.strings table.
  @param keyPath     Keypath for assing localized value.
  */
-- (void)setupAutolocalizationWithKey:(NSString *)key keyPath:(NSString *)keyPath;
+- (void)setupAutolocalizationWithKey:(NSString *_Nullable)key keyPath:(NSString *_Nullable)keyPath;
 
 /**
  @brief Setup update value automaticaly after DPLanguageDidChangeNotification notification was posted.
@@ -31,13 +33,13 @@
  @param keyPath     Keypath for assing localized value.
  @param arguments   List of arguments to substitute into localized string.
  */
-- (void)setupAutolocalizationWithKey:(NSString *)key keyPath:(NSString *)keyPath arguments:(NSArray *)arguments;
+- (void)setupAutolocalizationWithKey:(NSString *_Nullable)key keyPath:(NSString *_Nullable)keyPath arguments:(NSArray *_Nullable)arguments;
 
 /**
  @brief Update list of arguments to substitute into localized string.
  @param arguments   List of arguments to substitute into localized string.
  */
-- (void)updateAutolocalizationArguments:(NSArray *)arguments;
+- (void)updateAutolocalizationArguments:(NSArray *_Nullable)arguments;
 
 /**
  @brief Remove object updating on DPLanguageDidChangeNotification notification.
@@ -63,7 +65,7 @@
 
  @discussion Invoke -[setLocalizedValue: forKeyPath:keyPath].
  */
-- (void)localizeWithLocalizationKey:(NSString *)key arguments:(NSArray *)arguments keyPath:(NSString *)keyPath;
+- (void)localizeWithLocalizationKey:(NSString *)key arguments:(NSArray *_Nullable)arguments keyPath:(NSString *)keyPath;
 
 /**
  @brief Called before setting new value. Default implementation invoking -[self setValue:value forKeyPath:keyPath].
@@ -85,7 +87,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"text"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @property (nonatomic) IBInspectable BOOL isAttributedKey;
 @end
 
@@ -95,7 +97,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Invoke -[self setTitle:localizedValue forState:UIControlStateNormal] on DPLanguageDidChangeNotification notification.
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @property (nonatomic) IBInspectable BOOL isAttributedKey;
 @end
 
@@ -105,7 +107,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"title"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @end
 
 @interface UITextField (DPLocalization)
@@ -114,7 +116,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"placeholder"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @property (nonatomic) IBInspectable BOOL isAttributedKey;
 @end
 
@@ -124,7 +126,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"text"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @property (nonatomic) IBInspectable BOOL isAttributedKey;
 @end
 
@@ -134,7 +136,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"placeholder"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @end
 
 @interface UISegmentedControl (DPLocalization)
@@ -143,7 +145,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Invoke -[self setTitle:DPLocalizedString({autolocalizationPrefixKey}{segment}, nil) forSegmentAtIndex:{segment}] on DPLanguageDidChangeNotification notification.
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationPrefixKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationPrefixKey;
 @end
 
 @interface UIImageView (DPLocalization)
@@ -152,7 +154,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Invoke -[self setImage:[UIImage localizedImageNamed:self.autolocalizationImageName]] on DPLanguageDidChangeNotification notification.
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationImageName;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationImageName;
 @end
 
 @interface UIViewController (DPLocalization)
@@ -161,7 +163,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"title"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @end
 
 #endif
@@ -178,7 +180,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"title"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @property (nonatomic) IBInspectable BOOL isAttributedKey;
 @end
 
@@ -188,7 +190,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"title"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @end
 
 @interface NSButton (DPLocalization)
@@ -197,7 +199,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"title"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @property (nonatomic) IBInspectable BOOL isAttributedKey;
 @end
 
@@ -207,7 +209,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"stringValue"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @property (nonatomic) IBInspectable BOOL isAttributedKey;
 @end
 
@@ -218,7 +220,7 @@
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"placeholderString"].
  Cannot be mixed with -[NSControl autolocalizationKey].
  */
-@property (nonatomic, copy) IBInspectable NSString *placeholderAutolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *placeholderAutolocalizationKey;
 @end
 
 @interface NSText (DPLocalization)
@@ -227,7 +229,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"string"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @end
 
 @interface NSWindow (DPLocalization)
@@ -236,7 +238,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"title"].
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationKey;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @end
 
 @interface NSImageView (DPLocalization)
@@ -245,7 +247,7 @@
  @brief Shortcut for add automatic localization.
  @discussion Invoke -[self setImage:[NSImage localizedImageNamed:self.autolocalizationImageName]] on DPLanguageDidChangeNotification notification.
  */
-@property (nonatomic, copy) IBInspectable NSString *autolocalizationImageName;
+@property (nonatomic, copy, nullabley) IBInspectable NSString *autolocalizationImageName;
 @end
 
 #endif
@@ -258,19 +260,19 @@
 /**
  @return The result is invoking of [[DPLocalizationManager currentManager] localizedPathForResource:name ofType:extension bundle:self].
  */
-- (NSString *)localizedPathForResource:(NSString *)name ofType:(NSString *)extension;
+- (NSString *_Nullable)localizedPathForResource:(NSString *_Nullable)name ofType:(NSString *_Nullable)extension;
 
 /**
  @return The result is invoking of [DPAutolocalizationProxy autolocalizingPathForResource:name ofType:extension inBundle:self].
  */
-- (NSString *)autolocalizingPathForResource:(NSString *)name ofType:(NSString *)extension;
+- (NSString *_Nullable)autolocalizingPathForResource:(NSString *_Nullable)name ofType:(NSString *_Nullable)extension;
 
 /**
  @brief Return code for preferred application language.
 
  @return Return first element of [self preferredLocalizations], or [[NSBundle mainBundle] developmentLocalization] if 'preferredLocalizations' array is empty, or "en" if 'developmentLocalization' cannot be determined.
  */
-- (NSString *)preferredLanguage;
+- (NSString * _Nullable)preferredLanguage;
 @end
 
 @interface NSString (DPLocalization)
@@ -284,11 +286,13 @@
 /**
  @return The result is invoking of [[DPLocalizationManager currentManager] localizedImageNamed:name].
  */
-+ (DPImage *)localizedImageNamed:(NSString *)name;
++ (DPImage *_Nullable)localizedImageNamed:(NSString *)name;
 
 /**
  @return The result is invoking of [DPAutolocalizationProxy autolocalizingImageNamed:name].
  */
-+ (DPImage *)autolocalizingImageNamed:(NSString *)name;
++ (DPImage *_Nullable)autolocalizingImageNamed:(NSString *)name;
 
 @end
+
+NS_ASSUME_NONNULL_END

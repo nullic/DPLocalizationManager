@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DPLocalizationPlatforms.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  @class DPLocalizationManager
@@ -19,19 +20,19 @@
  @property currentLanguage
  @brief Current selected language. It's same names that used for resource localization as part of .lproj folders (i.e.: "en", "ru", "fr" and etc.) or nil for system language. After currentLanguage is set, it value will be saved in [NSUserDefaults standardUserDefaults].
  */
-@property (nonatomic, copy) NSString *currentLanguage;
+@property (nonatomic, copy) NSString * _Nullable currentLanguage;
 
 /**
  @property defaultStringsTableName
  @brief Default bundle used for localization.
  */
-@property(nonatomic, copy) NSString *defaultStringTableName;
+@property(nonatomic, copy, null_resettable) NSString *defaultStringTableName;
 
 /**
  @property defaultBundle
  @brief Default string table name used for localization.
  */
-@property(nonatomic, strong) NSBundle *defaultBundle;
+@property(nonatomic, strong, null_resettable) NSBundle *defaultBundle;
 
 /**
  @brief Returns shared DPLocalizationManager object.
@@ -55,7 +56,7 @@
  
  @return Returns a localized version of a string for selected language. If string not found return the result of NSLocalizedStringFromTable macro.
  */
-- (NSString *)localizedStringForKey:(NSString *)key table:(NSString *)table;
+- (NSString *)localizedStringForKey:(NSString *)key table:(NSString * _Nullable)table;
 
 /**
  @brief Returns a localized version of a string. Method use plural rules if {defaultStringTableName}.stringsdict exist.
@@ -65,7 +66,7 @@
 
  @return Returns a localized version of a string for selected language.
  */
-- (NSString *)localizedStringForKey:(NSString *)key table:(NSString *)table arguments:(NSArray *)arguments;
+- (NSString *)localizedStringForKey:(NSString *)key table:(NSString * _Nullable)table arguments:(NSArray * _Nullable)arguments;
 
 /**
  @brief Returns a localized version of an image.
@@ -74,7 +75,7 @@
  @return Returns a localized version of an image for selected language. If image not found return the result of invoking -[UIImage imageNamed:].
  */
 
-- (DPImage *)localizedImageNamed:(NSString *)name;
+- (DPImage * _Nullable)localizedImageNamed:(NSString *)name;
 
 /**
  @brief Returns the full pathname for the resource identified by the specified name and file extension for selected language.
@@ -84,7 +85,7 @@
 
  @return The result is invoking of [bundle pathForResource:name ofType:extension inDirectory:nil forLocalization:currentLanguage]. If result is nil return [bundle pathForResource:name ofType:extension] instead.
  */
-- (NSString *)localizedPathForResource:(NSString *)name ofType:(NSString *)extension bundle:(NSBundle *)bundle;
+- (NSString * _Nullable)localizedPathForResource:(NSString * _Nullable)name ofType:(NSString * _Nullable)extension bundle:(NSBundle * _Nullable)bundle;
 
 /**
  @brief Array of languages that may be found inside application bundle.
@@ -108,32 +109,32 @@
 /**
  @return The result is invoking of [[DPLocalizationManager currentManager] localizedStringForKey:key];
  */
-NSString * DPLocalizedString(NSString *key, NSString *comment);
+NSString * DPLocalizedString(NSString *key, NSString * _Nullable comment);
 
 /**
  @return The result is invoking of [[DPLocalizationManager currentManager] localizedStringForKey:key table:table];
  */
-NSString * DPLocalizedStringFromTable(NSString *key, NSString *table, NSString *comment);
+NSString * DPLocalizedStringFromTable(NSString *key, NSString * _Nullable table, NSString * _Nullable comment);
 
 /**
  @return The result is invoking of [DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:key];
  */
-NSString * DPAutolocalizedString(NSString *key, NSString *comment);
+NSString * DPAutolocalizedString(NSString *key, NSString * _Nullable comment);
 
 /**
  @return The result is invoking of [DPAutolocalizationProxy autolocalizingStringWithLocalizationKey:key tableName:tableName];
  */
-NSString * DPAutolocalizedStringFromTable(NSString *key, NSString *tableName, NSString *comment);
+NSString * DPAutolocalizedStringFromTable(NSString *key, NSString * _Nullable tableName, NSString * _Nullable comment);
 
 /**
  @return The result is invoking of [[DPLocalizationManager currentManager] currentLanguage];
  */
-NSString * dp_get_current_language();
+NSString * _Nullable dp_get_current_language();
 
 /**
  @brief Equal to [[DPLocalizationManager currentManager] setCurrentLanguage:lang];
  */
-void dp_set_current_language(NSString *lang);
+void dp_set_current_language(NSString * _Nullable lang);
 
 
 /**
@@ -141,12 +142,12 @@ void dp_set_current_language(NSString *lang);
  @param     lang Language code (i.e.: "en", "ru", "fr" and etc.)
  @return    The result is invoking of [[[[NSLocale alloc] initWithLocaleIdentifier:lang] displayNameForKey:NSLocaleIdentifier value:lang] capitalizedString];
  */
-NSString * dp_get_language_display_name(NSString *lang);
+NSString * _Nullable dp_get_language_display_name(NSString *lang);
 
 /**
  @return    The result is invoking of dp_get_language_display_name(dp_get_current_language())
  */
-NSString * dp_get_current_language_display_name();
+NSString * _Nullable dp_get_current_language_display_name();
 
 
 NSString * dp_get_current_filename() DEPRECATED_MSG_ATTRIBUTE("Use 'defaultStringTableName' property instead. This function will be removed in further releases.");
@@ -161,3 +162,5 @@ extern NSString * const DPLanguageDidChangeNotification;
  @brief Key used for store selection in [NSUserDefaults standardUserDefaults]
  */
 extern NSString * const DPLanguagePreferenceKey;
+
+NS_ASSUME_NONNULL_END

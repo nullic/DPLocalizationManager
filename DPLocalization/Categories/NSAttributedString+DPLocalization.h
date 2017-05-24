@@ -10,5 +10,5 @@
 #import "DPLocalizationPlatforms.h"
 
 @interface NSAttributedString (DPLocalization)
-+ (NSAttributedString *)dp_attibutedStringWithString:(NSString *)string font:(DPFont *)font textColor:(DPColor *)textColor;
++ (NSAttributedString *_Nullable)dp_attibutedStringWithString:(NSString *_Nullable)string font:(DPFont *_Nullable)font textColor:(DPColor *_Nullable)textColor;
 @end

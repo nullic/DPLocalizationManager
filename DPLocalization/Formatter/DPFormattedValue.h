@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface DPFormattedValue : NSObject
 + (instancetype)formattedValueWithValue:(id)value formatter:(NSFormatter *)formatter;
-+ (instancetype)formattedValueWithValue:(id)value formatter:(NSFormatter *)formatter locale:(NSLocale *)locale;
++ (instancetype)formattedValueWithValue:(id)value formatter:(NSFormatter *)formatter locale:(NSLocale * _Nullable)locale;
 
 - (id)value;
 - (NSFormatter *)formatter;
@@ -19,3 +21,5 @@
 - (NSString *)description;
 - (NSString *)descriptionWithLocale:(NSLocale *)locale;
 @end
+
+NS_ASSUME_NONNULL_END

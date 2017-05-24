@@ -56,36 +56,27 @@ class ViewController: UIViewController {
     }
 
     @IBAction func localizationFileChangeName(_ sender: Any?) {
-
         switch (self.fileSelector?.selectedSegmentIndex ?? 0) {
         case 0:
-            DPLocalizationManager.current().defaultStringTableName = "Localizable";
-            break;
+            DPLocalizationManager.current().defaultStringTableName = "Localizable"
         case 1:
-            DPLocalizationManager.current().defaultStringTableName = "Localizable1";
-            break;
+            DPLocalizationManager.current().defaultStringTableName = "Localizable1"
         default:
-            DPLocalizationManager.current().defaultStringTableName = nil;
-            break;
+            DPLocalizationManager.current().defaultStringTableName = nil
         }
     }
 
     func updateLangSelector() {
-        let lang: String? = dp_get_current_language()
-
-        if lang == "en" {
+        if dp_get_current_language() == "en" {
             self.langSelector?.selectedSegmentIndex = 0;
         }
-
-        if lang == "ru" {
+        else if dp_get_current_language() == "ru" {
             self.langSelector?.selectedSegmentIndex = 1;
         }
-
-        if lang == "de" {
+        else if dp_get_current_language() == "de" {
             self.langSelector?.selectedSegmentIndex = 2;
         }
-
-        if lang == nil {
+        else if dp_get_current_language() == nil {
             self.langSelector?.selectedSegmentIndex = 3;
         }
     }

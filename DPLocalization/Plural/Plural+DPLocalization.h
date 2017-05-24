@@ -10,6 +10,7 @@
 #import "DPFormattedValue.h"
 #import "dp_gen_plural.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 NSString *dp_key_from_pluralrule(enum DPPluralRule rule);
 dp_plural_rules_func dp_plural_rules_for_lang_code(NSString *lang_code);
@@ -24,3 +25,5 @@ dp_plural_rules_func dp_plural_rules_for_lang_code(NSString *lang_code);
 - (enum DPPluralRule)pluralRuleWithLanguage:(NSString *)language;
 - (enum DPPluralRule)pluralRuleWithRules:(dp_plural_rules_func)rules;
 @end
+
+NS_ASSUME_NONNULL_END
