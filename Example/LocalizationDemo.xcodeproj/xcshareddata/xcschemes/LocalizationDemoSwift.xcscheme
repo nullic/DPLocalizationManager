@@ -14,51 +14,27 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CED8ADF41833502A007E4C60"
-               BuildableName = "LocalizationDemo.app"
-               BlueprintName = "LocalizationDemo"
-               ReferencedContainer = "container:LocalizationDemo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B294056B1AA439180049BF70"
-               BuildableName = "Localization Tests iOS.xctest"
-               BlueprintName = "Localization Tests iOS"
+               BlueprintIdentifier = "B28616A11ED577F400D3AB81"
+               BuildableName = "LocalizationDemoSwift.app"
+               BlueprintName = "LocalizationDemoSwift"
                ReferencedContainer = "container:LocalizationDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Testing"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B294056B1AA439180049BF70"
-               BuildableName = "Localization Tests iOS.xctest"
-               BlueprintName = "Localization Tests iOS"
-               ReferencedContainer = "container:LocalizationDemo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CED8ADF41833502A007E4C60"
-            BuildableName = "LocalizationDemo.app"
-            BlueprintName = "LocalizationDemo"
+            BlueprintIdentifier = "B28616A11ED577F400D3AB81"
+            BuildableName = "LocalizationDemoSwift.app"
+            BlueprintName = "LocalizationDemoSwift"
             ReferencedContainer = "container:LocalizationDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -79,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CED8ADF41833502A007E4C60"
-            BuildableName = "LocalizationDemo.app"
-            BlueprintName = "LocalizationDemo"
+            BlueprintIdentifier = "B28616A11ED577F400D3AB81"
+            BuildableName = "LocalizationDemoSwift.app"
+            BlueprintName = "LocalizationDemoSwift"
             ReferencedContainer = "container:LocalizationDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -98,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CED8ADF41833502A007E4C60"
-            BuildableName = "LocalizationDemo.app"
-            BlueprintName = "LocalizationDemo"
+            BlueprintIdentifier = "B28616A11ED577F400D3AB81"
+            BuildableName = "LocalizationDemoSwift.app"
+            BlueprintName = "LocalizationDemoSwift"
             ReferencedContainer = "container:LocalizationDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

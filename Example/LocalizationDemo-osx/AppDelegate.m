@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "DPLocalization.h"
+#import <DPLocalization/DPLocalization.h>
 
 
 @interface AppDelegate ()
