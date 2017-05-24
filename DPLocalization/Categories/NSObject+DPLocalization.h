@@ -247,7 +247,7 @@ NS_ASSUME_NONNULL_BEGIN
  @brief Shortcut for add automatic localization.
  @discussion Invoke -[self setImage:[NSImage localizedImageNamed:self.autolocalizationImageName]] on DPLanguageDidChangeNotification notification.
  */
-@property (nonatomic, copy, nullabley) IBInspectable NSString *autolocalizationImageName;
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationImageName;
 @end
 
 #endif
