@@ -7,6 +7,7 @@
 //
 
 #import "NSAttributedString+DPLocalization.h"
+#import "DPLocalizationManager.h"
 
 @implementation NSAttributedString (DPLocalization)
 
@@ -14,8 +15,14 @@
     NSMutableAttributedString *attrsString = nil;
 
     if (string) {
-        NSRegularExpression *tagRegExp = [NSRegularExpression regularExpressionWithPattern:@"<([^<]*?)>\\{(.*?)\\}" options:NSRegularExpressionDotMatchesLineSeparators error:nil];
-        NSArray *tags = [tagRegExp matchesInString:string options:kNilOptions range:NSMakeRange(0, string.length)];
+        static NSRegularExpression *tagRegExp = nil;
+        static NSRegularExpression *replaceRegExp = nil;
+
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            tagRegExp = [NSRegularExpression regularExpressionWithPattern:@"<([^<]*?)>\\{(.*?)\\}" options:NSRegularExpressionDotMatchesLineSeparators error:nil];
+            replaceRegExp = [NSRegularExpression regularExpressionWithPattern:@"\\[<([^<]*?)>\\]" options:NSRegularExpressionDotMatchesLineSeparators error:nil];
+        });
 
         NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
         [attrs setValue:font forKey:NSFontAttributeName];
@@ -23,7 +30,8 @@
 
         attrsString = [[NSMutableAttributedString alloc] initWithString:string attributes:attrs];
 
-        [tags enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *match, NSUInteger idx, BOOL *stop) {
+        NSArray *matches = [tagRegExp matchesInString:string options:kNilOptions range:NSMakeRange(0, string.length)];
+        [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *match, NSUInteger idx, BOOL *stop) {
 
             NSString *textString = [string substringWithRange:[match rangeAtIndex:2]];
             NSString *styleString = [string substringWithRange:[match rangeAtIndex:1]];
@@ -33,6 +41,19 @@
 
             NSAttributedString *replaceString = [[NSAttributedString alloc] initWithString:textString attributes:tagAttrs];
             [attrsString replaceCharactersInRange:match.range withAttributedString:replaceString];
+        }];
+
+        matches = [replaceRegExp matchesInString:attrsString.string options:kNilOptions range:NSMakeRange(0, attrsString.string.length)];
+        [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *match, NSUInteger idx, BOOL *stop) {
+            NSString *infoString = [string substringWithRange:[match rangeAtIndex:1]];
+
+            NSDictionary *attrs = [attrsString attributesAtIndex:match.range.location effectiveRange:NULL];
+            UIFont *effectiveFont = attrs[NSFontAttributeName] ?: font;
+
+            NSAttributedString *replaceString = [self replacementFromSting:infoString font:effectiveFont];
+            if (replaceString != nil) {
+                [attrsString replaceCharactersInRange:match.range withAttributedString:replaceString];
+            }
         }];
     }
     
@@ -47,6 +68,7 @@
     static NSRegularExpression *sizeExp = nil;
     static NSRegularExpression *traitsExp = nil;
     static NSRegularExpression *linkExp = nil;
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         nameExp = [NSRegularExpression regularExpressionWithPattern:@"name=\"(.+?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
@@ -129,6 +151,38 @@
     }
 
     return attrs;
+}
+
++ (NSAttributedString *)replacementFromSting:(NSString *)infoString font:(DPFont *)font {
+    static NSRegularExpression *imageExp = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        imageExp = [NSRegularExpression regularExpressionWithPattern:@"img=\"(.+?)\"(\\ssize=\\(([0-9.]+);([0-9.]+)\\))?" options:NSRegularExpressionCaseInsensitive error:nil];
+    });
+
+    NSRange allStringRange = NSMakeRange(0, infoString.length);
+
+    NSTextCheckingResult *imageCheck = [imageExp firstMatchInString:infoString options:kNilOptions range:allStringRange];
+    if (imageCheck) {
+        NSString *imageName = [infoString substringWithRange:[imageCheck rangeAtIndex:1]];
+        DPImage *image = [[DPLocalizationManager currentManager] localizedImageNamed:imageName];
+
+        CGFloat width = image.size.width;
+        CGFloat height = image.size.height;
+
+        if ([imageCheck rangeAtIndex:2].location != NSNotFound) {
+            width = [[infoString substringWithRange:[imageCheck rangeAtIndex:3]] floatValue];
+            height = [[infoString substringWithRange:[imageCheck rangeAtIndex:4]] floatValue];
+        }
+
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+        textAttachment.image = image;
+        textAttachment.bounds = CGRectMake(0, font.descender, width, height);
+
+        return [NSAttributedString attributedStringWithAttachment:textAttachment];
+    }
+
+    return nil;
 }
 
 @end
