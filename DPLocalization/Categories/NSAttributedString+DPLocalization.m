@@ -45,7 +45,7 @@
 
         matches = [replaceRegExp matchesInString:attrsString.string options:kNilOptions range:NSMakeRange(0, attrsString.string.length)];
         [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *match, NSUInteger idx, BOOL *stop) {
-            NSString *infoString = [string substringWithRange:[match rangeAtIndex:1]];
+            NSString *infoString = [attrsString.string substringWithRange:[match rangeAtIndex:1]];
 
             NSDictionary *attrs = [attrsString attributesAtIndex:match.range.location effectiveRange:NULL];
             UIFont *effectiveFont = attrs[NSFontAttributeName] ?: font;
