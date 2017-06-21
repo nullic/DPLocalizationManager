@@ -56,7 +56,7 @@
             }
         }];
     }
-    
+
     return attrsString;
 }
 
@@ -157,7 +157,7 @@
     static NSRegularExpression *imageExp = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        imageExp = [NSRegularExpression regularExpressionWithPattern:@"img=\"(.+?)\"(\\ssize=\\(([0-9.]+);([0-9.]+)\\))?" options:NSRegularExpressionCaseInsensitive error:nil];
+        imageExp = [NSRegularExpression regularExpressionWithPattern:@"img=\"(.+?)\"(\\ssize=\\(([0-9.]+);([0-9.]+)\\))?(\\soffset=\\(([-0-9.]+);([-0-9.]+)\\))?" options:NSRegularExpressionCaseInsensitive error:nil];
     });
 
     NSRange allStringRange = NSMakeRange(0, infoString.length);
@@ -169,15 +169,22 @@
 
         CGFloat width = image.size.width;
         CGFloat height = image.size.height;
+        CGFloat xOffset = 0;
+        CGFloat yOffset = font.descender;
 
         if ([imageCheck rangeAtIndex:2].location != NSNotFound) {
             width = [[infoString substringWithRange:[imageCheck rangeAtIndex:3]] floatValue];
             height = [[infoString substringWithRange:[imageCheck rangeAtIndex:4]] floatValue];
         }
 
+        if ([imageCheck rangeAtIndex:5].location != NSNotFound) {
+            xOffset = [[infoString substringWithRange:[imageCheck rangeAtIndex:6]] floatValue];
+            yOffset = [[infoString substringWithRange:[imageCheck rangeAtIndex:7]] floatValue];
+        }
+
         NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
         textAttachment.image = image;
-        textAttachment.bounds = CGRectMake(0, font.descender, width, height);
+        textAttachment.bounds = CGRectMake(xOffset, yOffset, width, height);
 
         return [NSAttributedString attributedStringWithAttachment:textAttachment];
     }
@@ -186,3 +193,5 @@
 }
 
 @end
+
+
