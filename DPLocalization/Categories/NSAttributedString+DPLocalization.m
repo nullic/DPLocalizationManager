@@ -68,6 +68,7 @@
     static NSRegularExpression *sizeExp = nil;
     static NSRegularExpression *traitsExp = nil;
     static NSRegularExpression *linkExp = nil;
+    static NSRegularExpression *spacingExp = nil;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -76,6 +77,7 @@
         traitsExp = [NSRegularExpression regularExpressionWithPattern:@"traits=([!buis]+)" options:NSRegularExpressionCaseInsensitive error:nil];
         sizeExp = [NSRegularExpression regularExpressionWithPattern:@"size=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
         linkExp = [NSRegularExpression regularExpressionWithPattern:@"link=\"(.+?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
+        spacingExp = [NSRegularExpression regularExpressionWithPattern:@"spacing=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
     });
 
     NSRange allStringRange = NSMakeRange(0, styleString.length);
@@ -96,6 +98,14 @@
         CGFloat b = [[styleString substringWithRange:[colorCheck rangeAtIndex:3]] floatValue] / 255.0;
         CGFloat a = ([colorCheck rangeAtIndex:4].location != NSNotFound) ? ([[[styleString substringWithRange:[colorCheck rangeAtIndex:4]] substringFromIndex:1] floatValue] / 255.0) : 1.0;
         [attrs setValue:[DPColor colorWithRed:r green:g blue:b alpha:a] forKey:NSForegroundColorAttributeName];
+    }
+
+    NSTextCheckingResult *spacingCheck = [spacingExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
+    if (spacingCheck) {
+        NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        style.paragraphSpacing = [[styleString substringWithRange:[spacingCheck rangeAtIndex:1]] floatValue];
+
+        [attrs setValue:style forKey:NSParagraphStyleAttributeName];
     }
 
     DPFont *styleFont = font ? [DPFont fontWithName:fontName size:fontSize] : nil;
