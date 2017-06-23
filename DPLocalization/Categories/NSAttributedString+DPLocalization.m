@@ -53,6 +53,7 @@
             NSAttributedString *replaceString = [self replacementFromSting:infoString font:effectiveFont];
             if (replaceString != nil) {
                 [attrsString replaceCharactersInRange:match.range withAttributedString:replaceString];
+                [attrsString addAttributes:attrs range:NSMakeRange(match.range.location, replaceString.length)];
             }
         }];
     }
@@ -104,7 +105,6 @@
     if (spacingCheck) {
         NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
         style.paragraphSpacing = [[styleString substringWithRange:[spacingCheck rangeAtIndex:1]] floatValue];
-
         [attrs setValue:style forKey:NSParagraphStyleAttributeName];
     }
 
