@@ -129,7 +129,7 @@ NSString * DPAutolocalizedStringFromTable(NSString *key, NSString * _Nullable ta
 /**
  @return The result is invoking of [[DPLocalizationManager currentManager] currentLanguage];
  */
-NSString * _Nullable dp_get_current_language();
+NSString * _Nullable dp_get_current_language(void);
 
 /**
  @brief Equal to [[DPLocalizationManager currentManager] setCurrentLanguage:lang];
@@ -147,10 +147,10 @@ NSString * _Nullable dp_get_language_display_name(NSString *lang);
 /**
  @return    The result is invoking of dp_get_language_display_name(dp_get_current_language())
  */
-NSString * _Nullable dp_get_current_language_display_name();
+NSString * _Nullable dp_get_current_language_display_name(void);
 
 
-NSString * dp_get_current_filename() DEPRECATED_MSG_ATTRIBUTE("Use 'defaultStringTableName' property instead. This function will be removed in further releases.");
+NSString * dp_get_current_filename(void) DEPRECATED_MSG_ATTRIBUTE("Use 'defaultStringTableName' property instead. This function will be removed in further releases.");
 void dp_set_current_filename(NSString *filename) DEPRECATED_MSG_ATTRIBUTE("Use 'defaultStringTableName' property instead. This function will be removed in further releases.");
 
 /**

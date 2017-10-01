@@ -22,12 +22,12 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 
 @interface __AutolocOnDeallocContainer__ : NSObject
-@property (nonatomic, copy) void(^deallocBlock)();
+@property (nonatomic, copy) void(^deallocBlock)(void);
 @end
 
 @implementation __AutolocOnDeallocContainer__
 
-- (id)initWithBlock:(void(^)())block {
+- (id)initWithBlock:(void(^)(void))block {
     self = [super init];
     if (self) {
         self.deallocBlock = block;
@@ -94,7 +94,7 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 #pragma mark - Observation
 
 - (void)addLanguageDidChangeObserver {
-    void (^deallocBlock)() = objc_getAssociatedObject(self, (__bridge const void *)(kAutolocOnDeallocBlockKey));
+    void (^deallocBlock)(void) = objc_getAssociatedObject(self, (__bridge const void *)(kAutolocOnDeallocBlockKey));
     if (!deallocBlock) {
         NSObject * __unsafe_unretained selfWeak = self;
         id observer = [[NSNotificationCenter defaultCenter] addObserverForName:DPLanguageDidChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
