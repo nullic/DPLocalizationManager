@@ -48,7 +48,7 @@
             NSString *infoString = [attrsString.string substringWithRange:[match rangeAtIndex:1]];
 
             NSDictionary *attrs = [attrsString attributesAtIndex:match.range.location effectiveRange:NULL];
-            UIFont *effectiveFont = attrs[NSFontAttributeName] ?: font;
+            DPFont *effectiveFont = attrs[NSFontAttributeName] ?: font;
 
             NSAttributedString *replaceString = [self replacementFromSting:infoString font:effectiveFont];
             if (replaceString != nil) {
