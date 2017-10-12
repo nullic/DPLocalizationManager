@@ -70,6 +70,7 @@
     static NSRegularExpression *traitsExp = nil;
     static NSRegularExpression *linkExp = nil;
     static NSRegularExpression *spacingExp = nil;
+    static NSRegularExpression *alignmentExp = nil;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -79,6 +80,7 @@
         sizeExp = [NSRegularExpression regularExpressionWithPattern:@"size=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
         linkExp = [NSRegularExpression regularExpressionWithPattern:@"link=\"(.+?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
         spacingExp = [NSRegularExpression regularExpressionWithPattern:@"spacing=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
+        alignmentExp = [NSRegularExpression regularExpressionWithPattern:@"alignment=(left|center|right|justified|natural)" options:NSRegularExpressionCaseInsensitive error:nil];
     });
 
     NSRange allStringRange = NSMakeRange(0, styleString.length);
@@ -101,13 +103,26 @@
         [attrs setValue:[DPColor colorWithRed:r green:g blue:b alpha:a] forKey:NSForegroundColorAttributeName];
     }
 
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+
     NSTextCheckingResult *spacingCheck = [spacingExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
     if (spacingCheck) {
-        NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-        style.paragraphSpacing = [[styleString substringWithRange:[spacingCheck rangeAtIndex:1]] floatValue];
-        [attrs setValue:style forKey:NSParagraphStyleAttributeName];
+        paragraphStyle.paragraphSpacing = [[styleString substringWithRange:[spacingCheck rangeAtIndex:1]] floatValue];
     }
 
+    NSTextCheckingResult *alignmentMatch = [alignmentExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
+    if (alignmentMatch) {
+        NSString *alignmentValue = [styleString substringWithRange:[alignmentMatch rangeAtIndex:1]];
+        NSTextAlignment alignment = NSTextAlignmentNatural;
+        if ([alignmentValue isEqualToString:@"left"]) { alignment = NSTextAlignmentLeft; }
+        else if ([alignmentValue isEqualToString:@"center"]) { alignment = NSTextAlignmentCenter; }
+        else if ([alignmentValue isEqualToString:@"right"]) { alignment = NSTextAlignmentRight; }
+        else if ([alignmentValue isEqualToString:@"justified"]) { alignment = NSTextAlignmentJustified; }
+        else if ([alignmentValue isEqualToString:@"natural"]) { alignment = NSTextAlignmentNatural; }
+
+        paragraphStyle.alignment = alignment;
+    }
+    [attrs setValue:paragraphStyle forKey:NSParagraphStyleAttributeName];
     DPFont *styleFont = font ? [DPFont fontWithName:fontName size:fontSize] : nil;
 
 #if DPLocalization_UIKit

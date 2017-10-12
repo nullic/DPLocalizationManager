@@ -10,6 +10,7 @@
 "LABEL_TEXT" = "English - <traits=ibus size=12>{%1$@}\n%2$@\n<names=\"Courier-BoldOblique\" color=12,56,189>{%3$@}";
 "TEXTVIEW_TEXT" = "English\n\nUITextView text. <link=\"https://github.com/nullic/DPLocalizationManager\" traits=b>{link to DPLocalizationManager} \n\nSee user defined runtime attributes in storyboard.";
 
+"ALIGNMENT_EXAMPLE" = "<alignment=center>{Centered text Example} \n Default Alignment \r\n <alignment=center>{Centered text Example}";
 
 "FILES_REMAINING_T" = "FILES_REMAINING_FORMAT";
 
