@@ -1,10 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="N2e-a6-ccs">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="N2e-a6-ccs">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-UltraLightItalic</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="3wz-Fg-7zc">
@@ -12,6 +21,7 @@
                 <navigationController definesPresentationContext="YES" id="N2e-a6-ccs" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="1p6-pJ-ZvD">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -31,24 +41,24 @@
                         <viewControllerLayoutGuide type="bottom" id="GXW-ec-cBC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRz-nD-9cH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="startup language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFo-Dj-85Y">
-                                        <rect key="frame" x="16" y="8" width="288" height="21"/>
+                                        <rect key="frame" x="16" y="8" width="343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isAttributedKey" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" editable="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="20R-Um-MRr">
-                                        <rect key="frame" x="16" y="65" width="288" height="156"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="16" y="65" width="343" height="156"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="156" id="ysq-np-mpj"/>
                                         </constraints>
@@ -61,7 +71,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="apP-zj-u6I">
-                                        <rect key="frame" x="16" y="267" width="288" height="29"/>
+                                        <rect key="frame" x="16" y="267" width="343" height="29"/>
                                         <segments>
                                             <segment title="Localizable"/>
                                             <segment title="Localizable1"/>
@@ -72,22 +82,22 @@
                                         </connections>
                                     </segmentedControl>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sJ0-BS-Vg4">
-                                        <rect key="frame" x="16" y="315" width="288" height="128"/>
+                                        <rect key="frame" x="16" y="315" width="343" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="DfU-a9-yrL"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="localizaed text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5z-IH-fNZ">
-                                        <rect key="frame" x="16" y="37" width="288" height="20"/>
+                                        <rect key="frame" x="16" y="37" width="343" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isAttributedKey" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gTy-HN-MuL">
-                                        <rect key="frame" x="16" y="229" width="288" height="29"/>
+                                        <rect key="frame" x="16" y="229" width="343" height="29"/>
                                         <segments>
                                             <segment title="English"/>
                                             <segment title="Russian"/>
@@ -98,11 +108,23 @@
                                             <action selector="languageChangeAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="C65-S5-T9X"/>
                                         </connections>
                                     </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alignment Test" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiY-67-Sxp">
+                                        <rect key="frame" x="16" y="451" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="autolocalizationKey" value="ALIGNMENT_EXAMPLE"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isAttributedKey" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="sJ0-BS-Vg4" secondAttribute="trailing" constant="16" id="1M8-vW-ZL0"/>
                                     <constraint firstItem="apP-zj-u6I" firstAttribute="leading" secondItem="IRz-nD-9cH" secondAttribute="leading" constant="16" id="20u-Ra-NJH"/>
+                                    <constraint firstItem="XiY-67-Sxp" firstAttribute="top" secondItem="sJ0-BS-Vg4" secondAttribute="bottom" constant="8" id="56S-Jb-sfb"/>
                                     <constraint firstItem="sJ0-BS-Vg4" firstAttribute="top" secondItem="apP-zj-u6I" secondAttribute="bottom" constant="20" id="Blo-5h-u0i"/>
+                                    <constraint firstItem="XiY-67-Sxp" firstAttribute="trailing" secondItem="sJ0-BS-Vg4" secondAttribute="trailing" id="FMR-Yf-1kF"/>
                                     <constraint firstAttribute="bottom" secondItem="sJ0-BS-Vg4" secondAttribute="bottom" constant="26" id="K4a-qG-ltS"/>
                                     <constraint firstItem="IFo-Dj-85Y" firstAttribute="leading" secondItem="IRz-nD-9cH" secondAttribute="leading" constant="16" id="LSV-tL-HkL"/>
                                     <constraint firstItem="20R-Um-MRr" firstAttribute="top" secondItem="z5z-IH-fNZ" secondAttribute="bottom" constant="8" id="Qzv-LR-qEm"/>
@@ -110,6 +132,7 @@
                                     <constraint firstAttribute="trailing" secondItem="z5z-IH-fNZ" secondAttribute="trailing" constant="16" id="Xba-r9-3HO"/>
                                     <constraint firstItem="gTy-HN-MuL" firstAttribute="leading" secondItem="IRz-nD-9cH" secondAttribute="leading" constant="16" id="fdz-8L-tJ9"/>
                                     <constraint firstAttribute="trailing" secondItem="gTy-HN-MuL" secondAttribute="trailing" constant="16" id="heI-AP-OIy"/>
+                                    <constraint firstItem="XiY-67-Sxp" firstAttribute="leading" secondItem="sJ0-BS-Vg4" secondAttribute="leading" id="hvx-Pm-Td8"/>
                                     <constraint firstItem="20R-Um-MRr" firstAttribute="leading" secondItem="IRz-nD-9cH" secondAttribute="leading" constant="16" id="mPb-Zw-wjG"/>
                                     <constraint firstItem="IFo-Dj-85Y" firstAttribute="top" secondItem="IRz-nD-9cH" secondAttribute="top" constant="8" id="nIf-3L-LTw"/>
                                     <constraint firstItem="z5z-IH-fNZ" firstAttribute="top" secondItem="IFo-Dj-85Y" secondAttribute="bottom" constant="8" id="sIP-WZ-52w"/>
@@ -123,7 +146,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="IRz-nD-9cH" firstAttribute="top" secondItem="t48-gU-kwF" secondAttribute="bottom" id="A6D-Hj-Q0E"/>
                             <constraint firstItem="IRz-nD-9cH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="STr-C2-ptS"/>
@@ -159,20 +182,20 @@
                         <viewControllerLayoutGuide type="bottom" id="xv0-Uc-6y5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lpA-o3-gR5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSi-Ay-X8t">
-                                <rect key="frame" x="12" y="20" width="296" height="21"/>
+                                <rect key="frame" x="12" y="20" width="351" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="autolocalizationKey" value="FILES_REMAINING_FORMAT"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V5w-aC-EsH">
-                                <rect key="frame" x="12" y="146" width="296" height="29"/>
+                                <rect key="frame" x="12" y="146" width="351" height="29"/>
                                 <segments>
                                     <segment title="Main bundle"/>
                                     <segment title="Custom bundle"/>
@@ -183,7 +206,7 @@
                                 </connections>
                             </segmentedControl>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="30" stepValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="az1-BI-dFq">
-                                <rect key="frame" x="113" y="49" width="94" height="29"/>
+                                <rect key="frame" x="140.5" y="49" width="94" height="29"/>
                                 <connections>
                                     <action selector="stepperValueChanged:" destination="I0u-Ge-zgc" eventType="valueChanged" id="qtu-9d-IOd"/>
                                 </connections>
@@ -195,7 +218,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FSi-Ay-X8t" firstAttribute="leading" secondItem="lpA-o3-gR5" secondAttribute="leadingMargin" constant="-4" id="D6M-3g-khF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FSi-Ay-X8t" secondAttribute="trailing" constant="-4" id="IRq-wd-DBb"/>
