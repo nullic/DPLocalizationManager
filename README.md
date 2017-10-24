@@ -96,6 +96,24 @@ English {
 * **space** - set space between lines for paragraph style
 * **alignment** - set alignment of paragraph <alignment=center>{Center\n}<alignment=left>{Left}. Valid values: **left** **center** **right** **justified** **natural**. Due to NSParagraphStyle behaviour each paragraph should be ended with **\n** and each section should have alignment if it is used in any place of localization string.
 
+
+## Replacements
+You can specify replacement using next format: [<**replacer**>]. This feature also reqire set ```isAttributedKey``` property to ```YES```.
+Example:
+```
+/* Localizable.strings */
+"TITLE_WITH_IMAGE" = "Title [<img=\"image_name_here\">]";
+```
+```
+UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+myLabel.autolocalizationKey = @"TITLE_WITH_IMAGE";
+myLabel.isAttributedKey = YES;
+```
+
+### Avalible replacers:
+* **img** - insert image named - ```[<img=\"image_name_here\"> size=(16,16) offset=(0,0)]``` - **size** and **offset** are optinal parameters. By default **size** is (image.width, image.height); **offset** is (0, font.descender)
+
+
 ## Installation
 
 DPLocalization is available through [CocoaPods](http://cocoapods.org), to install

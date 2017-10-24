@@ -1,5 +1,10 @@
 # DPLocalization CHANGELOG
 
+## 1.9
+- Added spacing attribute
+- Added alignement attribute
+- Added image replacer
+
 ## 1.8.3
 - Added nullability
 - Added Swift project example
