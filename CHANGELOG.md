@@ -1,5 +1,8 @@
 # DPLocalization CHANGELOG
 
+## 1.9.1
+- Fixed issue with paragraph style
+
 ## 1.9
 - Added spacing attribute
 - Added alignement attribute

@@ -12,6 +12,10 @@
 @implementation NSAttributedString (DPLocalization)
 
 + (NSAttributedString *)dp_attibutedStringWithString:(NSString *)string font:(DPFont *)font textColor:(DPColor *)textColor {
+    return [self dp_attibutedStringWithString:string font:font textColor:textColor paragraphStyle:[NSParagraphStyle defaultParagraphStyle]];
+}
+
++ (NSAttributedString *)dp_attibutedStringWithString:(NSString *)string font:(DPFont *)font textColor:(DPColor *)textColor paragraphStyle:(NSParagraphStyle *)paragraphStyle {
     NSMutableAttributedString *attrsString = nil;
 
     if (string) {
@@ -27,6 +31,7 @@
         NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
         [attrs setValue:font forKey:NSFontAttributeName];
         [attrs setValue:textColor forKey:NSForegroundColorAttributeName];
+        [attrs setValue:paragraphStyle forKey:NSParagraphStyleAttributeName];
 
         attrsString = [[NSMutableAttributedString alloc] initWithString:string attributes:attrs];
 
@@ -37,7 +42,7 @@
             NSString *styleString = [string substringWithRange:[match rangeAtIndex:1]];
 
             NSMutableDictionary *tagAttrs = [attrs mutableCopy];
-            [tagAttrs setValuesForKeysWithDictionary:[self stylesFromSting:styleString font:font]];
+            [tagAttrs setValuesForKeysWithDictionary:[self stylesFromSting:styleString font:font paragraphStyle:paragraphStyle ?: [NSParagraphStyle defaultParagraphStyle]]];
 
             NSAttributedString *replaceString = [[NSAttributedString alloc] initWithString:textString attributes:tagAttrs];
             [attrsString replaceCharactersInRange:match.range withAttributedString:replaceString];
@@ -61,7 +66,7 @@
     return attrsString;
 }
 
-+ (NSDictionary *)stylesFromSting:(NSString *)styleString font:(DPFont *)font {
++ (NSDictionary *)stylesFromSting:(NSString *)styleString font:(DPFont *)font paragraphStyle:(NSParagraphStyle *)originalParagraphStyle {
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
 
     static NSRegularExpression *nameExp = nil;
@@ -103,7 +108,7 @@
         [attrs setValue:[DPColor colorWithRed:r green:g blue:b alpha:a] forKey:NSForegroundColorAttributeName];
     }
 
-    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    NSMutableParagraphStyle *paragraphStyle = [originalParagraphStyle mutableCopy];
 
     NSTextCheckingResult *spacingCheck = [spacingExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
     if (spacingCheck) {

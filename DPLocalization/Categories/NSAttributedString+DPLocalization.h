@@ -11,4 +11,5 @@
 
 @interface NSAttributedString (DPLocalization)
 + (NSAttributedString *_Nullable)dp_attibutedStringWithString:(NSString *_Nullable)string font:(DPFont *_Nullable)font textColor:(DPColor *_Nullable)textColor;
++ (NSAttributedString *_Nullable)dp_attibutedStringWithString:(NSString *_Nullable)string font:(DPFont *_Nullable)font textColor:(DPColor *_Nullable)textColor paragraphStyle:(NSParagraphStyle *_Nullable)paragraphStyle;
 @end

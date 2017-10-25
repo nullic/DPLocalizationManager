@@ -183,7 +183,9 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 - (void)setLocalizedValue:(id)value forKeyPath:(NSString *)keyPath {
     if ([self isAttributedKey]) {
-        self.attributedText = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor];
+        NSMutableParagraphStyle *paragraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraph.alignment = self.textAlignment;
+        self.attributedText = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor paragraphStyle:paragraph];
     }
     else {
         [super setLocalizedValue:value forKeyPath:keyPath];
@@ -265,7 +267,9 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 - (void)setLocalizedValue:(id)value forKeyPath:(NSString *)keyPath {
     if ([self isAttributedKey]) {
-        self.attributedPlaceholder = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor];
+        NSMutableParagraphStyle *paragraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraph.alignment = self.textAlignment;
+        self.attributedPlaceholder = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor paragraphStyle:paragraph];
     }
     else {
         [super setLocalizedValue:value forKeyPath:keyPath];
@@ -298,13 +302,9 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 - (void)setLocalizedValue:(id)value forKeyPath:(NSString *)keyPath {
     if ([self isAttributedKey]) {
-        NSMutableAttributedString *attrStr = [[NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor] mutableCopy];
-
-        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        NSMutableParagraphStyle *paragraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
         paragraph.alignment = self.textAlignment;
-        [attrStr addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, attrStr.length)];
-
-        self.attributedText = attrStr;
+        self.attributedText = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor paragraphStyle:paragraph];
     }
     else {
         [super setLocalizedValue:value forKeyPath:keyPath];
@@ -479,7 +479,9 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 - (void)setLocalizedValue:(id)value forKeyPath:(NSString *)keyPath {
     if ([self isAttributedKey]) {
-        self.attributedTitle = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:nil];
+        NSMutableParagraphStyle *paragraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraph.alignment = self.alignment;
+        self.attributedTitle = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:nil paragraphStyle:paragraph];
     }
     else {
         [super setLocalizedValue:value forKeyPath:keyPath];
@@ -512,7 +514,9 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 - (void)setLocalizedValue:(id)value forKeyPath:(NSString *)keyPath {
     if ([self isAttributedKey]) {
-        self.attributedStringValue = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:nil];
+        NSMutableParagraphStyle *paragraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraph.alignment = self.alignment;
+        self.attributedStringValue = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:nil paragraphStyle:paragraph];
     }
     else {
         [super setLocalizedValue:value forKeyPath:keyPath];
@@ -536,10 +540,14 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 
 - (void)setLocalizedValue:(id)value forKeyPath:(NSString *)keyPath {
     if ([keyPath isEqualToString:@"stringValue"] && [self isAttributedKey]) {
-        self.attributedStringValue = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor];
+        NSMutableParagraphStyle *paragraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraph.alignment = self.alignment;
+        self.attributedStringValue = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor paragraphStyle:paragraph];
     }
     else if ([keyPath isEqualToString:@"placeholderString"] && [self isAttributedKey]) {
-        self.placeholderAttributedString = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor];
+        NSMutableParagraphStyle *paragraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraph.alignment = self.alignment;
+        self.placeholderAttributedString = [NSAttributedString dp_attibutedStringWithString:value font:self.font textColor:self.textColor paragraphStyle:paragraph];
     }
     else {
         [super setLocalizedValue:value forKeyPath:keyPath];
