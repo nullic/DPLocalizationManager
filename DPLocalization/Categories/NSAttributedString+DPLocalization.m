@@ -101,10 +101,10 @@
 
     NSTextCheckingResult *colorCheck = [colorExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
     if (colorCheck) {
-        CGFloat r = [[styleString substringWithRange:[colorCheck rangeAtIndex:1]] floatValue] / 255.0;
-        CGFloat g = [[styleString substringWithRange:[colorCheck rangeAtIndex:2]] floatValue] / 255.0;
-        CGFloat b = [[styleString substringWithRange:[colorCheck rangeAtIndex:3]] floatValue] / 255.0;
-        CGFloat a = ([colorCheck rangeAtIndex:4].location != NSNotFound) ? ([[[styleString substringWithRange:[colorCheck rangeAtIndex:4]] substringFromIndex:1] floatValue] / 255.0) : 1.0;
+        CGFloat r = [[styleString substringWithRange:[colorCheck rangeAtIndex:1]] floatValue] / (CGFloat)255.0;
+        CGFloat g = [[styleString substringWithRange:[colorCheck rangeAtIndex:2]] floatValue] / (CGFloat)255.0;
+        CGFloat b = [[styleString substringWithRange:[colorCheck rangeAtIndex:3]] floatValue] / (CGFloat)255.0;
+        CGFloat a = ([colorCheck rangeAtIndex:4].location != NSNotFound) ? ([[[styleString substringWithRange:[colorCheck rangeAtIndex:4]] substringFromIndex:1] floatValue] / (CGFloat)255.0) : (CGFloat)1.0;
         [attrs setValue:[DPColor colorWithRed:r green:g blue:b alpha:a] forKey:NSForegroundColorAttributeName];
     }
 
