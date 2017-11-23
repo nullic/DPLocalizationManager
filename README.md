@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/nullic/DPLocalizationManager.svg)](https://travis-ci.org/nullic/DPLocalizationManager)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/DPLocalization.svg?style=flat)](http://cocoapods.org/pods/DPLocalization)
 [![License](https://img.shields.io/cocoapods/l/DPLocalization.svg?style=flat)](http://cocoapods.org/pods/DPLocalization)
 [![Platform](https://img.shields.io/cocoapods/p/DPLocalization.svg?style=flat)](http://cocoapods.org/pods/DPLocalization)
@@ -116,10 +117,20 @@ myLabel.isAttributedKey = YES;
 
 ## Installation
 
+**CocoaPods**
+
 DPLocalization is available through [CocoaPods](http://cocoapods.org), to install
 it simply add the following line to your Podfile:
 
     pod "DPLocalization"
+
+**Carthage**
+
+To integrate DPLocalization into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+    github "nullic/DPLocalizationManager"
+
+Run `carthage update` to build the framework and drag the built `DPLocalization.framework` into your Xcode project.
 
 
 ## Localization check
