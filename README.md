@@ -89,7 +89,7 @@ English {
 ```
 
 ### Avalible attributes:
-* **name** - set font name - ```<font=\"Courier-BoldOblique\">{string}```
+* **name** - set font name - ```<name=\"Courier-BoldOblique\">{string}```
 * **size** - set font size - ```<size=12.0>{string}``` or ```<size=12>{string}```
 * **color** - set text color in RGB or RGBA format - ```<color=12,56,189>{string}``` or ```<color=12,56,189,255>{string}```
 * **traits** - set font traits: **b** (bold), **i** (italic); and text attributes **u** (underline), **s** (strikethrough); **!** used for remove attibute - ```<traits=b>{string}``` or ```<traits=!b>{string}```
