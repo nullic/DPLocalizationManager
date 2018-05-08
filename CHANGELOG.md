@@ -1,5 +1,8 @@
 # DPLocalization CHANGELOG
 
+## 1.9.3
+- Use string from mainBundle if it was not found in default
+
 ## 1.9.1
 - Fixed issue with paragraph style
 
