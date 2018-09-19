@@ -75,7 +75,10 @@
     static NSRegularExpression *traitsExp = nil;
     static NSRegularExpression *linkExp = nil;
     static NSRegularExpression *spacingExp = nil;
+    static NSRegularExpression *lineSpacingExp = nil;
     static NSRegularExpression *alignmentExp = nil;
+    static NSRegularExpression *kerningExp = nil;
+    
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -85,7 +88,9 @@
         sizeExp = [NSRegularExpression regularExpressionWithPattern:@"size=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
         linkExp = [NSRegularExpression regularExpressionWithPattern:@"link=\"(.+?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
         spacingExp = [NSRegularExpression regularExpressionWithPattern:@"spacing=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
+        lineSpacingExp = [NSRegularExpression regularExpressionWithPattern:@"linespacing=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
         alignmentExp = [NSRegularExpression regularExpressionWithPattern:@"alignment=(left|center|right|justified|natural)" options:NSRegularExpressionCaseInsensitive error:nil];
+        kerningExp = [NSRegularExpression regularExpressionWithPattern:@"kern=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
     });
 
     NSRange allStringRange = NSMakeRange(0, styleString.length);
@@ -107,12 +112,22 @@
         CGFloat a = ([colorCheck rangeAtIndex:4].location != NSNotFound) ? ([[[styleString substringWithRange:[colorCheck rangeAtIndex:4]] substringFromIndex:1] floatValue] / (CGFloat)255.0) : (CGFloat)1.0;
         [attrs setValue:[DPColor colorWithRed:r green:g blue:b alpha:a] forKey:NSForegroundColorAttributeName];
     }
+    
+    NSTextCheckingResult *kerningCheck = [kerningExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
+    if (kerningCheck) {
+        [attrs setValue:@([[styleString substringWithRange:[kerningCheck rangeAtIndex:1]] floatValue]) forKey:NSKernAttributeName];
+    }
 
     NSMutableParagraphStyle *paragraphStyle = [originalParagraphStyle mutableCopy];
 
     NSTextCheckingResult *spacingCheck = [spacingExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
     if (spacingCheck) {
         paragraphStyle.paragraphSpacing = [[styleString substringWithRange:[spacingCheck rangeAtIndex:1]] floatValue];
+    }
+    
+    NSTextCheckingResult *lineSpacingCheck = [lineSpacingExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
+    if (lineSpacingCheck) {
+        paragraphStyle.lineSpacing = [[styleString substringWithRange:[lineSpacingCheck rangeAtIndex:1]] floatValue];
     }
 
     NSTextCheckingResult *alignmentMatch = [alignmentExp firstMatchInString:styleString options:kNilOptions range:allStringRange];

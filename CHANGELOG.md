@@ -1,5 +1,9 @@
 # DPLocalization CHANGELOG
 
+## 1.10
+- Added kern attribute
+- Added linespacing attribute
+
 ## 1.9.3
 - Use string from mainBundle if it was not found in default
 

@@ -93,9 +93,12 @@ English {
 * **size** - set font size - ```<size=12.0>{string}``` or ```<size=12>{string}```
 * **color** - set text color in RGB or RGBA format - ```<color=12,56,189>{string}``` or ```<color=12,56,189,255>{string}```
 * **traits** - set font traits: **b** (bold), **i** (italic); and text attributes **u** (underline), **s** (strikethrough); **!** used for remove attibute - ```<traits=b>{string}``` or ```<traits=!b>{string}```
+* **kern** - set font kerning
 * **link** - set link attribute - ```<link=\"https://github.com/nullic/DPLocalizationManager\">{link to DPLocalizationManager}```
-* **space** - set space between lines for paragraph style
+* **spacing** - set space between paragraphs
+* **linespacing** - set space between lines
 * **alignment** - set alignment of paragraph <alignment=center>{Center\n}<alignment=left>{Left}. Valid values: **left** **center** **right** **justified** **natural**. Due to NSParagraphStyle behaviour each paragraph should be ended with **\n** and each section should have alignment if it is used in any place of localization string.
+
 
 
 ## Replacements
