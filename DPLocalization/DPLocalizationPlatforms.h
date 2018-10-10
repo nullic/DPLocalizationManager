@@ -21,6 +21,7 @@
 
 #define DPFontTraitBold UIFontDescriptorTraitBold
 #define DPFontTraitItalic UIFontDescriptorTraitItalic
+#define DPFontDescriptorTraitMonoSpace UIFontDescriptorTraitMonoSpace
 
 #elif TARGET_OS_MAC
 #import <AppKit/AppKit.h>
@@ -37,5 +38,6 @@
 
 #define DPFontTraitBold NSFontBoldTrait
 #define DPFontTraitItalic NSFontItalicTrait
+#define DPFontDescriptorTraitMonoSpace NSFontMonoSpaceTrait
 
 #endif

@@ -1,5 +1,8 @@
 # DPLocalization CHANGELOG
 
+## 1.11
+- Added 'monospace' trait
+
 ## 1.10
 - Added kern attribute
 - Added linespacing attribute

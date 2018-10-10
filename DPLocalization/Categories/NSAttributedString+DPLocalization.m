@@ -84,7 +84,7 @@
     dispatch_once(&onceToken, ^{
         nameExp = [NSRegularExpression regularExpressionWithPattern:@"name=\"(.+?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
         colorExp = [NSRegularExpression regularExpressionWithPattern:@"color=([0-9]{1,3}),([0-9]{1,3}),([0-9]{1,3})(,[0-9]{1,3})?" options:NSRegularExpressionCaseInsensitive error:nil];
-        traitsExp = [NSRegularExpression regularExpressionWithPattern:@"traits=([!buis]+)" options:NSRegularExpressionCaseInsensitive error:nil];
+        traitsExp = [NSRegularExpression regularExpressionWithPattern:@"traits=([!buism]+)" options:NSRegularExpressionCaseInsensitive error:nil];
         sizeExp = [NSRegularExpression regularExpressionWithPattern:@"size=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
         linkExp = [NSRegularExpression regularExpressionWithPattern:@"link=\"(.+?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
         spacingExp = [NSRegularExpression regularExpressionWithPattern:@"spacing=([0-9.]+)" options:NSRegularExpressionCaseInsensitive error:nil];
@@ -174,11 +174,15 @@
         if (traitsCheck) {
             NSString *traitsString = [styleString substringWithRange:[traitsCheck rangeAtIndex:1]];
             DPFontSymbolicTraits traits = [[styleFont fontDescriptor] symbolicTraits];
+            
+            
 
             if ([traitsString rangeOfString:@"b"].location != NSNotFound) traits |= DPFontTraitBold;
             if ([traitsString rangeOfString:@"i"].location != NSNotFound) traits |= DPFontTraitItalic;
+            if ([traitsString rangeOfString:@"m"].location != NSNotFound) traits |= DPFontDescriptorTraitMonoSpace;
             if ([traitsString rangeOfString:@"!b"].location != NSNotFound) traits &= (~DPFontTraitBold);
             if ([traitsString rangeOfString:@"!i"].location != NSNotFound) traits &= (~DPFontTraitItalic);
+            if ([traitsString rangeOfString:@"!m"].location != NSNotFound) traits &= (~DPFontDescriptorTraitMonoSpace);
 
             if ([traitsString rangeOfString:@"u"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSUnderlineStyleAttributeName];
             if ([traitsString rangeOfString:@"s"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSStrikethroughStyleAttributeName];
