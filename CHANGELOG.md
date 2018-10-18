@@ -1,5 +1,9 @@
 # DPLocalization CHANGELOG
 
+## 1.12
+- Increase minimum iOS version to 8.0
+- Fixed issue: ```-[DPLocalizationManager localizedImageNamed:]``` always return value from ```mainBundle``` instead of ```defaultBundle```.
+
 ## 1.11
 - Added 'monospace' trait
 

@@ -143,11 +143,6 @@ dpstrings.py it is Python script, that used for checking most common usage of li
 Usage example: **python dpstrings.py -p "MyProjectPath" -l "en;ru;"**.<br/>
 For more information: **python dpstrings.py --help**.
 
-
-## Known issues
-
-```-[DPLocalizationManager localizedImageNamed:]``` always return value from ```mainBundle``` instead of ```defaultBundle```.
- 
  
 ## License
 

@@ -145,58 +145,37 @@
     [attrs setValue:paragraphStyle forKey:NSParagraphStyleAttributeName];
     DPFont *styleFont = font ? [DPFont fontWithName:fontName size:fontSize] : nil;
 
-#if DPLocalization_UIKit
-    if (NSFoundationVersionNumber < NSFoundationVersionNumber_iOS_7_0) {
-        [attrs setValue:styleFont forKey:NSFontAttributeName];
-
-        NSTextCheckingResult *traitsCheck = [traitsExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
-        if (traitsCheck) {
-            NSString *traitsString = [styleString substringWithRange:[traitsCheck rangeAtIndex:1]];
-            if ([traitsString rangeOfString:@"u"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSUnderlineStyleAttributeName];
-            if ([traitsString rangeOfString:@"s"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSStrikethroughStyleAttributeName];
-
-            // Not used - will be useful in futher releases
-            if ([traitsString rangeOfString:@"!u"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleNone) forKey:NSUnderlineStyleAttributeName];
-            if ([traitsString rangeOfString:@"!s"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleNone) forKey:NSStrikethroughStyleAttributeName];
-        }
+    NSTextCheckingResult *linkCheck = [linkExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
+    if (linkCheck) {
+        NSString *link = [styleString substringWithRange:[linkCheck rangeAtIndex:1]];
+        NSURL *url = [NSURL URLWithString:link];
+        [attrs setValue:url ? url : link forKey:NSLinkAttributeName];
     }
-    else
-#endif
-    {
-        NSTextCheckingResult *linkCheck = [linkExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
-        if (linkCheck) {
-            NSString *link = [styleString substringWithRange:[linkCheck rangeAtIndex:1]];
-            NSURL *url = [NSURL URLWithString:link];
-            [attrs setValue:url ? url : link forKey:NSLinkAttributeName];
-        }
-
-        NSTextCheckingResult *traitsCheck = [traitsExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
-        if (traitsCheck) {
-            NSString *traitsString = [styleString substringWithRange:[traitsCheck rangeAtIndex:1]];
-            DPFontSymbolicTraits traits = [[styleFont fontDescriptor] symbolicTraits];
-            
-            
-
-            if ([traitsString rangeOfString:@"b"].location != NSNotFound) traits |= DPFontTraitBold;
-            if ([traitsString rangeOfString:@"i"].location != NSNotFound) traits |= DPFontTraitItalic;
-            if ([traitsString rangeOfString:@"m"].location != NSNotFound) traits |= DPFontDescriptorTraitMonoSpace;
-            if ([traitsString rangeOfString:@"!b"].location != NSNotFound) traits &= (~DPFontTraitBold);
-            if ([traitsString rangeOfString:@"!i"].location != NSNotFound) traits &= (~DPFontTraitItalic);
-            if ([traitsString rangeOfString:@"!m"].location != NSNotFound) traits &= (~DPFontDescriptorTraitMonoSpace);
-
-            if ([traitsString rangeOfString:@"u"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSUnderlineStyleAttributeName];
-            if ([traitsString rangeOfString:@"s"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSStrikethroughStyleAttributeName];
-
-            // Not used - will be useful in futher releases
-            if ([traitsString rangeOfString:@"!u"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleNone) forKey:NSUnderlineStyleAttributeName];
-            if ([traitsString rangeOfString:@"!s"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleNone) forKey:NSStrikethroughStyleAttributeName];
-
-            DPFontDescriptor *fontDescriptor = [[styleFont fontDescriptor] fontDescriptorWithSymbolicTraits:traits];
-            [attrs setValue:[DPFont fontWithDescriptor:fontDescriptor size:fontSize] forKey:NSFontAttributeName];
-        }
-        else {
-            [attrs setValue:styleFont forKey:NSFontAttributeName];
-        }
+    
+    NSTextCheckingResult *traitsCheck = [traitsExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
+    if (traitsCheck) {
+        NSString *traitsString = [styleString substringWithRange:[traitsCheck rangeAtIndex:1]];
+        DPFontSymbolicTraits traits = [[styleFont fontDescriptor] symbolicTraits];
+        
+        if ([traitsString rangeOfString:@"b"].location != NSNotFound) traits |= DPFontTraitBold;
+        if ([traitsString rangeOfString:@"i"].location != NSNotFound) traits |= DPFontTraitItalic;
+        if ([traitsString rangeOfString:@"m"].location != NSNotFound) traits |= DPFontDescriptorTraitMonoSpace;
+        if ([traitsString rangeOfString:@"!b"].location != NSNotFound) traits &= (~DPFontTraitBold);
+        if ([traitsString rangeOfString:@"!i"].location != NSNotFound) traits &= (~DPFontTraitItalic);
+        if ([traitsString rangeOfString:@"!m"].location != NSNotFound) traits &= (~DPFontDescriptorTraitMonoSpace);
+        
+        if ([traitsString rangeOfString:@"u"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSUnderlineStyleAttributeName];
+        if ([traitsString rangeOfString:@"s"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleSingle) forKey:NSStrikethroughStyleAttributeName];
+        
+        // Not used - will be useful in futher releases
+        if ([traitsString rangeOfString:@"!u"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleNone) forKey:NSUnderlineStyleAttributeName];
+        if ([traitsString rangeOfString:@"!s"].location != NSNotFound) [attrs setValue:@(NSUnderlineStyleNone) forKey:NSStrikethroughStyleAttributeName];
+        
+        DPFontDescriptor *fontDescriptor = [[styleFont fontDescriptor] fontDescriptorWithSymbolicTraits:traits];
+        [attrs setValue:[DPFont fontWithDescriptor:fontDescriptor size:fontSize] forKey:NSFontAttributeName];
+    }
+    else {
+        [attrs setValue:styleFont forKey:NSFontAttributeName];
     }
 
     return attrs;

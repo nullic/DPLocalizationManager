@@ -242,7 +242,7 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
         NSString *localizationPath = [NSString stringWithFormat:@"%@.lproj", self.currentLanguage];
 #if DPLocalization_UIKit
         NSString *imageNamePath = [localizationPath stringByAppendingPathComponent:name];
-        result = [DPImage imageNamed:imageNamePath];
+        result = [DPImage imageNamed:imageNamePath inBundle:[self defaultBundle] compatibleWithTraitCollection:nil];
 #elif DPLocalization_AppKit
         NSString *resourcePath = [self.defaultBundle resourcePath] ?: self.defaultBundle.bundlePath;
         NSString *bundlePath = [resourcePath stringByAppendingPathComponent:localizationPath];
