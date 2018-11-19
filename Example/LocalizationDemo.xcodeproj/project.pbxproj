@@ -670,6 +670,7 @@
 				TargetAttributes = {
 					B28616A11ED577F400D3AB81 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = N2ZKNQ2E58;
 						ProvisioningStyle = Automatic;
 					};
 					B294056B1AA439180049BF70 = {
@@ -678,6 +679,7 @@
 					};
 					B29DC2FA1A9AF43E00AFE219 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = N2ZKNQ2E58;
 						ProvisioningStyle = Automatic;
 					};
 					B2EDB7841ED5749200DF87CC = {
@@ -689,6 +691,7 @@
 						ProvisioningStyle = Automatic;
 					};
 					CED8ADF41833502A007E4C60 = {
+						DevelopmentTeam = N2ZKNQ2E58;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -955,6 +958,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = N2ZKNQ2E58;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = LocalizationDemoSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -980,6 +984,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = N2ZKNQ2E58;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = LocalizationDemoSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1004,6 +1009,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = N2ZKNQ2E58;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = LocalizationDemoSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1070,7 +1076,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N2ZKNQ2E58;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "LocalizationDemo-osx/Info.plist";
@@ -1092,7 +1098,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N2ZKNQ2E58;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "LocalizationDemo-osx/Info.plist";
@@ -1169,7 +1175,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N2ZKNQ2E58;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LocalizationDemo/LocalizationDemo-Prefix.pch";
 				INFOPLIST_FILE = "LocalizationDemo/LocalizationDemo-Info.plist";
@@ -1189,7 +1195,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N2ZKNQ2E58;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "LocalizationDemo-osx/Info.plist";
@@ -1539,7 +1545,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N2ZKNQ2E58;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LocalizationDemo/LocalizationDemo-Prefix.pch";
 				INFOPLIST_FILE = "LocalizationDemo/LocalizationDemo-Info.plist";
@@ -1559,7 +1565,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N2ZKNQ2E58;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LocalizationDemo/LocalizationDemo-Prefix.pch";
 				INFOPLIST_FILE = "LocalizationDemo/LocalizationDemo-Info.plist";
