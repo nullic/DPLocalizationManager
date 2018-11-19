@@ -1,5 +1,8 @@
 # DPLocalization CHANGELOG
 
+## 1.12.1
+- Fixed issue: Image localization don't use default bundle if language not selected
+
 ## 1.12
 - Increase minimum iOS version to 8.0
 - Fixed issue: ```-[DPLocalizationManager localizedImageNamed:]``` always return value from ```mainBundle``` instead of ```defaultBundle```.
