@@ -250,7 +250,11 @@ NSString * const DPLanguagePreferenceKey = @"DPLanguageKey";
 #endif
     }
     
-    return result ? result : [DPImage imageNamed:name];
+#if DPLocalization_UIKit
+    return result ? result : [DPImage imageNamed:name inBundle:[self defaultBundle] compatibleWithTraitCollection:nil];
+#elif DPLocalization_AppKit
+    return result ? result : [[self defaultBundle] imageForResource:name];
+#endif
 }
 
 - (NSString *)localizedPathForResource:(NSString *)name ofType:(NSString *)extension bundle:(NSBundle *)bundle {
