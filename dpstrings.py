@@ -6,8 +6,9 @@ import re
 
 class DPStringExtractor:
     pattern_src_1 = re.compile("(?<=DPLocalizedString\(@\").*?(?=\")")
-    pattern_src_2 = re.compile(".*?\.autolocalizationKey\s*=\s*@\"(.*?)\"")
+    pattern_src_2 = re.compile(".*?\.autolocalizationKey\s*=\s*@?\"(.*?)\"")
     pattern_src_3 = re.compile("\[.*?\ssetAutolocalizationKey:\s*@\"(.*?)\"\]")
+    pattern_src_4 = re.compile(".*?\sautolocalizationKey\s*=\s*@?\"(.*?)\"")
 
     pattern_xib_1 = re.compile(
         "<string\skey=\"keyPath\">autolocalizationKey</string>\s*<string\skey=\"value\">(.*?)</string>")
@@ -17,7 +18,7 @@ class DPStringExtractor:
     @staticmethod
     def is_source_file(filename):
         extension = os.path.splitext(filename)[1].lower()
-        return extension == ".m" or extension == ".mm"
+        return extension == ".m" or extension == ".mm" or extension == ".swift"
 
     @staticmethod
     def is_xib_file(filename):
@@ -50,7 +51,7 @@ class DPStringExtractor:
             if os.path.isfile(full_path):
                 patterns = None
                 if DPStringExtractor.is_source_file(filename):
-                    patterns = [self.pattern_src_1, self.pattern_src_2, self.pattern_src_3]
+                    patterns = [self.pattern_src_1, self.pattern_src_2, self.pattern_src_3, self.pattern_src_4]
                 elif DPStringExtractor.is_xib_file(filename):
                     patterns = [self.pattern_xib_1, self.pattern_xib_2]
 
