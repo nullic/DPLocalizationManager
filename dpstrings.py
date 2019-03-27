@@ -9,6 +9,7 @@ class DPStringExtractor:
     pattern_src_2 = re.compile(".*?\.autolocalizationKey\s*=\s*@?\"(.*?)\"")
     pattern_src_3 = re.compile("\[.*?\ssetAutolocalizationKey:\s*@\"(.*?)\"\]")
     pattern_src_4 = re.compile(".*?\sautolocalizationKey\s*=\s*@?\"(.*?)\"")
+    pattern_src_5 = re.compile("(?<=DPLocalizedString\(\").*?(?=\")")
 
     pattern_xib_1 = re.compile(
         "<string\skey=\"keyPath\">autolocalizationKey</string>\s*<string\skey=\"value\">(.*?)</string>")
@@ -51,7 +52,7 @@ class DPStringExtractor:
             if os.path.isfile(full_path):
                 patterns = None
                 if DPStringExtractor.is_source_file(filename):
-                    patterns = [self.pattern_src_1, self.pattern_src_2, self.pattern_src_3, self.pattern_src_4]
+                    patterns = [self.pattern_src_1, self.pattern_src_2, self.pattern_src_3, self.pattern_src_4, self.pattern_src_5]
                 elif DPStringExtractor.is_xib_file(filename):
                     patterns = [self.pattern_xib_1, self.pattern_xib_2]
 
