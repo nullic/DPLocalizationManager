@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "DPLocalizationManager.h"
+#import "DPLocalization.h"
 
 
 @interface BasicManagerTests : XCTestCase

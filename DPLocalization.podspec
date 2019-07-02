@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "8.0", :osx => "10.11" }
   
   s.source       = { :git => "https://github.com/nullic/DPLocalizationManager.git", :tag => "1.12.1" }
-  s.source_files = "DPLocalization", "DPLocalization/*.{h,m}", "DPLocalization/Plural/*.{h,m,c}", "DPLocalization/Formatter/*.{h,m}", "DPLocalization/Proxy/*.{h,m}", "DPLocalization/Categories/*.{h,m}", "DPLocalization/Storage/*.{h,m}"
+  s.source_files = "DPLocalization", "DPLocalization/*.{h,m,c}", "DPLocalization/include/*.h"
   s.requires_arc = true
 
 end

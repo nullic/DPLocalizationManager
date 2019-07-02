@@ -7,6 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		077D113F22CB414000E72B64 /* DPLocalizationBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D112C22CB414000E72B64 /* DPLocalizationBundle.m */; };
+		077D114022CB414000E72B64 /* DPLocalizationBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D112C22CB414000E72B64 /* DPLocalizationBundle.m */; };
+		077D114122CB414000E72B64 /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D112D22CB414000E72B64 /* NSObject+DPLocalization.m */; };
+		077D114222CB414000E72B64 /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D112D22CB414000E72B64 /* NSObject+DPLocalization.m */; };
+		077D114322CB414000E72B64 /* DPFormattedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D112E22CB414000E72B64 /* DPFormattedValue.m */; };
+		077D114422CB414000E72B64 /* DPFormattedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D112E22CB414000E72B64 /* DPFormattedValue.m */; };
+		077D114522CB414000E72B64 /* Plural+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113022CB414000E72B64 /* Plural+DPLocalization.h */; };
+		077D114622CB414000E72B64 /* Plural+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113022CB414000E72B64 /* Plural+DPLocalization.h */; };
+		077D114722CB414000E72B64 /* DPLocalizationPlatforms.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113122CB414000E72B64 /* DPLocalizationPlatforms.h */; };
+		077D114822CB414000E72B64 /* DPLocalizationPlatforms.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113122CB414000E72B64 /* DPLocalizationPlatforms.h */; };
+		077D114922CB414000E72B64 /* DPAutolocalizationProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113222CB414000E72B64 /* DPAutolocalizationProxy.h */; };
+		077D114A22CB414000E72B64 /* DPAutolocalizationProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113222CB414000E72B64 /* DPAutolocalizationProxy.h */; };
+		077D114B22CB414000E72B64 /* dp_gen_plural.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113322CB414000E72B64 /* dp_gen_plural.h */; };
+		077D114C22CB414000E72B64 /* dp_gen_plural.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113322CB414000E72B64 /* dp_gen_plural.h */; };
+		077D114D22CB414000E72B64 /* DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113422CB414000E72B64 /* DPLocalization.h */; };
+		077D114E22CB414000E72B64 /* DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113422CB414000E72B64 /* DPLocalization.h */; };
+		077D114F22CB414000E72B64 /* NSAttributedString+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113522CB414000E72B64 /* NSAttributedString+DPLocalization.h */; };
+		077D115022CB414000E72B64 /* NSAttributedString+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113522CB414000E72B64 /* NSAttributedString+DPLocalization.h */; };
+		077D115122CB414000E72B64 /* DPLocalizationBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113622CB414000E72B64 /* DPLocalizationBundle.h */; };
+		077D115222CB414000E72B64 /* DPLocalizationBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113622CB414000E72B64 /* DPLocalizationBundle.h */; };
+		077D115322CB414000E72B64 /* DPFormattedValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113722CB414000E72B64 /* DPFormattedValue.h */; };
+		077D115422CB414000E72B64 /* DPFormattedValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113722CB414000E72B64 /* DPFormattedValue.h */; };
+		077D115522CB414000E72B64 /* NSObject+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113822CB414000E72B64 /* NSObject+DPLocalization.h */; };
+		077D115622CB414000E72B64 /* NSObject+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113822CB414000E72B64 /* NSObject+DPLocalization.h */; };
+		077D115722CB414000E72B64 /* DPLocalizationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113922CB414000E72B64 /* DPLocalizationManager.h */; };
+		077D115822CB414000E72B64 /* DPLocalizationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D113922CB414000E72B64 /* DPLocalizationManager.h */; };
+		077D115922CB414000E72B64 /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D113A22CB414000E72B64 /* DPLocalizationManager.m */; };
+		077D115A22CB414000E72B64 /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D113A22CB414000E72B64 /* DPLocalizationManager.m */; };
+		077D115B22CB414000E72B64 /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D113B22CB414000E72B64 /* Plural+DPLocalization.m */; };
+		077D115C22CB414000E72B64 /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D113B22CB414000E72B64 /* Plural+DPLocalization.m */; };
+		077D115D22CB414000E72B64 /* DPAutolocalizationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D113C22CB414000E72B64 /* DPAutolocalizationProxy.m */; };
+		077D115E22CB414000E72B64 /* DPAutolocalizationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D113C22CB414000E72B64 /* DPAutolocalizationProxy.m */; };
+		077D115F22CB414000E72B64 /* NSAttributedString+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D113D22CB414000E72B64 /* NSAttributedString+DPLocalization.m */; };
+		077D116022CB414000E72B64 /* NSAttributedString+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D113D22CB414000E72B64 /* NSAttributedString+DPLocalization.m */; };
+		077D116122CB414000E72B64 /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = 077D113E22CB414000E72B64 /* dp_gen_plural.c */; };
+		077D116222CB414000E72B64 /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = 077D113E22CB414000E72B64 /* dp_gen_plural.c */; };
 		5822FA1418587335006B05DB /* Localizable1.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5822FA1218587335006B05DB /* Localizable1.strings */; };
 		B204BED91B37F70E00AF575F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B204BED81B37F70E00AF575F /* SecondViewController.m */; };
 		B24F5F321ED57304007A5EAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24F5F311ED57304007A5EAE /* UIKit.framework */; };
@@ -39,44 +75,8 @@
 		B2A0A1D61BAFE15400559277 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A0A1D51BAFE15400559277 /* Launch Screen.xib */; };
 		B2EDB78C1ED5749200DF87CC /* DPLocalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EDB7851ED5749200DF87CC /* DPLocalization.framework */; };
 		B2EDB78D1ED5749200DF87CC /* DPLocalization.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2EDB7851ED5749200DF87CC /* DPLocalization.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B2EDB7A41ED5756B00DF87CC /* NSAttributedString+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A866A91B64FF6E00F57D37 /* NSAttributedString+DPLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7A51ED5756B00DF87CC /* NSObject+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A866AB1B64FF6E00F57D37 /* NSObject+DPLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7A61ED5756B00DF87CC /* DPAutolocalizationProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A866AE1B64FF6E00F57D37 /* DPAutolocalizationProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7A71ED5756B00DF87CC /* DPFormattedValue.h in Headers */ = {isa = PBXBuildFile; fileRef = B2B6D5061B4280A700EC46BA /* DPFormattedValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7A81ED5756B00DF87CC /* dp_gen_plural.h in Headers */ = {isa = PBXBuildFile; fileRef = B203935D1B41496600F30C6A /* dp_gen_plural.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7A91ED5756B00DF87CC /* Plural+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = B23048781B3BCD4F0060BC1D /* Plural+DPLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7AA1ED5756B00DF87CC /* DPLocalizationBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = B2F0D3D11BA7E59900718038 /* DPLocalizationBundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7AB1ED5756B00DF87CC /* DPLocalizationPlatforms.h in Headers */ = {isa = PBXBuildFile; fileRef = B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7AC1ED5756B00DF87CC /* DPLocalizationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7AD1ED5756B00DF87CC /* DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A866A71B64FE6400F57D37 /* DPLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7AE1ED5757500DF87CC /* NSAttributedString+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AA1B64FF6E00F57D37 /* NSAttributedString+DPLocalization.m */; };
-		B2EDB7AF1ED5757500DF87CC /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AC1B64FF6E00F57D37 /* NSObject+DPLocalization.m */; };
-		B2EDB7B01ED5757500DF87CC /* DPAutolocalizationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AF1B64FF6E00F57D37 /* DPAutolocalizationProxy.m */; };
-		B2EDB7B11ED5757500DF87CC /* DPFormattedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */; };
-		B2EDB7B21ED5757500DF87CC /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
-		B2EDB7B31ED5757500DF87CC /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */; };
-		B2EDB7B41ED5757500DF87CC /* DPLocalizationBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F0D3D21BA7E59900718038 /* DPLocalizationBundle.m */; };
-		B2EDB7B51ED5757500DF87CC /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
 		B2EDB7C31ED5766100DF87CC /* DPLocalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EDB7BC1ED5766100DF87CC /* DPLocalization.framework */; };
 		B2EDB7C41ED5766100DF87CC /* DPLocalization.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2EDB7BC1ED5766100DF87CC /* DPLocalization.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B2EDB7C91ED576B900DF87CC /* NSAttributedString+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A866A91B64FF6E00F57D37 /* NSAttributedString+DPLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7CA1ED576B900DF87CC /* NSObject+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A866AB1B64FF6E00F57D37 /* NSObject+DPLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7CB1ED576B900DF87CC /* DPAutolocalizationProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A866AE1B64FF6E00F57D37 /* DPAutolocalizationProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7CC1ED576B900DF87CC /* DPFormattedValue.h in Headers */ = {isa = PBXBuildFile; fileRef = B2B6D5061B4280A700EC46BA /* DPFormattedValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7CD1ED576B900DF87CC /* dp_gen_plural.h in Headers */ = {isa = PBXBuildFile; fileRef = B203935D1B41496600F30C6A /* dp_gen_plural.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7CE1ED576B900DF87CC /* Plural+DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = B23048781B3BCD4F0060BC1D /* Plural+DPLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7CF1ED576B900DF87CC /* DPLocalizationBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = B2F0D3D11BA7E59900718038 /* DPLocalizationBundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7D01ED576B900DF87CC /* DPLocalizationPlatforms.h in Headers */ = {isa = PBXBuildFile; fileRef = B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7D11ED576B900DF87CC /* DPLocalizationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7D21ED576B900DF87CC /* DPLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A866A71B64FE6400F57D37 /* DPLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EDB7D31ED576C300DF87CC /* NSAttributedString+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AA1B64FF6E00F57D37 /* NSAttributedString+DPLocalization.m */; };
-		B2EDB7D41ED576C300DF87CC /* NSObject+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AC1B64FF6E00F57D37 /* NSObject+DPLocalization.m */; };
-		B2EDB7D51ED576C300DF87CC /* DPAutolocalizationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A866AF1B64FF6E00F57D37 /* DPAutolocalizationProxy.m */; };
-		B2EDB7D61ED576C300DF87CC /* DPFormattedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */; };
-		B2EDB7D71ED576C300DF87CC /* dp_gen_plural.c in Sources */ = {isa = PBXBuildFile; fileRef = B203935C1B41496600F30C6A /* dp_gen_plural.c */; };
-		B2EDB7D81ED576C300DF87CC /* Plural+DPLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */; };
-		B2EDB7D91ED576C300DF87CC /* DPLocalizationBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F0D3D21BA7E59900718038 /* DPLocalizationBundle.m */; };
-		B2EDB7DA1ED576C300DF87CC /* DPLocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */; };
 		CE8DC38F18C9CABF004E4BB8 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8DC39118C9CABF004E4BB8 /* image.png */; };
 		CED1C4FB1845F3DD003014E7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CED1C4FA1845F3DD003014E7 /* Settings.bundle */; };
 		CED8ADF91833502A007E4C60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED8ADF81833502A007E4C60 /* Foundation.framework */; };
@@ -157,29 +157,33 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		077D112C22CB414000E72B64 /* DPLocalizationBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLocalizationBundle.m; sourceTree = "<group>"; };
+		077D112D22CB414000E72B64 /* NSObject+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DPLocalization.m"; sourceTree = "<group>"; };
+		077D112E22CB414000E72B64 /* DPFormattedValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPFormattedValue.m; sourceTree = "<group>"; };
+		077D113022CB414000E72B64 /* Plural+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plural+DPLocalization.h"; sourceTree = "<group>"; };
+		077D113122CB414000E72B64 /* DPLocalizationPlatforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationPlatforms.h; sourceTree = "<group>"; };
+		077D113222CB414000E72B64 /* DPAutolocalizationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAutolocalizationProxy.h; sourceTree = "<group>"; };
+		077D113322CB414000E72B64 /* dp_gen_plural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dp_gen_plural.h; sourceTree = "<group>"; };
+		077D113422CB414000E72B64 /* DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalization.h; sourceTree = "<group>"; };
+		077D113522CB414000E72B64 /* NSAttributedString+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+DPLocalization.h"; sourceTree = "<group>"; };
+		077D113622CB414000E72B64 /* DPLocalizationBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationBundle.h; sourceTree = "<group>"; };
+		077D113722CB414000E72B64 /* DPFormattedValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPFormattedValue.h; sourceTree = "<group>"; };
+		077D113822CB414000E72B64 /* NSObject+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DPLocalization.h"; sourceTree = "<group>"; };
+		077D113922CB414000E72B64 /* DPLocalizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationManager.h; sourceTree = "<group>"; };
+		077D113A22CB414000E72B64 /* DPLocalizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLocalizationManager.m; sourceTree = "<group>"; };
+		077D113B22CB414000E72B64 /* Plural+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plural+DPLocalization.m"; sourceTree = "<group>"; };
+		077D113C22CB414000E72B64 /* DPAutolocalizationProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAutolocalizationProxy.m; sourceTree = "<group>"; };
+		077D113D22CB414000E72B64 /* NSAttributedString+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+DPLocalization.m"; sourceTree = "<group>"; };
+		077D113E22CB414000E72B64 /* dp_gen_plural.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dp_gen_plural.c; sourceTree = "<group>"; };
 		5822FA1318587335006B05DB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable1.strings; sourceTree = "<group>"; };
 		5822FA151858733C006B05DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable1.strings; sourceTree = "<group>"; };
 		5822FA1618587341006B05DB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable1.strings; sourceTree = "<group>"; };
-		A2A866A71B64FE6400F57D37 /* DPLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLocalization.h; sourceTree = "<group>"; };
-		A2A866A91B64FF6E00F57D37 /* NSAttributedString+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+DPLocalization.h"; sourceTree = "<group>"; };
-		A2A866AA1B64FF6E00F57D37 /* NSAttributedString+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+DPLocalization.m"; sourceTree = "<group>"; };
-		A2A866AB1B64FF6E00F57D37 /* NSObject+DPLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DPLocalization.h"; sourceTree = "<group>"; };
-		A2A866AC1B64FF6E00F57D37 /* NSObject+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DPLocalization.m"; sourceTree = "<group>"; };
-		A2A866AE1B64FF6E00F57D37 /* DPAutolocalizationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAutolocalizationProxy.h; sourceTree = "<group>"; };
-		A2A866AF1B64FF6E00F57D37 /* DPAutolocalizationProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAutolocalizationProxy.m; sourceTree = "<group>"; };
-		B203935C1B41496600F30C6A /* dp_gen_plural.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dp_gen_plural.c; sourceTree = "<group>"; };
-		B203935D1B41496600F30C6A /* dp_gen_plural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dp_gen_plural.h; sourceTree = "<group>"; };
 		B204BED71B37F70E00AF575F /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		B204BED81B37F70E00AF575F /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		B21CE1891B414E8A00D6E9FA /* parser.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = parser.py; sourceTree = "<group>"; };
-		B21CE18A1B414E8A00D6E9FA /* plurals.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = plurals.xml; sourceTree = "<group>"; };
 		B21CE18D1B41502900D6E9FA /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		B21CE18E1B41502900D6E9FA /* DPLocalization.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = DPLocalization.podspec; path = ../DPLocalization.podspec; sourceTree = "<group>"; };
 		B21CE18F1B41502900D6E9FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		B23048781B3BCD4F0060BC1D /* Plural+DPLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Plural+DPLocalization.h"; sourceTree = "<group>"; };
-		B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plural+DPLocalization.m"; sourceTree = "<group>"; };
 		B24F5F311ED57304007A5EAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationPlatforms.h; sourceTree = "<group>"; };
 		B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CustomBundle; sourceTree = "<group>"; };
 		B28616A21ED577F400D3AB81 /* LocalizationDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalizationDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B28616A41ED577F400D3AB81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,18 +214,12 @@
 		B29DC3371A9B167800AFE219 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/image.png; sourceTree = "<group>"; };
 		B29DC3381A9B167800AFE219 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/image.png; sourceTree = "<group>"; };
 		B2A0A1D51BAFE15400559277 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
-		B2B6D5061B4280A700EC46BA /* DPFormattedValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPFormattedValue.h; sourceTree = "<group>"; };
-		B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPFormattedValue.m; sourceTree = "<group>"; };
 		B2EDB7851ED5749200DF87CC /* DPLocalization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DPLocalization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2EDB7871ED5749200DF87CC /* DPLocalizationVer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPLocalizationVer.h; sourceTree = "<group>"; };
 		B2EDB7881ED5749200DF87CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2EDB7BC1ED5766100DF87CC /* DPLocalization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DPLocalization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2EDB7BE1ED5766100DF87CC /* DPLocalization-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DPLocalization-OSX.h"; sourceTree = "<group>"; };
 		B2EDB7BF1ED5766100DF87CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B2F0D3D11BA7E59900718038 /* DPLocalizationBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationBundle.h; sourceTree = "<group>"; };
-		B2F0D3D21BA7E59900718038 /* DPLocalizationBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLocalizationBundle.m; sourceTree = "<group>"; };
-		CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLocalizationManager.h; sourceTree = "<group>"; };
-		CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLocalizationManager.m; sourceTree = "<group>"; };
 		CE8DC39018C9CABF004E4BB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/image.png; sourceTree = "<group>"; };
 		CE8DC39218C9CAC3004E4BB8 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/image.png; sourceTree = "<group>"; };
 		CE8DC39318C9CAC4004E4BB8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/image.png; sourceTree = "<group>"; };
@@ -297,37 +295,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A2A866A81B64FF6E00F57D37 /* Categories */ = {
+		077D112B22CB414000E72B64 /* DPLocalization */ = {
 			isa = PBXGroup;
 			children = (
-				A2A866A91B64FF6E00F57D37 /* NSAttributedString+DPLocalization.h */,
-				A2A866AA1B64FF6E00F57D37 /* NSAttributedString+DPLocalization.m */,
-				A2A866AB1B64FF6E00F57D37 /* NSObject+DPLocalization.h */,
-				A2A866AC1B64FF6E00F57D37 /* NSObject+DPLocalization.m */,
+				077D112F22CB414000E72B64 /* include */,
+				077D112C22CB414000E72B64 /* DPLocalizationBundle.m */,
+				077D112D22CB414000E72B64 /* NSObject+DPLocalization.m */,
+				077D112E22CB414000E72B64 /* DPFormattedValue.m */,
+				077D113A22CB414000E72B64 /* DPLocalizationManager.m */,
+				077D113B22CB414000E72B64 /* Plural+DPLocalization.m */,
+				077D113C22CB414000E72B64 /* DPAutolocalizationProxy.m */,
+				077D113D22CB414000E72B64 /* NSAttributedString+DPLocalization.m */,
+				077D113E22CB414000E72B64 /* dp_gen_plural.c */,
 			);
-			path = Categories;
+			name = DPLocalization;
+			path = ../DPLocalization;
 			sourceTree = "<group>";
 		};
-		A2A866AD1B64FF6E00F57D37 /* Proxy */ = {
+		077D112F22CB414000E72B64 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				A2A866AE1B64FF6E00F57D37 /* DPAutolocalizationProxy.h */,
-				A2A866AF1B64FF6E00F57D37 /* DPAutolocalizationProxy.m */,
+				077D113022CB414000E72B64 /* Plural+DPLocalization.h */,
+				077D113122CB414000E72B64 /* DPLocalizationPlatforms.h */,
+				077D113222CB414000E72B64 /* DPAutolocalizationProxy.h */,
+				077D113322CB414000E72B64 /* dp_gen_plural.h */,
+				077D113422CB414000E72B64 /* DPLocalization.h */,
+				077D113522CB414000E72B64 /* NSAttributedString+DPLocalization.h */,
+				077D113622CB414000E72B64 /* DPLocalizationBundle.h */,
+				077D113722CB414000E72B64 /* DPFormattedValue.h */,
+				077D113822CB414000E72B64 /* NSObject+DPLocalization.h */,
+				077D113922CB414000E72B64 /* DPLocalizationManager.h */,
 			);
-			path = Proxy;
-			sourceTree = "<group>";
-		};
-		B23048741B3BCD0F0060BC1D /* Plural */ = {
-			isa = PBXGroup;
-			children = (
-				B21CE1891B414E8A00D6E9FA /* parser.py */,
-				B21CE18A1B414E8A00D6E9FA /* plurals.xml */,
-				B203935C1B41496600F30C6A /* dp_gen_plural.c */,
-				B203935D1B41496600F30C6A /* dp_gen_plural.h */,
-				B23048781B3BCD4F0060BC1D /* Plural+DPLocalization.h */,
-				B23048791B3BCF220060BC1D /* Plural+DPLocalization.m */,
-			);
-			path = Plural;
+			path = include;
 			sourceTree = "<group>";
 		};
 		B28616A31ED577F400D3AB81 /* LocalizationDemoSwift */ = {
@@ -378,15 +377,6 @@
 			path = "LocalizationDemo-osx";
 			sourceTree = "<group>";
 		};
-		B2B6D5051B427E6100EC46BA /* Formatter */ = {
-			isa = PBXGroup;
-			children = (
-				B2B6D5061B4280A700EC46BA /* DPFormattedValue.h */,
-				B2B6D5071B4280A700EC46BA /* DPFormattedValue.m */,
-			);
-			path = Formatter;
-			sourceTree = "<group>";
-		};
 		B2EDB7861ED5749200DF87CC /* DPLocalization */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,36 +395,10 @@
 			path = "DPLocalization-OSX";
 			sourceTree = "<group>";
 		};
-		B2F0D3D01BA7E56F00718038 /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				B2F0D3D11BA7E59900718038 /* DPLocalizationBundle.h */,
-				B2F0D3D21BA7E59900718038 /* DPLocalizationBundle.m */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
-		CE3D78C01835EAA10012CA3D /* DPLocalization */ = {
-			isa = PBXGroup;
-			children = (
-				A2A866A81B64FF6E00F57D37 /* Categories */,
-				A2A866AD1B64FF6E00F57D37 /* Proxy */,
-				B2B6D5051B427E6100EC46BA /* Formatter */,
-				B23048741B3BCD0F0060BC1D /* Plural */,
-				B2F0D3D01BA7E56F00718038 /* Storage */,
-				B25BE37F1A93261100B0A82F /* DPLocalizationPlatforms.h */,
-				CE3D78C11835EAA10012CA3D /* DPLocalizationManager.h */,
-				CE3D78C21835EAA10012CA3D /* DPLocalizationManager.m */,
-				A2A866A71B64FE6400F57D37 /* DPLocalization.h */,
-			);
-			name = DPLocalization;
-			path = ../DPLocalization;
-			sourceTree = "<group>";
-		};
 		CED8ADEC1833502A007E4C60 = {
 			isa = PBXGroup;
 			children = (
-				CE3D78C01835EAA10012CA3D /* DPLocalization */,
+				077D112B22CB414000E72B64 /* DPLocalization */,
 				CED8ADFE1833502A007E4C60 /* LocalizationDemo */,
 				B28616A31ED577F400D3AB81 /* LocalizationDemoSwift */,
 				B29DC31B1A9AF46A00AFE219 /* LocalizationDemo-osx */,
@@ -514,16 +478,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2EDB7A51ED5756B00DF87CC /* NSObject+DPLocalization.h in Headers */,
-				B2EDB7AD1ED5756B00DF87CC /* DPLocalization.h in Headers */,
-				B2EDB7AB1ED5756B00DF87CC /* DPLocalizationPlatforms.h in Headers */,
-				B2EDB7A71ED5756B00DF87CC /* DPFormattedValue.h in Headers */,
-				B2EDB7AA1ED5756B00DF87CC /* DPLocalizationBundle.h in Headers */,
-				B2EDB7AC1ED5756B00DF87CC /* DPLocalizationManager.h in Headers */,
-				B2EDB7A41ED5756B00DF87CC /* NSAttributedString+DPLocalization.h in Headers */,
-				B2EDB7A61ED5756B00DF87CC /* DPAutolocalizationProxy.h in Headers */,
-				B2EDB7A91ED5756B00DF87CC /* Plural+DPLocalization.h in Headers */,
-				B2EDB7A81ED5756B00DF87CC /* dp_gen_plural.h in Headers */,
+				077D115522CB414000E72B64 /* NSObject+DPLocalization.h in Headers */,
+				077D114722CB414000E72B64 /* DPLocalizationPlatforms.h in Headers */,
+				077D114D22CB414000E72B64 /* DPLocalization.h in Headers */,
+				077D114B22CB414000E72B64 /* dp_gen_plural.h in Headers */,
+				077D115122CB414000E72B64 /* DPLocalizationBundle.h in Headers */,
+				077D115722CB414000E72B64 /* DPLocalizationManager.h in Headers */,
+				077D114522CB414000E72B64 /* Plural+DPLocalization.h in Headers */,
+				077D114922CB414000E72B64 /* DPAutolocalizationProxy.h in Headers */,
+				077D114F22CB414000E72B64 /* NSAttributedString+DPLocalization.h in Headers */,
+				077D115322CB414000E72B64 /* DPFormattedValue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,16 +495,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2EDB7CA1ED576B900DF87CC /* NSObject+DPLocalization.h in Headers */,
-				B2EDB7D21ED576B900DF87CC /* DPLocalization.h in Headers */,
-				B2EDB7D01ED576B900DF87CC /* DPLocalizationPlatforms.h in Headers */,
-				B2EDB7CC1ED576B900DF87CC /* DPFormattedValue.h in Headers */,
-				B2EDB7CF1ED576B900DF87CC /* DPLocalizationBundle.h in Headers */,
-				B2EDB7D11ED576B900DF87CC /* DPLocalizationManager.h in Headers */,
-				B2EDB7C91ED576B900DF87CC /* NSAttributedString+DPLocalization.h in Headers */,
-				B2EDB7CB1ED576B900DF87CC /* DPAutolocalizationProxy.h in Headers */,
-				B2EDB7CE1ED576B900DF87CC /* Plural+DPLocalization.h in Headers */,
-				B2EDB7CD1ED576B900DF87CC /* dp_gen_plural.h in Headers */,
+				077D115622CB414000E72B64 /* NSObject+DPLocalization.h in Headers */,
+				077D114822CB414000E72B64 /* DPLocalizationPlatforms.h in Headers */,
+				077D114E22CB414000E72B64 /* DPLocalization.h in Headers */,
+				077D114C22CB414000E72B64 /* dp_gen_plural.h in Headers */,
+				077D115222CB414000E72B64 /* DPLocalizationBundle.h in Headers */,
+				077D115822CB414000E72B64 /* DPLocalizationManager.h in Headers */,
+				077D114622CB414000E72B64 /* Plural+DPLocalization.h in Headers */,
+				077D114A22CB414000E72B64 /* DPAutolocalizationProxy.h in Headers */,
+				077D115022CB414000E72B64 /* NSAttributedString+DPLocalization.h in Headers */,
+				077D115422CB414000E72B64 /* DPFormattedValue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,6 +665,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				ru,
 				de,
@@ -822,14 +787,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2EDB7B21ED5757500DF87CC /* dp_gen_plural.c in Sources */,
-				B2EDB7B11ED5757500DF87CC /* DPFormattedValue.m in Sources */,
-				B2EDB7B51ED5757500DF87CC /* DPLocalizationManager.m in Sources */,
-				B2EDB7B31ED5757500DF87CC /* Plural+DPLocalization.m in Sources */,
-				B2EDB7AF1ED5757500DF87CC /* NSObject+DPLocalization.m in Sources */,
-				B2EDB7B41ED5757500DF87CC /* DPLocalizationBundle.m in Sources */,
-				B2EDB7AE1ED5757500DF87CC /* NSAttributedString+DPLocalization.m in Sources */,
-				B2EDB7B01ED5757500DF87CC /* DPAutolocalizationProxy.m in Sources */,
+				077D115B22CB414000E72B64 /* Plural+DPLocalization.m in Sources */,
+				077D114322CB414000E72B64 /* DPFormattedValue.m in Sources */,
+				077D115D22CB414000E72B64 /* DPAutolocalizationProxy.m in Sources */,
+				077D114122CB414000E72B64 /* NSObject+DPLocalization.m in Sources */,
+				077D116122CB414000E72B64 /* dp_gen_plural.c in Sources */,
+				077D115922CB414000E72B64 /* DPLocalizationManager.m in Sources */,
+				077D113F22CB414000E72B64 /* DPLocalizationBundle.m in Sources */,
+				077D115F22CB414000E72B64 /* NSAttributedString+DPLocalization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,15 +802,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2EDB7D71ED576C300DF87CC /* dp_gen_plural.c in Sources */,
-				B2EDB7D61ED576C300DF87CC /* DPFormattedValue.m in Sources */,
+				077D115A22CB414000E72B64 /* DPLocalizationManager.m in Sources */,
+				077D114422CB414000E72B64 /* DPFormattedValue.m in Sources */,
+				077D116222CB414000E72B64 /* dp_gen_plural.c in Sources */,
+				077D115C22CB414000E72B64 /* Plural+DPLocalization.m in Sources */,
+				077D115E22CB414000E72B64 /* DPAutolocalizationProxy.m in Sources */,
+				077D114222CB414000E72B64 /* NSObject+DPLocalization.m in Sources */,
+				077D114022CB414000E72B64 /* DPLocalizationBundle.m in Sources */,
+				077D116022CB414000E72B64 /* NSAttributedString+DPLocalization.m in Sources */,
 				B286169C1ED5774000D3AB81 /* AppDelegate.m in Sources */,
-				B2EDB7DA1ED576C300DF87CC /* DPLocalizationManager.m in Sources */,
-				B2EDB7D81ED576C300DF87CC /* Plural+DPLocalization.m in Sources */,
-				B2EDB7D41ED576C300DF87CC /* NSObject+DPLocalization.m in Sources */,
-				B2EDB7D91ED576C300DF87CC /* DPLocalizationBundle.m in Sources */,
-				B2EDB7D31ED576C300DF87CC /* NSAttributedString+DPLocalization.m in Sources */,
-				B2EDB7D51ED576C300DF87CC /* DPAutolocalizationProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

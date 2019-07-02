@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/nullic/DPLocalizationManager.svg)](https://travis-ci.org/nullic/DPLocalizationManager)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 [![Version](https://img.shields.io/cocoapods/v/DPLocalization.svg?style=flat)](http://cocoapods.org/pods/DPLocalization)
 [![License](https://img.shields.io/cocoapods/l/DPLocalization.svg?style=flat)](http://cocoapods.org/pods/DPLocalization)
 [![Platform](https://img.shields.io/cocoapods/p/DPLocalization.svg?style=flat)](http://cocoapods.org/pods/DPLocalization)
