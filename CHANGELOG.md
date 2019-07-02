@@ -1,5 +1,8 @@
 # DPLocalization CHANGELOG
 
+## 1.13
+- Added 'Swift Package Mannager' support 
+
 ## 1.12.1
 - Fixed issue: Image localization don't use default bundle if language not selected
 
