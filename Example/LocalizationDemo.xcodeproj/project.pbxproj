@@ -377,13 +377,13 @@
 			path = "LocalizationDemo-osx";
 			sourceTree = "<group>";
 		};
-		B2EDB7861ED5749200DF87CC /* DPLocalization */ = {
+		B2EDB7861ED5749200DF87CC /* DPLocalization-iOS */ = {
 			isa = PBXGroup;
 			children = (
 				B2EDB7871ED5749200DF87CC /* DPLocalizationVer.h */,
 				B2EDB7881ED5749200DF87CC /* Info.plist */,
 			);
-			path = DPLocalization;
+			path = "DPLocalization-iOS";
 			sourceTree = "<group>";
 		};
 		B2EDB7BD1ED5766100DF87CC /* DPLocalization-OSX */ = {
@@ -404,7 +404,7 @@
 				B29DC31B1A9AF46A00AFE219 /* LocalizationDemo-osx */,
 				B26A05AB1BA6D72E00C1BEF3 /* CustomBundle */,
 				B29405781AA439B20049BF70 /* Tests */,
-				B2EDB7861ED5749200DF87CC /* DPLocalization */,
+				B2EDB7861ED5749200DF87CC /* DPLocalization-iOS */,
 				B2EDB7BD1ED5766100DF87CC /* DPLocalization-OSX */,
 				CED8ADF71833502A007E4C60 /* Frameworks */,
 				CED8ADF61833502A007E4C60 /* Products */,
@@ -1218,7 +1218,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = DPLocalization/Info.plist;
+				INFOPLIST_FILE = "DPLocalization-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1254,7 +1254,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = DPLocalization/Info.plist;
+				INFOPLIST_FILE = "DPLocalization-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1290,7 +1290,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = DPLocalization/Info.plist;
+				INFOPLIST_FILE = "DPLocalization-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
