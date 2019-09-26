@@ -10,6 +10,7 @@ let package = Package(
     products: [
         .library(
             name: "DPLocalization",
+            type: .dynamic,
             targets: ["DPLocalization"]
         )
     ],
