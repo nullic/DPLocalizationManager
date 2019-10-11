@@ -95,8 +95,8 @@
 
     NSRange allStringRange = NSMakeRange(0, styleString.length);
 
-    NSString *fontName = font.fontName;
-    CGFloat fontSize = font.pointSize;
+    NSString *fontName = nil;
+    CGFloat fontSize = 0;
 
     NSTextCheckingResult *sizeCheck = [sizeExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
     if (sizeCheck) fontSize = [[styleString substringWithRange:[sizeCheck rangeAtIndex:1]] floatValue];
@@ -143,7 +143,21 @@
         paragraphStyle.alignment = alignment;
     }
     [attrs setValue:paragraphStyle forKey:NSParagraphStyleAttributeName];
-    DPFont *styleFont = font ? [DPFont fontWithName:fontName size:fontSize] : nil;
+
+    DPFont *styleFont = font;
+    if (fontName != nil && fontSize > 0) {
+        styleFont = [DPFont fontWithName:fontName size:fontSize];
+    }
+    else if (fontName != nil && font != nil) {
+        styleFont = [DPFont fontWithName:fontName size:font.pointSize];
+    }
+    else if (fontSize > 0 && font != nil) {
+#ifdef DPLocalization_UIKit
+        styleFont = [font fontWithSize:fontSize];
+#else
+        styleFont = [DPFont fontWithName:font.fontName size:fontSize];
+#endif
+    }
 
     NSTextCheckingResult *linkCheck = [linkExp firstMatchInString:styleString options:kNilOptions range:allStringRange];
     if (linkCheck) {
