@@ -9,18 +9,13 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "DPLocalization",
-            type: .dynamic,
-            targets: ["DPLocalization"]
+            name: "DPLocalization", targets: ["DPLocalization"]
         )
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "DPLocalization",
-            dependencies: [],
-            path: "DPLocalization",
-            exclude: ["Example", "Generator"]
+            name: "DPLocalization", dependencies: [], path: "DPLocalization", exclude: ["Example", "Generator"]
         )
     ]
 )
