@@ -23,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * _Nullable currentLanguage;
 
 /**
+@property usedLanguage
+@brief Current selected language or [DPLocalizationManager preferredLanguage] if 'currentLanguage' not set.
+*/
+@property (nonatomic, readonly) NSString * usedLanguage;
+
+/**
  @property defaultStringsTableName
  @brief Default bundle used for localization.
  */
@@ -92,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return Array of language codes (i.e.: "en", "ru", "fr" and etc.) or empty array if no language found.
  */
-+ (NSArray *)supportedLanguages;
++ (NSArray<NSString *> *)supportedLanguages;
 
 /**
  @brief Return code for preferred application language.
