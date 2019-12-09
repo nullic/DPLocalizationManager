@@ -244,6 +244,21 @@ static NSString * const kAutolocAttributedFlagKey = @"autolocAttributedFlag";
 @end
 
 
+#pragma mark UINavigationItem
+
+@implementation UINavigationItem (DPLocalization)
+
+- (void)setAutolocalizationKey:(NSString *)autolocalizationKey {
+    [self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"title"];
+}
+
+- (NSString *)autolocalizationKey {
+    return [self autolocKey];
+}
+
+@end
+
+
 #pragma mark UITextField
 
 @implementation UITextField (DPLocalization)

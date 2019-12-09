@@ -110,6 +110,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
 @end
 
+
+@interface UINavigationItem (DPLocalization)
+/**
+ @property autolocalizationKey
+ @brief Shortcut for add automatic localization.
+ @discussion Set value equal to invoking -[self setupAutolocalizationWithKey:autolocalizationKey keyPath:@"title"].
+ */
+@property (nonatomic, copy, nullable) IBInspectable NSString *autolocalizationKey;
+@end
+
 @interface UITextField (DPLocalization)
 /**
  @property autolocalizationKey
