@@ -14,8 +14,6 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(
-            name: "DPLocalization", dependencies: [], path: "DPLocalization", exclude: ["Example", "Generator"]
-        )
+        .target(name: "DPLocalization", dependencies: [], path: "DPLocalization", exclude: [])
     ]
 )
